@@ -11,6 +11,17 @@ export function Navbar() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [openMobileItems, setOpenMobileItems] = useState<{[key: string]: boolean}>({});
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Helper function to handle hover with delay
+  const handleHoverWithDelay = (itemKey: string | null, delay: number = 300) => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+    }
+    hoverTimeoutRef.current = setTimeout(() => {
+      setHoveredItem(itemKey);
+    }, delay);
+  };
 
   // Close dropdown when clicking outside (for mobile/accessibility)
   useEffect(() => {
@@ -21,7 +32,12 @@ export function Navbar() {
     };
 
     document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      if (hoverTimeoutRef.current) {
+        clearTimeout(hoverTimeoutRef.current);
+      }
+    };
   }, []);
 
   const productCategories = [
@@ -103,7 +119,7 @@ export function Navbar() {
       href: "/platform",
       description: "Complete agentic commercial OS for trade",
       features: ["Six AI Agents", "Audit-grade Ledger", "Policy Engine", "Integration Center"],
-      subItems: []
+      categories: []
     },
     {
       key: "resources",
@@ -111,13 +127,76 @@ export function Navbar() {
       href: "/resources", 
       description: "Documentation, guides, and support",
       features: ["API Docs", "Integration Guides", "Best Practices", "Support Center"],
-      subItems: [
-        { title: "Documentation", href: "/docs", description: "Complete API and integration guides" },
-        { title: "Developer Hub", href: "/developers", description: "SDKs, tools, and developer resources" },
-        { title: "Blog", href: "/blog", description: "Latest insights and product updates" },
-        { title: "Webinars", href: "/webinars", description: "Live sessions and product demos" },
-        { title: "Help Center", href: "/help", description: "FAQs, tutorials, and troubleshooting" },
-        { title: "Community", href: "/community", description: "User forums and discussions" }
+      categories: [
+        {
+          title: "LEARN & DEVELOP",
+          items: [
+            { 
+              title: "Documentation", 
+              description: "Complete API and integration guides", 
+              href: "/docs",
+              icon: "📚"
+            },
+            { 
+              title: "Developer Hub", 
+              description: "SDKs, tools, and developer resources", 
+              href: "/developers",
+              icon: "🛠️"
+            },
+            { 
+              title: "API Reference", 
+              description: "Detailed API documentation", 
+              href: "/api",
+              icon: "🔌"
+            }
+          ]
+        },
+        {
+          title: "SUPPORT & COMMUNITY",
+          items: [
+            { 
+              title: "Help Center", 
+              description: "FAQs, tutorials, and troubleshooting", 
+              href: "/help",
+              icon: "❓"
+            },
+            { 
+              title: "Community", 
+              description: "User forums and discussions", 
+              href: "/community",
+              icon: "👥"
+            },
+            { 
+              title: "Support", 
+              description: "Get help from our team", 
+              href: "/support",
+              icon: "🎧"
+            }
+          ]
+        },
+        {
+          title: "INSIGHTS & UPDATES",
+          items: [
+            { 
+              title: "Blog", 
+              description: "Latest insights and product updates", 
+              href: "/blog",
+              icon: "📝"
+            },
+            { 
+              title: "Webinars", 
+              description: "Live sessions and product demos", 
+              href: "/webinars",
+              icon: "🎥"
+            },
+            { 
+              title: "Newsletter", 
+              description: "Stay updated with Vector news", 
+              href: "/newsletter",
+              icon: "📧"
+            }
+          ]
+        }
       ]
     },
     {
@@ -126,13 +205,76 @@ export function Navbar() {
       href: "/about",
       description: "Learn about Vector's mission and team",
       features: ["Our Story", "Leadership", "Careers", "Contact"],
-      subItems: [
-        { title: "Our Story", href: "/about/story", description: "How Vector is transforming trade" },
-        { title: "Leadership", href: "/about/leadership", description: "Meet our executive team" },
-        { title: "Careers", href: "/careers", description: "Join our mission to revolutionize trade" },
-        { title: "Press", href: "/press", description: "News, announcements, and media" },
-        { title: "Contact", href: "/contact", description: "Get in touch with our team" },
-        { title: "Partners", href: "/partners", description: "Strategic partnerships and alliances" }
+      categories: [
+        {
+          title: "OUR COMPANY",
+          items: [
+            { 
+              title: "Our Story", 
+              description: "How Vector is transforming trade", 
+              href: "/about/story",
+              icon: "📖"
+            },
+            { 
+              title: "Leadership", 
+              description: "Meet our executive team", 
+              href: "/about/leadership",
+              icon: "👔"
+            },
+            { 
+              title: "Mission & Values", 
+              description: "What drives us forward", 
+              href: "/about/mission",
+              icon: "🎯"
+            }
+          ]
+        },
+        {
+          title: "JOIN US",
+          items: [
+            { 
+              title: "Careers", 
+              description: "Join our mission to revolutionize trade", 
+              href: "/careers",
+              icon: "💼"
+            },
+            { 
+              title: "Open Positions", 
+              description: "Current job opportunities", 
+              href: "/careers/positions",
+              icon: "🔍"
+            },
+            { 
+              title: "Culture", 
+              description: "Life at Vector", 
+              href: "/about/culture",
+              icon: "🌟"
+            }
+          ]
+        },
+        {
+          title: "CONNECT",
+          items: [
+            { 
+              title: "Press", 
+              description: "News, announcements, and media", 
+              href: "/press",
+              icon: "📰"
+            },
+            { 
+              title: "Contact", 
+              description: "Get in touch with our team", 
+              href: "/contact",
+              icon: "📞"
+            },
+            { 
+              title: "Partners", 
+              description: "Strategic partnerships and alliances", 
+              href: "/partners",
+              icon: "🤝"
+            }
+          ]
+        }
       ]
     },
     {
@@ -141,13 +283,76 @@ export function Navbar() {
       href: "/enterprise",
       description: "Enterprise-grade solutions and support",
       features: ["Custom Deployments", "Dedicated Support", "SLA Guarantees", "Security"],
-      subItems: [
-        { title: "Enterprise Solutions", href: "/enterprise/solutions", description: "Tailored solutions for large organizations" },
-        { title: "Security & Compliance", href: "/enterprise/security", description: "SOC2, ISO27001, and enterprise security" },
-        { title: "Professional Services", href: "/enterprise/services", description: "Implementation and consulting services" },
-        { title: "Support Plans", href: "/enterprise/support", description: "24/7 dedicated support options" },
-        { title: "Pricing", href: "/pricing", description: "Enterprise pricing and packages" },
-        { title: "Request Demo", href: "/demo", description: "Schedule a personalized demo" }
+      categories: [
+        {
+          title: "SOLUTIONS",
+          items: [
+            { 
+              title: "Enterprise Solutions", 
+              description: "Tailored solutions for large organizations", 
+              href: "/enterprise/solutions",
+              icon: "🏢"
+            },
+            { 
+              title: "Custom Deployments", 
+              description: "On-premise and hybrid options", 
+              href: "/enterprise/deployments",
+              icon: "⚙️"
+            },
+            { 
+              title: "Industry Solutions", 
+              description: "Vertical-specific implementations", 
+              href: "/enterprise/industries",
+              icon: "🏭"
+            }
+          ]
+        },
+        {
+          title: "SECURITY & COMPLIANCE",
+          items: [
+            { 
+              title: "Security & Compliance", 
+              description: "SOC2, ISO27001, and enterprise security", 
+              href: "/enterprise/security",
+              icon: "🔒"
+            },
+            { 
+              title: "Data Governance", 
+              description: "Advanced data protection and privacy", 
+              href: "/enterprise/governance",
+              icon: "🛡️"
+            },
+            { 
+              title: "Audit & Reporting", 
+              description: "Comprehensive audit trails", 
+              href: "/enterprise/audit",
+              icon: "📊"
+            }
+          ]
+        },
+        {
+          title: "SERVICES & SUPPORT",
+          items: [
+            { 
+              title: "Professional Services", 
+              description: "Implementation and consulting services", 
+              href: "/enterprise/services",
+              icon: "🎯"
+            },
+            { 
+              title: "Support Plans", 
+              description: "24/7 dedicated support options", 
+              href: "/enterprise/support",
+              icon: "🎧"
+            },
+            { 
+              title: "Training & Onboarding", 
+              description: "Comprehensive training programs", 
+              href: "/enterprise/training",
+              icon: "🎓"
+            }
+          ]
+        }
       ]
     },
     {
@@ -156,13 +361,76 @@ export function Navbar() {
       href: "/customers",
       description: "Success stories and case studies",
       features: ["Case Studies", "ROI Reports", "Testimonials", "Partners"],
-      subItems: [
-        { title: "Case Studies", href: "/customers/case-studies", description: "Real customer success stories" },
-        { title: "ROI Calculator", href: "/roi-calculator", description: "Calculate your potential savings" },
-        { title: "Testimonials", href: "/customers/testimonials", description: "What our customers say" },
-        { title: "Industry Solutions", href: "/industries", description: "Solutions by industry vertical" },
-        { title: "Customer Portal", href: "/portal", description: "Access your Vector workspace" },
-        { title: "Success Metrics", href: "/success-metrics", description: "Proven results and benchmarks" }
+      categories: [
+        {
+          title: "SUCCESS STORIES",
+          items: [
+            { 
+              title: "Case Studies", 
+              description: "Real customer success stories", 
+              href: "/customers/case-studies",
+              icon: "📈"
+            },
+            { 
+              title: "Customer Stories", 
+              description: "In-depth customer journeys", 
+              href: "/customers/stories",
+              icon: "📖"
+            },
+            { 
+              title: "ROI Reports", 
+              description: "Proven return on investment", 
+              href: "/customers/roi",
+              icon: "💰"
+            }
+          ]
+        },
+        {
+          title: "VALIDATION",
+          items: [
+            { 
+              title: "Testimonials", 
+              description: "What our customers say", 
+              href: "/customers/testimonials",
+              icon: "💬"
+            },
+            { 
+              title: "Reviews", 
+              description: "Customer feedback and ratings", 
+              href: "/customers/reviews",
+              icon: "⭐"
+            },
+            { 
+              title: "Success Metrics", 
+              description: "Proven results and benchmarks", 
+              href: "/success-metrics",
+              icon: "📊"
+            }
+          ]
+        },
+        {
+          title: "TOOLS & RESOURCES",
+          items: [
+            { 
+              title: "ROI Calculator", 
+              description: "Calculate your potential savings", 
+              href: "/roi-calculator",
+              icon: "🧮"
+            },
+            { 
+              title: "Customer Portal", 
+              description: "Access your Vector workspace", 
+              href: "/portal",
+              icon: "🚪"
+            },
+            { 
+              title: "Implementation Guide", 
+              description: "Step-by-step implementation", 
+              href: "/implementation",
+              icon: "📋"
+            }
+          ]
+        }
       ]
     }
   ];
@@ -179,22 +447,49 @@ export function Navbar() {
         <nav className="hidden items-center gap-6 text-sm md:flex" role="navigation" aria-label="Main navigation">
           <div className="relative" ref={dropdownRef}>
             <div
-              onMouseEnter={() => setOpenProducts(true)}
-              onMouseLeave={() => setOpenProducts(false)}
+              onMouseEnter={() => {
+                if (hoverTimeoutRef.current) {
+                  clearTimeout(hoverTimeoutRef.current);
+                }
+                setHoveredItem(null); // Close other nav item dropdowns
+                setOpenProducts(true);
+              }}
+              onMouseLeave={() => {
+                if (hoverTimeoutRef.current) {
+                  clearTimeout(hoverTimeoutRef.current);
+                }
+                hoverTimeoutRef.current = setTimeout(() => {
+                  setOpenProducts(false);
+                }, 500);
+              }}
               className="relative"
             >
-              <button 
-                className="inline-flex items-center gap-1 text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1"
-                aria-label="Products menu"
-              >
-                Products <ChevronDown className={`h-4 w-4 transition-transform ${openProducts ? 'rotate-180' : ''}`} />
-              </button>
-              {openProducts && (
-                <div 
-                  className="absolute left-0 top-9 w-[800px] rounded-2xl border border-black/10 bg-white p-6 shadow-2xl"
-                  aria-label="Products submenu"
+            <button 
+              className="inline-flex items-center gap-1 text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1"
+              aria-label="Products menu"
+            >
+              Products <ChevronDown className={`h-4 w-4 transition-transform ${openProducts ? 'rotate-180' : ''}`} />
+            </button>
+            {openProducts && (
+              <div 
+                  className="absolute left-1/2 transform -translate-x-1/2 top-8 w-[600px] rounded-2xl border border-black/10 bg-white p-6 shadow-2xl"
+                aria-label="Products submenu"
+                  onMouseEnter={() => {
+                    if (hoverTimeoutRef.current) {
+                      clearTimeout(hoverTimeoutRef.current);
+                    }
+                    setOpenProducts(true);
+                  }}
+                  onMouseLeave={() => {
+                    if (hoverTimeoutRef.current) {
+                      clearTimeout(hoverTimeoutRef.current);
+                    }
+                    hoverTimeoutRef.current = setTimeout(() => {
+                      setOpenProducts(false);
+                    }, 500);
+                  }}
                 >
-                  <div className="grid grid-cols-3 gap-8">
+                  <div className="grid grid-cols-3 gap-6">
                     {productCategories.map((category) => (
                       <div key={category.title} className="space-y-4">
                         <h3 className="text-xs font-semibold text-black/60 uppercase tracking-wider">
@@ -202,9 +497,9 @@ export function Navbar() {
                         </h3>
                         <div className="space-y-3">
                           {category.items.map((item) => (
-                            <Link 
+                  <Link 
                               key={item.title} 
-                              href={item.href} 
+                    href={item.href} 
                               className="group block rounded-xl p-3 hover:bg-black/5 focus-ring transition-colors"
                             >
                               <div className="flex items-start gap-3">
@@ -220,22 +515,28 @@ export function Navbar() {
                                   </div>
                                 </div>
                               </div>
-                            </Link>
-                          ))}
+                  </Link>
+                ))}
                         </div>
                       </div>
                     ))}
                   </div>
-                </div>
-              )}
+              </div>
+            )}
             </div>
           </div>
           {navItems.map((item) => (
             <div key={item.key} className="relative">
-              {item.subItems.length > 0 ? (
+              {item.categories.length > 0 ? (
                 <div
-                  onMouseEnter={() => setHoveredItem(item.key)}
-                  onMouseLeave={() => setHoveredItem(null)}
+                  onMouseEnter={() => {
+                    if (hoverTimeoutRef.current) {
+                      clearTimeout(hoverTimeoutRef.current);
+                    }
+                    setOpenProducts(false); // Close Products dropdown
+                    setHoveredItem(item.key);
+                  }}
+                  onMouseLeave={() => handleHoverWithDelay(null, 500)}
                   className="relative"
                 >
                   <button className="inline-flex items-center gap-1 text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1">
@@ -250,47 +551,48 @@ export function Navbar() {
                   {item.title}
                 </Link>
               )}
-              {hoveredItem === item.key && (
-                <div className="absolute left-0 top-9 w-96 rounded-2xl border border-black/10 bg-white p-4 shadow-2xl z-50">
-                  <div className="space-y-4">
-                    <div>
-                      <h3 className="text-sm font-semibold text-black">{item.title}</h3>
-                      <p className="text-xs text-black/60 mt-1">{item.description}</p>
-                    </div>
-                    
-                    {item.subItems.length > 0 ? (
-                      <div className="space-y-3">
-                        <h4 className="text-xs font-semibold text-black/60 uppercase tracking-wider">Quick Links</h4>
-                        <div className="grid grid-cols-1 gap-2">
-                          {item.subItems.map((subItem) => (
+              {hoveredItem === item.key && item.categories.length > 0 && (
+                <div 
+                  className="absolute left-1/2 transform -translate-x-1/2 top-8 w-[600px] rounded-2xl border border-black/10 bg-white p-6 shadow-2xl z-50"
+                  onMouseEnter={() => {
+                    if (hoverTimeoutRef.current) {
+                      clearTimeout(hoverTimeoutRef.current);
+                    }
+                    setHoveredItem(item.key);
+                  }}
+                  onMouseLeave={() => handleHoverWithDelay(null, 500)}
+                >
+                  <div className="grid grid-cols-3 gap-6">
+                    {item.categories.map((category) => (
+                      <div key={category.title} className="space-y-4">
+                        <h3 className="text-xs font-semibold text-black/60 uppercase tracking-wider">
+                          {category.title}
+                        </h3>
+                        <div className="space-y-3">
+                          {category.items.map((categoryItem) => (
                             <Link 
-                              key={subItem.title}
-                              href={subItem.href}
-                              className="group block rounded-lg p-2 hover:bg-black/5 transition-colors"
+                              key={categoryItem.title} 
+                              href={categoryItem.href} 
+                              className="group block rounded-xl p-3 hover:bg-black/5 focus-ring transition-colors"
                             >
-                              <div className="text-xs font-semibold text-black group-hover:text-black/80">
-                                {subItem.title}
-                              </div>
-                              <div className="text-xs text-black/60 mt-1">
-                                {subItem.description}
+                              <div className="flex items-start gap-3">
+                                <span className="text-lg group-hover:scale-110 transition-transform">
+                                  {categoryItem.icon}
+                                </span>
+                                <div>
+                                  <div className="text-sm font-semibold text-black group-hover:text-black/80">
+                                    {categoryItem.title}
+                                  </div>
+                                  <div className="text-xs text-black/60 mt-1">
+                                    {categoryItem.description}
+                                  </div>
+                                </div>
                               </div>
                             </Link>
                           ))}
                         </div>
                       </div>
-                    ) : (
-                      <div className="space-y-2">
-                        <h4 className="text-xs font-semibold text-black/60 uppercase tracking-wider">Features</h4>
-                        <div className="grid grid-cols-2 gap-2">
-                          {item.features.map((feature) => (
-                            <div key={feature} className="text-xs text-black/80 flex items-center gap-2">
-                              <div className="w-1 h-1 bg-black/40 rounded-full"></div>
-                              {feature}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
+                    ))}
                   </div>
                 </div>
               )}
@@ -334,18 +636,18 @@ export function Navbar() {
                         </h4>
                         <div className="space-y-2">
                           {category.items.map((item) => (
-                            <Link 
+                      <Link 
                               key={item.title} 
-                              href={item.href} 
+                        href={item.href} 
                               className="flex items-start gap-2 rounded-lg p-2 hover:bg-black/5 focus-ring"
-                              onClick={() => setMobileMenuOpen(false)}
-                            >
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
                               <span className="text-sm">{item.icon}</span>
                               <div>
                                 <div className="text-sm font-semibold">{item.title}</div>
                                 <div className="text-xs text-black/60">{item.description}</div>
                               </div>
-                            </Link>
+                      </Link>
                           ))}
                         </div>
                       </div>
@@ -355,7 +657,7 @@ export function Navbar() {
               </div>
               {navItems.map((item) => (
                 <div key={item.key} className="space-y-2">
-                  {item.subItems.length > 0 ? (
+                  {item.categories.length > 0 ? (
                     <div>
                       <button 
                         onClick={() => setOpenMobileItems(prev => ({...prev, [item.key]: !prev[item.key]}))}
@@ -368,31 +670,44 @@ export function Navbar() {
                         <ChevronDown className={`h-4 w-4 transition-transform ${openMobileItems[item.key] ? 'rotate-180' : ''}`} />
                       </button>
                       {openMobileItems[item.key] && (
-                        <div className="ml-4 space-y-1">
-                          {item.subItems.map((subItem) => (
-                            <Link 
-                              key={subItem.title}
-                              href={subItem.href}
-                              className="block text-xs text-black/60 hover:text-black/80 focus-ring rounded px-2 py-1"
-                              onClick={() => setMobileMenuOpen(false)}
-                            >
-                              {subItem.title}
-                            </Link>
+                        <div className="ml-4 space-y-4">
+                          {item.categories.map((category) => (
+                            <div key={category.title} className="space-y-2">
+                              <h4 className="text-xs font-semibold text-black/60 uppercase tracking-wider">
+                                {category.title}
+                              </h4>
+                              <div className="space-y-2">
+                                {category.items.map((categoryItem) => (
+              <Link 
+                                    key={categoryItem.title}
+                                    href={categoryItem.href}
+                                    className="flex items-start gap-2 rounded-lg p-2 hover:bg-black/5 focus-ring"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                                    <span className="text-sm">{categoryItem.icon}</span>
+                                    <div>
+                                      <div className="text-xs font-semibold">{categoryItem.title}</div>
+                                      <div className="text-xs text-black/60">{categoryItem.description}</div>
+                                    </div>
+              </Link>
+                                ))}
+                              </div>
+                            </div>
                           ))}
                         </div>
                       )}
                     </div>
                   ) : (
-                    <Link 
+              <Link 
                       href={item.href} 
-                      className="block text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
+                className="block text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1"
+                onClick={() => setMobileMenuOpen(false)}
+              >
                       <div>
                         <div className="font-medium">{item.title}</div>
                         <div className="text-xs text-black/60 mt-1">{item.description}</div>
                       </div>
-                    </Link>
+              </Link>
                   )}
                 </div>
               ))}
