@@ -3,7 +3,7 @@ import { Footer } from "@/components/Footer";
 
 export default function Resources() {
   return (
-    <div className="min-h-screen bg-[#FAFAFA]">
+    <div className="min-h-screen bg-[#FAFAFA] text-black">
       <Navbar />
       <main className="p-8">
         <div className="mx-auto max-w-6xl">
