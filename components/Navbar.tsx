@@ -132,6 +132,12 @@ export function Navbar() {
           title: "LEARN & DEVELOP",
           items: [
             { 
+              title: "Survival Guide", 
+              description: "Complete trade automation guide", 
+              href: "/survival-guide",
+              icon: "📖"
+            },
+            { 
               title: "Documentation", 
               description: "Complete API and integration guides", 
               href: "/docs",
