@@ -112,16 +112,24 @@ export const FAQItem: React.FC<{
   isOpen: boolean; 
   onToggle: () => void 
 }> = ({ question, answer, isOpen, onToggle }) => (
-  <div className="border-b border-black/10">
+  <div className="border-b border-black/5 last:border-b-0">
     <button
       onClick={onToggle}
-      className="flex w-full items-center justify-between py-4 text-left"
+      className="flex w-full items-center justify-between py-6 px-6 text-left hover:bg-gray-50/50 transition-colors duration-200 group"
     >
-      <span className="font-semibold playfair-display-600">{question}</span>
-      {isOpen ? <ChevronDown className="h-5 w-5" /> : <ChevronRight className="h-5 w-5" />}
+      <span className="font-semibold playfair-display-600 text-left pr-4 group-hover:text-black/90 transition-colors duration-200">
+        {question}
+      </span>
+      <div className="flex-shrink-0">
+        {isOpen ? (
+          <ChevronDown className="h-5 w-5 text-black/60 group-hover:text-black transition-colors duration-200" />
+        ) : (
+          <ChevronRight className="h-5 w-5 text-black/60 group-hover:text-black transition-colors duration-200" />
+        )}
+      </div>
     </button>
     {isOpen && (
-      <div className="pb-4 text-black/70 playfair-display-400">
+      <div className="px-6 pb-6 text-black/70 playfair-display-400 leading-relaxed">
         {answer}
       </div>
     )}

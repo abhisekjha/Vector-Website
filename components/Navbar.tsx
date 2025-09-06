@@ -465,14 +465,14 @@ export function Navbar() {
               className="relative"
             >
             <button 
-              className="inline-flex items-center gap-1 text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1 playfair-display-500"
+              className="inline-flex items-center gap-1 text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1 playfair-display-500 hover:shadow-lg transition-all duration-200"
               aria-label="Products menu"
             >
               Products <ChevronDown className={`h-4 w-4 transition-transform ${openProducts ? 'rotate-180' : ''}`} />
             </button>
             {openProducts && (
               <div 
-                  className="absolute left-1/2 transform -translate-x-1/2 top-8 w-[600px] rounded-2xl border border-black/10 bg-white p-6 shadow-2xl"
+                  className="absolute left-1/2 transform -translate-x-1/2 top-8 w-[600px] rounded-2xl border border-black/10 bg-white/95 backdrop-blur-md p-6 shadow-2xl"
                 aria-label="Products submenu"
                   onMouseEnter={() => {
                     if (hoverTimeoutRef.current) {
@@ -540,21 +540,21 @@ export function Navbar() {
                   onMouseLeave={() => handleHoverWithDelay(null, 500)}
                   className="relative"
                 >
-                  <button className="inline-flex items-center gap-1 text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1 playfair-display-500">
+                  <button className="inline-flex items-center gap-1 text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1 playfair-display-500 hover:shadow-lg transition-all duration-200">
                     {item.title} <ChevronDown className={`h-4 w-4 transition-transform ${hoveredItem === item.key ? 'rotate-180' : ''}`} />
                   </button>
                 </div>
               ) : (
                 <Link 
                   href={item.href} 
-                  className="text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1 playfair-display-500"
+                  className="text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1 playfair-display-500 hover:shadow-lg transition-all duration-200"
                 >
                   {item.title}
                 </Link>
               )}
               {hoveredItem === item.key && item.categories.length > 0 && (
                 <div 
-                  className="absolute left-1/2 transform -translate-x-1/2 top-8 w-[600px] rounded-2xl border border-black/10 bg-white p-6 shadow-2xl z-50"
+                  className="absolute left-1/2 transform -translate-x-1/2 top-8 w-[600px] rounded-2xl border border-black/10 bg-white/95 backdrop-blur-md p-6 shadow-2xl z-50"
                   onMouseEnter={() => {
                     if (hoverTimeoutRef.current) {
                       clearTimeout(hoverTimeoutRef.current);
@@ -604,7 +604,7 @@ export function Navbar() {
 
         {/* Desktop CTA */}
         <div className="hidden items-center gap-2 md:flex">
-          <CTAButton href="#demo">Let&apos;s chat</CTAButton>
+          <CTAButton href="#demo">Book a demo</CTAButton>
         </div>
 
         {/* Mobile Menu Button */}
@@ -715,7 +715,7 @@ export function Navbar() {
               ))}
               <div className="pt-4">
                 <CTAButton href="#demo" className="w-full justify-center">
-                  Let&apos;s chat
+                  Book a demo
                 </CTAButton>
               </div>
             </nav>
