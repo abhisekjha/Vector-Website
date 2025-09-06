@@ -13,6 +13,7 @@ Awesome—let’s turn your prototype into a **deploy-ready Next.js (Pages Route
 
    * Tailwind configured with a neon-lime accent (`#D8FF3D`) and a neutral surface.
    * Import Inter + Plus Jakarta Sans for Raft-like look.
+   * **Playfair Display font integration** - Added Google Fonts with preconnect optimization, CSS classes for different weights (400-900), and Tailwind utility class `font-playfair` for elegant serif typography on headings and key elements.
 
 3. **Components**
 

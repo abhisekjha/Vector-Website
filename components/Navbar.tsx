@@ -8,21 +8,23 @@ function Container({ children, className = "" }: { children: React.ReactNode; cl
 }
 
 // Button component
-function Button({ children, href = "#", variant = "default", ...props }: { 
+function Button({ children, href = "#", variant = "default", showLogo = false, ...props }: { 
   children: React.ReactNode; 
   href?: string; 
-  variant?: "default" | "ghost" | "dark"; 
+  variant?: "default" | "ghost" | "dark";
+  showLogo?: boolean;
   [key: string]: any 
 }) {
   const baseClasses = "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors";
   const variants = {
-    default: "bg-accent text-black hover:bg-accent/80",
+    default: "bg-black text-white hover:bg-black/90",
     ghost: "border border-black/20 bg-white text-black hover:bg-black/5",
     dark: "bg-black text-white hover:bg-black/80"
   };
   
   return (
     <a href={href} className={`${baseClasses} ${variants[variant]}`} {...props}>
+      {showLogo && <img src="/vector-logo.svg" alt="Vector" className="h-4 w-4" />}
       {children}
     </a>
   );
@@ -35,8 +37,8 @@ export default function Navbar() {
     <header className="sticky top-0 z-40 border-b border-black/10 bg-white/80 backdrop-blur">
       <Container className="flex h-16 items-center justify-between">
         <a href="/" className="flex items-center gap-3">
-          <img src="/vector-logo.svg" alt="Vector" className="h-8 w-8" />
-          <span className="text-lg font-semibold">Vector</span>
+          <img src="/vector-logo.svg" alt="Vector" className="h-10 w-10" />
+          <span className="text-xl font-bold font-playfair">Vector</span>
         </a>
         <nav className="hidden items-center gap-6 text-sm md:flex">
           <div className="relative">
@@ -63,7 +65,7 @@ export default function Navbar() {
           <a href="/about" className="text-black/80 hover:text-black">About</a>
         </nav>
         <div className="flex items-center gap-2">
-          <Button href="#demo">Let's chat <ArrowRight className="h-4 w-4" /></Button>
+          <Button href="#demo" showLogo={true}>Let's chat <ArrowRight className="h-4 w-4" /></Button>
         </div>
       </Container>
     </header>

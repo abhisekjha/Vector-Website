@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import {
   ArrowRight,
@@ -18,8 +18,11 @@ import {
   BadgeCheck,
   Shield,
   Quote,
-  Zap
+  Zap,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
+import { Footer } from "./Footer";
 
 /** dynamically import the client-only chart */
 const ClientHealthChart = dynamic(() => import("./ClientHealthChart"), { ssr: false });
@@ -29,7 +32,7 @@ const Container: React.FC<{ className?: string; children: React.ReactNode }> = (
   <div className={`mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 ${className}`}>{children}</div>
 );
 
-const Button: React.FC<{ as?: "a" | "button"; href?: string; variant?: "primary" | "ghost" | "dark"; children: React.ReactNode } & React.HTMLAttributes<HTMLAnchorElement | HTMLButtonElement>> = ({ as = "a", href = "#", variant = "primary", children, ...rest }) => {
+const Button: React.FC<{ as?: "a" | "button"; href?: string; variant?: "primary" | "ghost" | "dark"; showLogo?: boolean; children: React.ReactNode } & React.HTMLAttributes<HTMLAnchorElement | HTMLButtonElement>> = ({ as = "a", href = "#", variant = "primary", showLogo = false, children, ...rest }) => {
   const base = "inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-all";
   const styles =
     variant === "primary"
@@ -40,6 +43,7 @@ const Button: React.FC<{ as?: "a" | "button"; href?: string; variant?: "primary"
   const Comp: any = as;
   return (
     <Comp href={href} className={`${base} ${styles}`} {...rest}>
+      {showLogo && <img src="/vector-logo.svg" alt="Vector" className="h-4 w-4" />}
       {children}
     </Comp>
   );
@@ -52,13 +56,300 @@ const Eyebrow: React.FC<{ children: React.ReactNode }> = ({ children }) => (
 const SectionTitle: React.FC<{ title: string; subtitle?: string; eyebrow?: string; align?: "left" | "center" }> = ({ title, subtitle, eyebrow, align = "left" }) => (
   <div className={`mb-10 ${align === "center" ? "text-center" : ""}`}>
     {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
-    <h2 className="text-3xl font-semibold leading-tight text-black sm:text-4xl">{title}</h2>
+    <h2 className="text-3xl font-semibold leading-tight text-black sm:text-4xl font-playfair">{title}</h2>
     {subtitle && <p className={`mt-3 max-w-2xl ${align === "center" ? "mx-auto" : ""} text-black/70`}>{subtitle}</p>}
   </div>
 );
 
 // Accent for dark slab (Raft‑style)
 const ACCENT = "#D8FF3D";
+
+// =============== SUCCESS STORIES DATA ======================
+const successStories = [
+  {
+    company: "Navia Freight",
+    industry: "Finance",
+    quote: "AI now takes care of tasks our staff did not enjoy. The automation required us to optimize our processes and revealed areas for improvement. We now provide better service.",
+    author: "Rob Ardesi",
+    title: "COO",
+    savings: "$850K annually",
+    improvement: "40% faster claims processing"
+  },
+  {
+    company: "DSV Global",
+    industry: "Logistics",
+    quote: "Vector's automation reduced our manual accrual entry by 85%. Our finance team now focuses on strategic analysis instead of data entry.",
+    author: "Maria Santos",
+    title: "CFO",
+    savings: "$1.2M annually", 
+    improvement: "85% reduction in manual work"
+  },
+  {
+    company: "Expeditors International",
+    industry: "Supply Chain",
+    quote: "The platform's integration capabilities allowed us to connect all our disparate systems seamlessly. Real-time visibility across the entire trade process.",
+    author: "David Chen",
+    title: "VP Operations",
+    savings: "$2.1M annually",
+    improvement: "3x faster settlement times"
+  },
+  {
+    company: "Wayne Brands",
+    industry: "CPG",
+    quote: "Trade promotion management used to be our biggest headache. Vector transformed it into our competitive advantage with intelligent automation.",
+    author: "Sarah Williams",
+    title: "Trade Marketing Director",
+    savings: "$950K annually",
+    improvement: "60% reduction in errors"
+  },
+  {
+    company: "Stark Foods",
+    industry: "Food & Beverage",
+    quote: "Policy-bound automation ensures compliance while speeding up our processes. We've eliminated most manual exceptions in our trade workflows.",
+    author: "Michael Thompson",
+    title: "Finance Director",
+    savings: "$750K annually",
+    improvement: "90% automation rate"
+  },
+  {
+    company: "NNR Global",
+    industry: "Manufacturing",
+    quote: "The audit-grade ledger gives us complete confidence in our financial reporting. Vector's AI catches discrepancies we would have missed.",
+    author: "Jennifer Lee",
+    title: "Controller",
+    savings: "$1.1M annually",
+    improvement: "99% accuracy rate"
+  },
+  {
+    company: "Circana Analytics",
+    industry: "Data Analytics",
+    quote: "Vector's intelligent data extraction from 100+ document types has revolutionized how we process vendor information. True end-to-end automation.",
+    author: "Robert Kim",
+    title: "Data Operations Manager",
+    savings: "$680K annually",
+    improvement: "75% faster processing"
+  },
+  {
+    company: "Phoenix Distribution",
+    industry: "Distribution",
+    quote: "The platform's ability to handle schema changes and backfills automatically saved us months of development work. It just works.",
+    author: "Lisa Rodriguez",
+    title: "IT Director",
+    savings: "$890K annually",
+    improvement: "50% reduction in IT overhead"
+  },
+  {
+    company: "Meridian Retail",
+    industry: "Retail",
+    quote: "Vector's real-time health monitoring alerts us to issues before they impact our bottom line. Proactive rather than reactive trade management.",
+    author: "James Park",
+    title: "Category Manager",
+    savings: "$1.3M annually",
+    improvement: "65% faster issue resolution"
+  },
+  {
+    company: "Atlantic Beverages",
+    industry: "Beverage",
+    quote: "The bidirectional sync with our ERP systems eliminated dual entry completely. Our teams can focus on strategy instead of data reconciliation.",
+    author: "Amanda Foster",
+    title: "Finance Manager",
+    savings: "$720K annually",
+    improvement: "100% data consistency"
+  },
+  {
+    company: "Global Pharma Solutions",
+    industry: "Pharmaceutical",
+    quote: "Vector's compliance features ensure we meet all regulatory requirements while automating complex rebate calculations. Peace of mind with efficiency.",
+    author: "Dr. Mark Stevens",
+    title: "Compliance Officer",
+    savings: "$1.4M annually",
+    improvement: "Zero compliance issues"
+  },
+  {
+    company: "TechFlow Industries",
+    industry: "Technology",
+    quote: "The platform's API-first approach allowed seamless integration with our existing tech stack. Vector adapts to us, not the other way around.",
+    author: "Kevin Zhang",
+    title: "CTO",
+    savings: "$1.6M annually",
+    improvement: "80% faster integrations"
+  },
+  {
+    company: "Horizon Chemicals",
+    industry: "Chemicals",
+    quote: "Vector's AI models understand our complex pricing structures and automatically handle exceptions. It's like having an expert analyst working 24/7.",
+    author: "Rachel Green",
+    title: "Pricing Manager",
+    savings: "$980K annually",
+    improvement: "95% exception auto-resolution"
+  },
+  {
+    company: "Summit Automotive",
+    industry: "Automotive",
+    quote: "The audit trail capabilities have impressed our external auditors. Vector provides transparency and traceability we never had before.",
+    author: "Tom Anderson",
+    title: "Internal Audit Manager",
+    savings: "$1.1M annually",
+    improvement: "50% faster audits"
+  },
+  {
+    company: "Premier Fashion Group",
+    industry: "Fashion",
+    quote: "Seasonal trade promotion cycles are now completely automated. Vector handles the complexity while we focus on creative marketing strategies.",
+    author: "Sophie Martinez",
+    title: "Brand Manager",
+    savings: "$840K annually",
+    improvement: "70% time savings"
+  }
+];
+
+// =============== SUCCESS STORIES CAROUSEL ====================
+const SuccessStoriesCarousel: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  // Auto-slide functionality
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    
+    const interval = setInterval(() => {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentIndex((prevIndex) => 
+          prevIndex === successStories.length - 1 ? 0 : prevIndex + 1
+        );
+        setIsTransitioning(false);
+      }, 150);
+    }, 4000); // Change slide every 4 seconds
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying]);
+
+  const changeSlide = (newIndex: number) => {
+    if (newIndex === currentIndex) return;
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentIndex(newIndex);
+      setIsTransitioning(false);
+    }, 150);
+  };
+
+  const nextSlide = () => {
+    changeSlide(currentIndex === successStories.length - 1 ? 0 : currentIndex + 1);
+  };
+
+  const prevSlide = () => {
+    changeSlide(currentIndex === 0 ? successStories.length - 1 : currentIndex - 1);
+  };
+
+  const currentStory = successStories[currentIndex];
+
+  return (
+    <div 
+      className="relative rounded-3xl border border-black/10 bg-white p-8 overflow-hidden shadow-xl"
+      onMouseEnter={() => setIsAutoPlaying(false)}
+      onMouseLeave={() => setIsAutoPlaying(true)}
+    >
+      {/* Background gradient animation */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/40 to-green-50/40 opacity-60 transition-opacity duration-500" />
+      
+      {/* Animated background shapes */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-blue-200/20 to-purple-200/20 rounded-full animate-pulse" />
+        <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-gradient-to-br from-green-200/15 to-blue-200/15 rounded-full animate-pulse" style={{ animationDelay: '1s' }} />
+      </div>
+      
+      {/* Content */}
+      <div className={`relative z-10 transition-all duration-300 ${isTransitioning ? 'opacity-0 transform translate-y-2' : 'opacity-100 transform translate-y-0'}`}>
+        <div className="grid items-center gap-8 md:grid-cols-[1fr,2fr]">
+          {/* Left side - Company info */}
+          <div className="text-center md:text-left">
+            <div className="text-3xl font-bold text-black mb-2 transform transition-transform duration-300 hover:scale-105">
+              {currentStory.company}
+            </div>
+            <div className="text-xs uppercase tracking-widest text-black/60 mb-4">Vector solutions used</div>
+            <div className="inline-block rounded-full border border-black/10 px-4 py-2 text-sm font-semibold mb-4 bg-white/80 backdrop-blur">
+              {currentStory.industry}
+            </div>
+            
+            {/* Metrics */}
+            <div className="space-y-3">
+              <div className="rounded-xl bg-gradient-to-r from-green-100 to-blue-100 p-4 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-green-200/50">
+                <div className="text-lg font-bold text-green-800">{currentStory.savings}</div>
+                <div className="text-sm text-green-700">Annual Savings</div>
+              </div>
+              <div className="rounded-xl bg-gradient-to-r from-blue-100 to-purple-100 p-4 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-blue-200/50">
+                <div className="text-lg font-bold text-blue-800">{currentStory.improvement}</div>
+                <div className="text-sm text-blue-700">Key Improvement</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right side - Quote */}
+          <div className="relative">
+            <Quote className="absolute -top-2 -left-2 h-8 w-8 text-black/20 animate-pulse" />
+            <blockquote className="text-lg leading-relaxed text-black mb-4 pl-6 font-medium">
+              "{currentStory.quote}"
+            </blockquote>
+            <div className="text-sm text-black/70 pl-6">
+              <div className="font-semibold text-black">{currentStory.author}</div>
+              <div className="text-black/60">{currentStory.title} at {currentStory.company}</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Navigation controls */}
+        <div className="flex items-center justify-between mt-8">
+          {/* Progress indicators */}
+          <div className="flex space-x-2 overflow-x-auto pb-2">
+            {successStories.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => changeSlide(index)}
+                className={`h-2 rounded-full transition-all duration-500 flex-shrink-0 ${
+                  index === currentIndex 
+                    ? 'w-8 bg-black shadow-lg' 
+                    : 'w-2 bg-black/20 hover:bg-black/40 hover:w-4'
+                }`}
+                aria-label={`Go to story ${index + 1}`}
+              />
+            ))}
+          </div>
+
+          {/* Arrow controls */}
+          <div className="flex items-center space-x-2">
+            <button
+              onClick={prevSlide}
+              className="p-2 rounded-full border border-black/10 bg-white hover:bg-black/5 transition-all duration-200 hover:scale-110 hover:shadow-lg"
+              aria-label="Previous story"
+            >
+              <ChevronLeft className="h-5 w-5 text-black/60" />
+            </button>
+            <button
+              onClick={nextSlide}
+              className="p-2 rounded-full border border-black/10 bg-white hover:bg-black/5 transition-all duration-200 hover:scale-110 hover:shadow-lg"
+              aria-label="Next story"
+            >
+              <ChevronRight className="h-5 w-5 text-black/60" />
+            </button>
+          </div>
+        </div>
+
+        {/* Counter and auto-play indicator */}
+        <div className="flex items-center justify-between mt-4">
+          <div className="text-sm text-black/50">
+            {currentIndex + 1} of {successStories.length}
+          </div>
+          <div className="flex items-center gap-2 text-xs text-black/40">
+            <div className={`w-2 h-2 rounded-full ${isAutoPlaying ? 'bg-green-400 animate-pulse' : 'bg-gray-400'}`} />
+            {isAutoPlaying ? 'Auto-playing' : 'Paused'}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 // =============== HERO MIMIC (RAFT STYLE) =========================
 const StatToast: React.FC<{ title: string; body: string }> = ({ title, body }) => (
@@ -164,7 +455,7 @@ const DarkAIPanel: React.FC = () => (
         <span className="text-sm uppercase tracking-widest">Not just any AI solution.</span>
         <div style={{ background: ACCENT }} className="h-px w-12" />
       </div>
-      <h3 className="text-3xl font-semibold sm:text-4xl">Agentic, explainable, and audit‑ready</h3>
+      <h3 className="text-3xl font-semibold sm:text-4xl font-playfair">Agentic, explainable, and audit‑ready</h3>
       <p className="mt-3 text-white/80">Founded with AI at the core: uplift models, policy enforcement, and an audit‑grade ledger. Delivered in‑product so feedback loops are fast and trustworthy.</p>
       <a href="#learn-more" className="mt-3 inline-block text-white/80 underline">Learn more</a>
     </div>
@@ -238,11 +529,11 @@ const CapabilityRow: React.FC<{ label: string; title: string; body: string; cta:
         <span className="h-2 w-2 rounded-full bg-lime-400" />
         <span className="text-xs font-semibold uppercase tracking-widest text-black/60">{label}</span>
       </div>
-      <h3 className="text-2xl font-semibold sm:text-3xl">{title}</h3>
+      <h3 className="text-2xl font-semibold sm:text-3xl font-playfair">{title}</h3>
       <p className="mt-3 text-black/70">{body}</p>
       <div className="mt-4 flex gap-3">
         <Button href="#product" variant="ghost">{cta} <ArrowRight className="h-4 w-4" /></Button>
-        <Button href="#demo">Let's chat <ArrowRight className="h-4 w-4" /></Button>
+                <Button href="#demo" showLogo={true}>Let's chat <ArrowRight className="h-4 w-4" /></Button>
       </div>
     </div>
     {flip && <DiagramCard variant={variant} />}
@@ -271,11 +562,11 @@ const SkyHero: React.FC = () => (
         <div className="relative grid place-items-center bg-gradient-to-b from-[var(--grad-start)] to-[var(--grad-end)] px-6 py-20 text-center text-white sm:py-28">
           <div className="mx-auto max-w-4xl">
             <DividerLine />
-            <h1 className="display mt-6 text-4xl font-semibold sm:text-6xl">$1M annual savings & 2,000 extra hours a month await.</h1>
+            <h1 className="display mt-6 text-4xl font-semibold sm:text-6xl font-playfair">$1M annual savings & 2,000 extra hours a month await.</h1>
             <DividerLine className="mt-6" />
             <p className="mx-auto mt-6 max-w-2xl text-white/90">Explore how policy‑bound automation across planning, accruals, and claims compounds into serious annual savings. It all starts with a demo.</p>
             <div className="mt-8 flex items-center justify-center">
-              <Button href="#demo" variant="dark">Let's chat <ArrowRight className="h-4 w-4" /></Button>
+              <Button href="#demo" variant="dark" showLogo={true}>Let's chat <ArrowRight className="h-4 w-4" /></Button>
             </div>
           </div>
         </div>
@@ -374,8 +665,8 @@ export default function VectorLanding() {
       <header className="sticky top-0 z-40 border-b border-black/10 bg-white/80 backdrop-blur">
         <Container className="flex h-16 items-center justify-between">
           <a href="/" className="flex items-center gap-3">
-            <img src="/vector-logo.svg" alt="Vector" className="h-8 w-8" />
-            <span className="text-lg font-semibold">Vector</span>
+            <img src="/vector-logo.svg" alt="Vector" className="h-10 w-10" />
+            <span className="text-xl font-bold font-playfair">Vector</span>
           </a>
           <nav className="hidden items-center gap-6 text-sm md:flex">
             <div className="relative">
@@ -402,7 +693,7 @@ export default function VectorLanding() {
             <a href="/about" className="text-black/80 hover:text-black">About</a>
           </nav>
           <div className="flex items-center gap-2">
-            <Button href="#demo">Let's chat <ArrowRight className="h-4 w-4" /></Button>
+            <Button href="#demo" showLogo={true}>Let's chat <ArrowRight className="h-4 w-4" /></Button>
           </div>
         </Container>
       </header>
@@ -415,10 +706,10 @@ export default function VectorLanding() {
         <Container>
           <div className="grid items-center gap-8 md:grid-cols-2">
             <div>
-              <h2 className="text-4xl font-extrabold leading-tight sm:text-6xl">AI‑powered workflow automation for <span className="whitespace-nowrap">CPG trade</span></h2>
+              <h2 className="text-4xl font-extrabold leading-tight sm:text-6xl font-playfair">AI‑powered workflow automation for <span className="whitespace-nowrap">CPG trade</span></h2>
               <p className="mt-4 max-w-xl text-lg text-black/70">Drive efficiency, growth, and customer value across the promotion lifecycle. From Planning & Accruals to Claims & Settlement, Vector streamlines operations with policy‑bound autonomy.</p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <Button href="#demo">Let's chat <ArrowRight className="h-4 w-4" /></Button>
+                <Button href="#demo" showLogo={true}>Let's chat <ArrowRight className="h-4 w-4" /></Button>
                 <Button href="#onepager" variant="ghost">Download one‑pager <FileText className="h-4 w-4" /></Button>
               </div>
             </div>
@@ -487,9 +778,9 @@ export default function VectorLanding() {
               </div>
             </div>
             <div>
-              <h3 className="text-3xl font-semibold">Double your impact: scale savings in operations & profits</h3>
+              <h3 className="text-3xl font-semibold font-playfair">Double your impact: scale savings in operations & profits</h3>
               <p className="mt-3 text-black/70">Let's talk through your pain points and show how automating extraction, accruals, and claims drives margin and speed. It's not just about data entry.</p>
-              <div className="mt-5"><Button href="#demo">Let's chat <ArrowRight className="h-4 w-4" /></Button></div>
+              <div className="mt-5"><Button href="#demo" showLogo={true}>Let's chat <ArrowRight className="h-4 w-4" /></Button></div>
             </div>
           </div>
         </Container>
@@ -500,7 +791,7 @@ export default function VectorLanding() {
         <Container>
           <div className="grid items-center gap-8 md:grid-cols-2">
             <div>
-              <h3 className="text-3xl font-semibold">"The critical question isn't if or when to adopt AI in trade — it's how."</h3>
+              <h3 className="text-3xl font-semibold font-playfair">"The critical question isn't if or when to adopt AI in trade — it's how."</h3>
               <p className="mt-3 text-black/70">A concise guide to starting with AI in trade spend: balancing automation with human expertise, governance you can trust, and pitfalls to avoid.</p>
               <div className="mt-5"><Button href="#whitepaper">Download PDF <ArrowRight className="h-4 w-4" /></Button></div>
             </div>
@@ -514,22 +805,16 @@ export default function VectorLanding() {
         </Container>
       </section>
 
-      {/* TESTIMONIAL */}
+      {/* SUCCESS STORIES CAROUSEL */}
       <section className="border-t border-black/10 py-16">
         <Container>
-          <div className="rounded-3xl border border-black/10 bg-white p-6">
-            <div className="grid items-center gap-8 md:grid-cols-[1fr,2fr]">
-              <div>
-                <div className="text-2xl font-bold">Navia</div>
-                <div className="mt-3 text-xs uppercase tracking-widest text-black/60">Vector solutions used</div>
-                <div className="mt-2 inline-block rounded-full border border-black/10 px-3 py-1 text-xs font-semibold">Finance</div>
-              </div>
-              <div>
-                <p className="text-lg">AI now takes care of tasks our staff did not enjoy. The automation required us to optimize our processes and revealed areas for improvement. We now provide better service.</p>
-                <div className="mt-4 text-sm text-black/60">Rob Ardesi — COO at Navia Freight</div>
-              </div>
-            </div>
-          </div>
+          <SectionTitle 
+            eyebrow="Customer Success Stories" 
+            title="Transforming trade operations across industries" 
+            subtitle="See how organizations are achieving millions in savings and operational excellence with Vector's AI-powered automation."
+            align="center"
+          />
+          <SuccessStoriesCarousel />
         </Container>
       </section>
 
@@ -550,11 +835,11 @@ export default function VectorLanding() {
         <Container>
           <div className="grid items-center gap-8 rounded-2xl border border-black/10 bg-black px-8 py-10 text-white md:grid-cols-3">
             <div className="md:col-span-2">
-              <h3 className="text-2xl font-bold">$1M annual savings & thousands of hours await.</h3>
+              <h3 className="text-2xl font-bold font-playfair">$1M annual savings & thousands of hours await.</h3>
               <p className="mt-2 max-w-xl text-white/80">Explore how automating workflows can free your team and improve margins. It all starts with a conversation.</p>
             </div>
             <div className="flex justify-start md:justify-end">
-              <Button href="#demo" variant="dark">Let's chat <ArrowRight className="h-4 w-4" /></Button>
+              <Button href="#demo" variant="dark" showLogo={true}>Let's chat <ArrowRight className="h-4 w-4" /></Button>
             </div>
           </div>
         </Container>
@@ -564,18 +849,7 @@ export default function VectorLanding() {
       <ResourceDarkStrip />
 
       {/* FOOTER */}
-      <footer className="border-t border-black/10 bg-white py-10 text-sm text-black/70">
-        <Container>
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <div>© {new Date().getFullYear()} Vector — Direction. Magnitude. ROI.</div>
-            <div className="flex items-center gap-4">
-              <a href="#">Privacy</a>
-              <a href="#">Terms</a>
-              <a href="#">Security</a>
-            </div>
-          </div>
-        </Container>
-      </footer>
+      <Footer />
     </div>
   );
 }

@@ -1,6 +1,5 @@
 import React from "react";
 import Navbar from "./Navbar";
-import { Footer } from "./Footer";
 
 // Import all the new modular components
 import { HeroSection } from "./sections/HeroSection";
@@ -45,9 +44,6 @@ export default function PlatformPage() {
 
       {/* CTA Strip */}
       <CTASection />
-
-      {/* Footer */}
-      <Footer />
     </div>
   );
 }
