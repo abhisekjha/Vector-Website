@@ -610,7 +610,7 @@ export function Navbar() {
 
         {/* Desktop CTA */}
         <div className="hidden items-center gap-2 md:flex">
-          <CTAButton href="#demo">Book a demo</CTAButton>
+            <CTAButton href="/demo">Book a demo</CTAButton>
         </div>
 
         {/* Mobile Menu Button */}
@@ -720,7 +720,7 @@ export function Navbar() {
                 </div>
               ))}
               <div className="pt-4">
-                <CTAButton href="#demo" className="w-full justify-center">
+                <CTAButton href="/demo" className="w-full justify-center">
                   Book a demo
                 </CTAButton>
               </div>

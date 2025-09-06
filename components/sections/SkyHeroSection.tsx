@@ -22,7 +22,7 @@ export const SkyHeroSection: React.FC = () => {
                 Explore how policy‑bound automation across planning, accruals, and claims compounds into serious annual savings. It all starts with a demo.
               </p>
               <div className="mt-8 flex items-center justify-center">
-                <Button href="#demo" variant="dark" showLogo icon={<ArrowRight className="h-4 w-4" />}>
+                <Button href="/demo" variant="dark" showLogo icon={<ArrowRight className="h-4 w-4" />}>
                   Book a demo
                 </Button>
               </div>

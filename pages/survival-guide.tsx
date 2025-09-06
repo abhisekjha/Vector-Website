@@ -64,7 +64,7 @@ export default function SurvivalGuide() {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a 
-                  href="#demo" 
+                  href="/demo" 
                   className="inline-flex items-center gap-2 bg-[#D8FF3D] text-black px-8 py-4 rounded-full text-lg font-semibold playfair-display-600 hover:bg-[#D8FF3D]/90 transition-colors duration-200"
                 >
                   Schedule a Demo
@@ -605,7 +605,7 @@ export default function SurvivalGuide() {
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a 
-                  href="#demo" 
+                  href="/demo" 
                   className="inline-flex items-center gap-2 bg-[#D8FF3D] text-black px-8 py-4 rounded-full text-lg font-semibold playfair-display-600 hover:bg-[#D8FF3D]/90 transition-colors duration-200"
                 >
                   Schedule a Demo

@@ -12,7 +12,7 @@ export const CTASection: React.FC = () => {
             <p className="mt-2 max-w-xl text-white/80">Explore how automating workflows can free your team and improve margins. It all starts with a conversation.</p>
           </div>
           <div className="flex justify-start md:justify-end">
-            <Button href="#demo" variant="dark" showLogo icon={<ArrowRight className="h-4 w-4" />}>
+            <Button href="/demo" variant="dark" showLogo icon={<ArrowRight className="h-4 w-4" />}>
               Book a demo
             </Button>
           </div>

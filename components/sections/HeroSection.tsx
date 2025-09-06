@@ -86,7 +86,7 @@ export const HeroSection: React.FC = () => {
               Drive efficiency, growth, and customer value across the promotion lifecycle. From Planning & Accruals to Claims & Settlement, Vector streamlines operations with policy‑bound autonomy.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <CTAButton href="#demo">Book a demo</CTAButton>
+              <CTAButton href="/demo">Book a demo</CTAButton>
               <Button href="#onepager" variant="ghost" icon={<FileText className="h-4 w-4" />}>
                 Download one‑pager
               </Button>

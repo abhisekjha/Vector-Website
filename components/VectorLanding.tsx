@@ -534,7 +534,7 @@ const CapabilityRow: React.FC<{ label: string; title: string; body: string; cta:
       <p className="mt-3 text-black/70">{body}</p>
       <div className="mt-4 flex gap-3">
         <Button href="#product" variant="ghost">{cta} <ArrowRight className="h-4 w-4" /></Button>
-                <Button href="#demo" showLogo={true}>Book a demo <ArrowRight className="h-4 w-4" /></Button>
+                <Button href="/demo" showLogo={true}>Book a demo <ArrowRight className="h-4 w-4" /></Button>
       </div>
     </div>
     {flip && <DiagramCard variant={variant} />}
@@ -557,7 +557,7 @@ const SkyHero: React.FC = () => (
             <DividerLine className="mt-6" />
             <p className="mx-auto mt-6 max-w-2xl text-white/90">Explore how policy‑bound automation across planning, accruals, and claims compounds into serious annual savings. It all starts with a demo.</p>
             <div className="mt-8 flex items-center justify-center">
-              <Button href="#demo" variant="dark" showLogo={true}>Book a demo <ArrowRight className="h-4 w-4" /></Button>
+              <Button href="/demo" variant="dark" showLogo={true}>Book a demo <ArrowRight className="h-4 w-4" /></Button>
             </div>
           </div>
         </div>
@@ -630,7 +630,7 @@ export default function VectorLanding() {
             <a href="/about" className="text-black/80 hover:text-black">About</a>
           </nav>
           <div className="flex items-center gap-2">
-            <Button href="#demo" showLogo={true}>Book a demo <ArrowRight className="h-4 w-4" /></Button>
+            <Button href="/demo" showLogo={true}>Book a demo <ArrowRight className="h-4 w-4" /></Button>
           </div>
         </Container>
       </header>
@@ -656,7 +656,7 @@ export default function VectorLanding() {
               <h2 className="text-4xl font-semibold leading-tight sm:text-6xl playfair-display-600">AI‑powered workflow automation for <span className="whitespace-nowrap">CPG trade</span></h2>
               <p className="mt-4 max-w-xl text-lg text-black/70">Drive efficiency, growth, and customer value across the promotion lifecycle. From Planning & Accruals to Claims & Settlement, Vector streamlines operations with policy‑bound autonomy.</p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <Button href="#demo" showLogo={true}>Book a demo <ArrowRight className="h-4 w-4" /></Button>
+                <Button href="/demo" showLogo={true}>Book a demo <ArrowRight className="h-4 w-4" /></Button>
                 <Button href="#onepager" variant="ghost">Download one‑pager <FileText className="h-4 w-4" /></Button>
               </div>
             </div>
@@ -727,7 +727,7 @@ export default function VectorLanding() {
             <div>
               <h3 className="text-3xl font-semibold playfair-display-600">Double your impact: scale savings in operations & profits</h3>
               <p className="mt-3 text-black/70">Let's talk through your pain points and show how automating extraction, accruals, and claims drives margin and speed. It's not just about data entry.</p>
-              <div className="mt-5"><Button href="#demo" showLogo={true}>Book a demo <ArrowRight className="h-4 w-4" /></Button></div>
+              <div className="mt-5"><Button href="/demo" showLogo={true}>Book a demo <ArrowRight className="h-4 w-4" /></Button></div>
             </div>
           </div>
         </Container>
@@ -786,7 +786,7 @@ export default function VectorLanding() {
               <p className="mt-2 max-w-xl text-white/80">Explore how automating workflows can free your team and improve margins. It all starts with a conversation.</p>
             </div>
             <div className="flex justify-start md:justify-end">
-              <Button href="#demo" variant="dark" showLogo={true}>Book a demo <ArrowRight className="h-4 w-4" /></Button>
+              <Button href="/demo" variant="dark" showLogo={true}>Book a demo <ArrowRight className="h-4 w-4" /></Button>
             </div>
           </div>
         </Container>

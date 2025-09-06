@@ -36,7 +36,7 @@ Awesome—let’s turn your prototype into a **deploy-ready Next.js (Pages Route
    * Unit tests with Jest + React Testing Library:
 
      * Renders hero claim.
-     * “Let’s chat” CTA is visible and link points to `#demo`.
+     * "Let's chat" CTA is visible and link points to `/demo`.
 
 7. **CI & deployment**
 
@@ -410,7 +410,7 @@ describe("Landing page", () => {
     render(<Home />);
     const cta = screen.getAllByRole("link", { name: /let’s chat/i })[0];
     expect(cta).toBeInTheDocument();
-    expect(cta).toHaveAttribute("href", "#demo");
+    expect(cta).toHaveAttribute("href", "/demo");
   });
 });
 ```

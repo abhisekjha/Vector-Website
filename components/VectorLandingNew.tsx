@@ -89,7 +89,7 @@ const CapabilityRow: React.FC<{
       <p className="mt-3 text-black/70">{body}</p>
       <div className="mt-4 flex gap-3">
         <Button href="#product" variant="ghost" icon={<span>→</span>}>{cta}</Button>
-        <Button href="#demo" showLogo icon={<span>→</span>}>Book a demo</Button>
+        <Button href="/demo" showLogo icon={<span>→</span>}>Book a demo</Button>
       </div>
     </div>
     {flip && <DiagramCard variant={variant} />}
@@ -205,7 +205,7 @@ const ImpactCallout: React.FC = () => (
           <h3 className="text-3xl font-semibold playfair-display-600">Double your impact: scale savings in operations & profits</h3>
           <p className="mt-3 text-black/70">Let's talk through your pain points and show how automating extraction, accruals, and claims drives margin and speed. It's not just about data entry.</p>
           <div className="mt-5">
-            <Button href="#demo" showLogo icon={<span>→</span>}>Book a demo</Button>
+            <Button href="/demo" showLogo icon={<span>→</span>}>Book a demo</Button>
           </div>
         </div>
       </div>

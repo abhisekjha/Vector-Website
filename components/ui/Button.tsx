@@ -12,7 +12,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button: React.FC<ButtonProps> = ({
-  as = 'button',
+  as,
   href = '#',
   variant = 'primary',
   showLogo = false,
@@ -22,6 +22,9 @@ export const Button: React.FC<ButtonProps> = ({
   className = '',
   ...props
 }) => {
+  // Automatically use 'a' tag when href is provided and not '#'
+  const elementType = as || (href && href !== '#' ? 'a' : 'button');
+  
   const baseClasses = 'inline-flex items-center gap-2 rounded-full font-semibold transition-all duration-200 focus-ring playfair-display-600';
   
   const sizeClasses = {
@@ -39,7 +42,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   const classes = `${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`;
 
-  if (as === 'a') {
+  if (elementType === 'a') {
     return (
       <a href={href} className={classes} {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}>
         {showLogo && <img src="/vector-logo.svg" alt="Vector" className="h-4 w-4" />}
