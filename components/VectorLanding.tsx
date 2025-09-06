@@ -541,16 +541,6 @@ const CapabilityRow: React.FC<{ label: string; title: string; body: string; cta:
   </div>
 );
 
-// =============== EXTRA UI BITS (tags, helpers) ==================
-const Tag: React.FC<{ children: React.ReactNode; tone?: "lime" | "gray" }> = ({ children, tone = "lime" }) => (
-  <span
-    className={`pill text-xs font-semibold ${
-      tone === "lime" ? "bg-[var(--accent)] text-black" : "bg-black/10 text-black/70"
-    }`}
-  >
-    {children}
-  </span>
-);
 
 const DividerLine: React.FC<{ className?: string }> = ({ className = "" }) => (
   <div className={`h-px w-full bg-white/40 ${className}`} />
@@ -601,60 +591,6 @@ const GlobalStatsBand: React.FC = () => (
   </section>
 );
 
-const ResourceDarkStrip: React.FC = () => (
-  <section className="pt-0">
-    <div className="border-t border-black/10 bg-[#171717] py-16 text-white">
-      <Container>
-        <div className="grid gap-10 md:grid-cols-[minmax(260px,420px),1fr,1fr]">
-          {/* Left card image placeholder */}
-          <div className="rounded-3xl bg-white/5 p-6">
-            <div className="aspect-[4/3] w-full rounded-2xl bg-gradient-to-br from-black/20 to-white/10" />
-          </div>
-
-          {/* Center feature post */}
-          <div>
-            <div className="flex items-center gap-2">
-              <Tag>FEATURED</Tag>
-              <Tag tone="gray">COLLATERAL</Tag>
-            </div>
-            <h3 className="mt-4 text-2xl font-semibold">9 Strategic Moves for Smarter, AI‑Driven Trade Management</h3>
-            <div className="mt-6">
-              <Button href="#resources" variant="dark">Read more <ArrowRight className="h-4 w-4" /></Button>
-            </div>
-          </div>
-
-          {/* Right footer nav lists */}
-          <div className="grid grid-cols-3 gap-6 text-sm">
-            <div>
-              <div className="text-white/60">Product</div>
-              <ul className="mt-3 space-y-2 text-white/90">
-                <li><a href="#" className="hover:underline">Planning & Funds</a></li>
-                <li><a href="#" className="hover:underline">Accruals & Claims</a></li>
-                <li><a href="#" className="hover:underline">Live Health</a></li>
-              </ul>
-            </div>
-            <div>
-              <div className="text-white/60">General</div>
-              <ul className="mt-3 space-y-2 text-white/90">
-                <li><a href="/platform" className="hover:underline">Platform</a></li>
-                <li><a href="/resources" className="hover:underline">Resources</a></li>
-                <li><a href="/about" className="hover:underline">About us</a></li>
-                <li><a href="#docs" className="hover:underline">Documentation</a></li>
-              </ul>
-            </div>
-            <div>
-              <div className="text-white/60">Social</div>
-              <ul className="mt-3 space-y-2 text-white/90">
-                <li><a href="#" className="hover:underline">LinkedIn</a></li>
-                <li><a href="#" className="hover:underline">X</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </Container>
-    </div>
-  </section>
-);
 
 // =============== PAGE ============================================
 export default function VectorLanding() {
@@ -855,9 +791,6 @@ export default function VectorLanding() {
           </div>
         </Container>
       </section>
-
-      {/* RESOURCE DARK STRIP + MINI FOOTER NAV (raft style) */}
-      <ResourceDarkStrip />
 
       {/* FOOTER */}
       <Footer />

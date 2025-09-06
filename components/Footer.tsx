@@ -46,6 +46,63 @@ export const Footer: React.FC = () => {
           </p>
         </div>
 
+        {/* Featured Section */}
+        <div className="mb-12 rounded-2xl border border-white/10 bg-white/5 p-8">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {/* Featured Content */}
+            <div className="lg:col-span-2">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="inline-flex items-center rounded-full bg-[#D8FF3D] px-3 py-1 text-xs font-semibold text-black">
+                  FEATURED
+                </span>
+                <span className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold text-white/80">
+                  COLLATERAL
+                </span>
+              </div>
+              <h3 className="text-2xl font-semibold text-white mb-4">
+                9 Strategic Moves for Smarter, AI‑Driven Trade Management
+              </h3>
+              <p className="text-white/70 text-sm mb-6">
+                Discover how AI-driven automation can transform your trade management processes and drive significant ROI improvements.
+              </p>
+              <a 
+                href="#resources" 
+                className="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full font-semibold text-sm hover:bg-white/90 transition-colors duration-200"
+              >
+                Read more <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+            
+            {/* Quick Links */}
+            <div className="grid grid-cols-1 gap-6 text-sm">
+              <div>
+                <div className="text-white/60 mb-3">Product</div>
+                <ul className="space-y-2 text-white/90">
+                  <li><a href="/platform" className="hover:underline">Planning & Funds</a></li>
+                  <li><a href="/platform" className="hover:underline">Accruals & Claims</a></li>
+                  <li><a href="/platform" className="hover:underline">Live Health</a></li>
+                </ul>
+              </div>
+              <div>
+                <div className="text-white/60 mb-3">General</div>
+                <ul className="space-y-2 text-white/90">
+                  <li><a href="/platform" className="hover:underline">Platform</a></li>
+                  <li><a href="/resources" className="hover:underline">Resources</a></li>
+                  <li><a href="/about" className="hover:underline">About us</a></li>
+                  <li><a href="#docs" className="hover:underline">Documentation</a></li>
+                </ul>
+              </div>
+              <div>
+                <div className="text-white/60 mb-3">Social</div>
+                <ul className="space-y-2 text-white/90">
+                  <li><a href="#" className="hover:underline">LinkedIn</a></li>
+                  <li><a href="#" className="hover:underline">X</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
           
           {/* PRODUCTS */}
