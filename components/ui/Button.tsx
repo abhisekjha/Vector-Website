@@ -22,7 +22,7 @@ export const Button: React.FC<ButtonProps> = ({
   className = '',
   ...props
 }) => {
-  const baseClasses = 'inline-flex items-center gap-2 rounded-full font-semibold transition-all duration-200 focus-ring';
+  const baseClasses = 'inline-flex items-center gap-2 rounded-full font-semibold transition-all duration-200 focus-ring playfair-display-600';
   
   const sizeClasses = {
     sm: 'px-3 py-2 text-xs',

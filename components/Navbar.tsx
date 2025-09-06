@@ -440,7 +440,7 @@ export function Navbar() {
       <Container className="flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-3 focus-ring rounded-lg">
           <Image src="/vector-logo.svg" alt="Vector" width={40} height={40} className="h-10 w-10" />
-          <span className="text-xl font-semibold font-playfair">Vector</span>
+          <span className="text-xl font-semibold playfair-display-600">Vector</span>
         </Link>
         
         {/* Desktop Navigation */}
@@ -465,7 +465,7 @@ export function Navbar() {
               className="relative"
             >
             <button 
-              className="inline-flex items-center gap-1 text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1"
+              className="inline-flex items-center gap-1 text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1 playfair-display-500"
               aria-label="Products menu"
             >
               Products <ChevronDown className={`h-4 w-4 transition-transform ${openProducts ? 'rotate-180' : ''}`} />
@@ -493,7 +493,7 @@ export function Navbar() {
                   <div className="grid grid-cols-3 gap-6">
                     {productCategories.map((category) => (
                       <div key={category.title} className="space-y-4">
-                        <h3 className="text-xs font-semibold text-black/60 uppercase tracking-wider">
+                        <h3 className="text-xs font-semibold text-black/60 uppercase tracking-wider playfair-display-600">
                           {category.title}
                         </h3>
                         <div className="space-y-3">
@@ -508,10 +508,10 @@ export function Navbar() {
                                   {item.icon}
                                 </span>
                                 <div>
-                                  <div className="text-sm font-semibold text-black group-hover:text-black/80">
+                                  <div className="text-sm font-semibold text-black group-hover:text-black/80 playfair-display-600">
                                     {item.title}
                                   </div>
-                                  <div className="text-xs text-black/60 mt-1">
+                                  <div className="text-xs text-black/60 mt-1 playfair-display-400">
                                     {item.description}
                                   </div>
                                 </div>
@@ -540,14 +540,14 @@ export function Navbar() {
                   onMouseLeave={() => handleHoverWithDelay(null, 500)}
                   className="relative"
                 >
-                  <button className="inline-flex items-center gap-1 text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1">
+                  <button className="inline-flex items-center gap-1 text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1 playfair-display-500">
                     {item.title} <ChevronDown className={`h-4 w-4 transition-transform ${hoveredItem === item.key ? 'rotate-180' : ''}`} />
                   </button>
                 </div>
               ) : (
                 <Link 
                   href={item.href} 
-                  className="text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1"
+                  className="text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1 playfair-display-500"
                 >
                   {item.title}
                 </Link>
@@ -567,7 +567,7 @@ export function Navbar() {
                   <div className="grid grid-cols-3 gap-6">
                     {item.categories.map((category) => (
                       <div key={category.title} className="space-y-4">
-                        <h3 className="text-xs font-semibold text-black/60 uppercase tracking-wider">
+                        <h3 className="text-xs font-semibold text-black/60 uppercase tracking-wider playfair-display-600">
                           {category.title}
                         </h3>
                         <div className="space-y-3">
@@ -582,10 +582,10 @@ export function Navbar() {
                                   {categoryItem.icon}
                                 </span>
                                 <div>
-                                  <div className="text-sm font-semibold text-black group-hover:text-black/80">
+                                  <div className="text-sm font-semibold text-black group-hover:text-black/80 playfair-display-600">
                                     {categoryItem.title}
                                   </div>
-                                  <div className="text-xs text-black/60 mt-1">
+                                  <div className="text-xs text-black/60 mt-1 playfair-display-400">
                                     {categoryItem.description}
                                   </div>
                                 </div>
@@ -625,7 +625,7 @@ export function Navbar() {
               <div>
                 <button 
                   onClick={() => setOpenProducts(!openProducts)}
-                  className="flex items-center gap-2 text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1 w-full text-left"
+                  className="flex items-center gap-2 text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1 w-full text-left playfair-display-500"
                 >
                   Products <ChevronDown className={`h-4 w-4 transition-transform ${openProducts ? 'rotate-180' : ''}`} />
                 </button>
@@ -633,7 +633,7 @@ export function Navbar() {
                   <div className="mt-2 ml-4 space-y-4">
                     {productCategories.map((category) => (
                       <div key={category.title} className="space-y-2">
-                        <h4 className="text-xs font-semibold text-black/60 uppercase tracking-wider">
+                        <h4 className="text-xs font-semibold text-black/60 uppercase tracking-wider playfair-display-600">
                           {category.title}
                         </h4>
                         <div className="space-y-2">
@@ -645,10 +645,10 @@ export function Navbar() {
                         onClick={() => setMobileMenuOpen(false)}
                       >
                               <span className="text-sm">{item.icon}</span>
-                              <div>
-                                <div className="text-sm font-semibold">{item.title}</div>
-                                <div className="text-xs text-black/60">{item.description}</div>
-                              </div>
+                                <div>
+                                  <div className="text-sm font-semibold playfair-display-600">{item.title}</div>
+                                  <div className="text-xs text-black/60 playfair-display-400">{item.description}</div>
+                                </div>
                       </Link>
                           ))}
                         </div>
@@ -663,11 +663,11 @@ export function Navbar() {
                     <div>
                       <button 
                         onClick={() => setOpenMobileItems(prev => ({...prev, [item.key]: !prev[item.key]}))}
-                        className="flex items-center gap-2 text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1 w-full text-left"
+                        className="flex items-center gap-2 text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1 w-full text-left playfair-display-500"
                       >
                         <div>
-                          <div className="font-medium">{item.title}</div>
-                          <div className="text-xs text-black/60 mt-1">{item.description}</div>
+                          <div className="font-medium playfair-display-500">{item.title}</div>
+                          <div className="text-xs text-black/60 mt-1 playfair-display-400">{item.description}</div>
                         </div>
                         <ChevronDown className={`h-4 w-4 transition-transform ${openMobileItems[item.key] ? 'rotate-180' : ''}`} />
                       </button>
@@ -675,7 +675,7 @@ export function Navbar() {
                         <div className="ml-4 space-y-4">
                           {item.categories.map((category) => (
                             <div key={category.title} className="space-y-2">
-                              <h4 className="text-xs font-semibold text-black/60 uppercase tracking-wider">
+                              <h4 className="text-xs font-semibold text-black/60 uppercase tracking-wider playfair-display-600">
                                 {category.title}
                               </h4>
                               <div className="space-y-2">
@@ -688,8 +688,8 @@ export function Navbar() {
               >
                                     <span className="text-sm">{categoryItem.icon}</span>
                                     <div>
-                                      <div className="text-xs font-semibold">{categoryItem.title}</div>
-                                      <div className="text-xs text-black/60">{categoryItem.description}</div>
+                                      <div className="text-xs font-semibold playfair-display-600">{categoryItem.title}</div>
+                                      <div className="text-xs text-black/60 playfair-display-400">{categoryItem.description}</div>
                                     </div>
               </Link>
                                 ))}
@@ -702,12 +702,12 @@ export function Navbar() {
                   ) : (
               <Link 
                       href={item.href} 
-                className="block text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1"
+                      className="block text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1 playfair-display-500"
                 onClick={() => setMobileMenuOpen(false)}
               >
                       <div>
-                        <div className="font-medium">{item.title}</div>
-                        <div className="text-xs text-black/60 mt-1">{item.description}</div>
+                        <div className="font-medium playfair-display-500">{item.title}</div>
+                        <div className="text-xs text-black/60 mt-1 playfair-display-400">{item.description}</div>
                       </div>
               </Link>
                   )}
