@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import {
   ArrowRight,
   FileText,
@@ -265,7 +266,7 @@ const SuccessStoriesCarousel: React.FC = () => {
         <div className="grid items-center gap-8 md:grid-cols-[1fr,2fr]">
           {/* Left side - Company info */}
           <div className="text-center md:text-left">
-            <div className="text-3xl font-bold text-black mb-2 transform transition-transform duration-300 hover:scale-105">
+            <div className="text-3xl font-semibold text-black mb-2 transform transition-transform duration-300 hover:scale-105">
               {currentStory.company}
             </div>
             <div className="text-xs uppercase tracking-widest text-black/60 mb-4">Vector solutions used</div>
@@ -276,11 +277,11 @@ const SuccessStoriesCarousel: React.FC = () => {
             {/* Metrics */}
             <div className="space-y-3">
               <div className="rounded-xl bg-gradient-to-r from-green-100 to-blue-100 p-4 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-green-200/50">
-                <div className="text-lg font-bold text-green-800">{currentStory.savings}</div>
+                <div className="text-lg font-semibold text-green-800">{currentStory.savings}</div>
                 <div className="text-sm text-green-700">Annual Savings</div>
               </div>
               <div className="rounded-xl bg-gradient-to-r from-blue-100 to-purple-100 p-4 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-blue-200/50">
-                <div className="text-lg font-bold text-blue-800">{currentStory.improvement}</div>
+                <div className="text-lg font-semibold text-blue-800">{currentStory.improvement}</div>
                 <div className="text-sm text-blue-700">Key Improvement</div>
               </div>
             </div>
@@ -289,7 +290,7 @@ const SuccessStoriesCarousel: React.FC = () => {
           {/* Right side - Quote */}
           <div className="relative">
             <Quote className="absolute -top-2 -left-2 h-8 w-8 text-black/20 animate-pulse" />
-            <blockquote className="text-lg leading-relaxed text-black mb-4 pl-6 font-medium">
+            <blockquote className="text-lg leading-relaxed text-black mb-4 pl-6 font-semibold">
               "{currentStory.quote}"
             </blockquote>
             <div className="text-sm text-black/70 pl-6">
@@ -419,7 +420,7 @@ const BigNumberSteps: React.FC = () => (
       { t: "Unlock insights", b: "Drivers, ROI, and audit‑ready analytics for every promo." }
     ].map((s, i) => (
       <div key={s.t} className="">
-        <div className="text-5xl font-bold text-black/10">{i + 1}</div>
+        <div className="text-5xl font-semibold text-black/10">{i + 1}</div>
         <div className="mt-2 text-lg font-semibold">{s.t}</div>
         <p className="mt-2 text-black/70">{s.b}</p>
       </div>
@@ -706,7 +707,17 @@ export default function VectorLanding() {
         <Container>
           <div className="grid items-center gap-8 md:grid-cols-2">
             <div>
-              <h2 className="text-4xl font-extrabold leading-tight sm:text-6xl font-playfair">AI‑powered workflow automation for <span className="whitespace-nowrap">CPG trade</span></h2>
+              <div className="flex items-center gap-3 mb-4">
+                <Image
+                  src="/vector-logo.svg"
+                  alt="Vector Logo"
+                  width={48}
+                  height={48}
+                  className="w-12 h-12"
+                />
+                <span className="text-sm font-semibold uppercase tracking-widest text-black/60">Vector Platform</span>
+              </div>
+              <h2 className="text-4xl font-semibold leading-tight sm:text-6xl font-playfair">AI‑powered workflow automation for <span className="whitespace-nowrap">CPG trade</span></h2>
               <p className="mt-4 max-w-xl text-lg text-black/70">Drive efficiency, growth, and customer value across the promotion lifecycle. From Planning & Accruals to Claims & Settlement, Vector streamlines operations with policy‑bound autonomy.</p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Button href="#demo" showLogo={true}>Let's chat <ArrowRight className="h-4 w-4" /></Button>
@@ -762,7 +773,7 @@ export default function VectorLanding() {
             <div className="rounded-3xl p-6" style={{ background: "var(--accent)" }}>
               <div className="rounded-xl bg-white/80 p-4 shadow">
                 <div className="text-sm font-semibold">Save up to</div>
-                <div className="text-5xl font-extrabold">31 USD</div>
+                <div className="text-5xl font-semibold">31 USD</div>
                 <div className="mt-2 text-sm">per promotion</div>
               </div>
               <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
@@ -835,7 +846,7 @@ export default function VectorLanding() {
         <Container>
           <div className="grid items-center gap-8 rounded-2xl border border-black/10 bg-black px-8 py-10 text-white md:grid-cols-3">
             <div className="md:col-span-2">
-              <h3 className="text-2xl font-bold font-playfair">$1M annual savings & thousands of hours await.</h3>
+              <h3 className="text-2xl font-semibold font-playfair">$1M annual savings & thousands of hours await.</h3>
               <p className="mt-2 max-w-xl text-white/80">Explore how automating workflows can free your team and improve margins. It all starts with a conversation.</p>
             </div>
             <div className="flex justify-start md:justify-end">

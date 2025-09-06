@@ -1,5 +1,6 @@
 import React from "react";
 import { ArrowRight, Twitter, Facebook, Linkedin } from "lucide-react";
+import Image from "next/image";
 
 // Footer Link Component
 const FooterLink: React.FC<{ href: string; children: React.ReactNode }> = ({ href, children }) => (
@@ -28,6 +29,23 @@ export const Footer: React.FC = () => {
   return (
     <footer className="bg-black text-white py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Title Section with Logo */}
+        <div className="mb-12 text-center">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <Image
+              src="/vector-logo.svg"
+              alt="Vector Logo"
+              width={40}
+              height={40}
+              className="w-10 h-10"
+            />
+            <h2 className="text-2xl font-semibold text-white">Vector</h2>
+          </div>
+          <p className="text-white/70 text-sm max-w-md mx-auto">
+            Direction. Magnitude. ROI. Your comprehensive platform for intelligent business solutions.
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
           
           {/* PRODUCTS */}

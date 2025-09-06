@@ -51,7 +51,7 @@ const Button: React.FC<{ as?: "a" | "button"; href?: string; variant?: "primary"
 
 const SectionTitle: React.FC<{ title: string; subtitle?: string; align?: "left" | "center" }> = ({ title, subtitle, align = "left" }) => (
   <div className={`mb-10 ${align === "center" ? "text-center" : ""}`}>
-    <h2 className="text-3xl font-semibold leading-tight text-black sm:text-4xl">{title}</h2>
+    <h2 className="text-3xl font-semibold leading-tight text-black sm:text-4xl font-playfair">{title}</h2>
     {subtitle && <p className={`mt-3 max-w-2xl ${align === "center" ? "mx-auto" : ""} text-black/70`}>{subtitle}</p>}
   </div>
 );
@@ -62,7 +62,7 @@ const PillarCard: React.FC<{ icon: React.ReactNode; title: string; description: 
       <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-black/5">
         {icon}
       </div>
-      <h3 className="text-xl font-semibold">{title}</h3>
+      <h3 className="text-xl font-semibold font-playfair">{title}</h3>
     </div>
     <p className="mb-4 text-black/70">{description}</p>
     <ul className="space-y-2">
@@ -89,7 +89,7 @@ const AgentCard: React.FC<{
       <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-black/5">
         {icon}
       </div>
-      <h4 className="text-lg font-semibold">{name}</h4>
+      <h4 className="text-lg font-semibold font-playfair">{name}</h4>
     </div>
     <p className="mb-4 text-sm text-black/70">{purpose}</p>
     

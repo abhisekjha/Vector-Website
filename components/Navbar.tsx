@@ -38,7 +38,7 @@ export default function Navbar() {
       <Container className="flex h-16 items-center justify-between">
         <a href="/" className="flex items-center gap-3">
           <img src="/vector-logo.svg" alt="Vector" className="h-10 w-10" />
-          <span className="text-xl font-bold font-playfair">Vector</span>
+          <span className="text-xl font-semibold font-playfair">Vector</span>
         </a>
         <nav className="hidden items-center gap-6 text-sm md:flex">
           <div className="relative">
