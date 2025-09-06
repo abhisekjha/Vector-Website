@@ -478,6 +478,7 @@ export function Navbar() {
                     if (hoverTimeoutRef.current) {
                       clearTimeout(hoverTimeoutRef.current);
                     }
+                    setHoveredItem(null); // Close other nav item dropdowns
                     setOpenProducts(true);
                   }}
                   onMouseLeave={() => {
@@ -558,6 +559,7 @@ export function Navbar() {
                     if (hoverTimeoutRef.current) {
                       clearTimeout(hoverTimeoutRef.current);
                     }
+                    setOpenProducts(false); // Close Products dropdown
                     setHoveredItem(item.key);
                   }}
                   onMouseLeave={() => handleHoverWithDelay(null, 500)}
