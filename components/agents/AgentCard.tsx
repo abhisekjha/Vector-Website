@@ -13,18 +13,18 @@ export const AgentCard: React.FC<{
       <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-black/5">
         {icon}
       </div>
-      <h4 className="text-lg font-semibold font-playfair">{name}</h4>
+      <h4 className="text-lg font-semibold playfair-display-600">{name}</h4>
     </div>
-    <p className="mb-4 text-sm text-black/70">{purpose}</p>
+    <p className="mb-4 text-sm text-black/70 playfair-display-400">{purpose}</p>
     
     <div className="space-y-3">
       <div>
         <div className="mb-1 text-xs font-semibold uppercase tracking-wider text-black/60">Triggers</div>
-        <div className="text-sm text-black/70">{triggers.join(", ")}</div>
+        <div className="text-sm text-black/70 playfair-display-400">{triggers.join(", ")}</div>
       </div>
       <div>
         <div className="mb-1 text-xs font-semibold uppercase tracking-wider text-black/60">Skills</div>
-        <div className="text-sm text-black/70">{skills.join(", ")}</div>
+        <div className="text-sm text-black/70 playfair-display-400">{skills.join(", ")}</div>
       </div>
       <div>
         <div className="mb-1 text-xs font-semibold uppercase tracking-wider text-black/60">Modes</div>

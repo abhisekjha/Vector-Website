@@ -11,7 +11,7 @@ export const TrustSection: React.FC = () => {
             <span className="text-sm uppercase tracking-widest text-black/60">Not just any AI solution.</span>
             <div className="h-px w-12 bg-black/20" />
           </div>
-          <h2 className="mb-6 text-3xl font-semibold sm:text-4xl font-playfair">
+          <h2 className="mb-6 text-3xl font-semibold sm:text-4xl playfair-display-600">
             Agentic, explainable, and audit-ready
           </h2>
           <p className="mb-8 text-black/70">

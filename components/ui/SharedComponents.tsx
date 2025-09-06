@@ -26,7 +26,7 @@ export const Button: React.FC<{
   className = "",
   ...rest 
 }) => {
-  const base = "inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-all";
+  const base = "inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-all playfair-display-600";
   const styles =
     variant === "primary"
       ? "bg-black text-white hover:bg-black/90"
@@ -47,9 +47,9 @@ export const SectionTitle: React.FC<{
   align?: "left" | "center" 
 }> = ({ title, subtitle, align = "left" }) => (
   <div className={`mb-10 ${align === "center" ? "text-center" : ""}`}>
-    <h2 className="text-3xl font-semibold leading-tight text-black sm:text-4xl font-playfair">{title}</h2>
+    <h2 className="text-3xl font-semibold leading-tight text-black sm:text-4xl playfair-display-600">{title}</h2>
     {subtitle && (
-      <p className={`mt-3 max-w-2xl ${align === "center" ? "mx-auto" : ""} text-black/70`}>
+      <p className={`mt-3 max-w-2xl ${align === "center" ? "mx-auto" : ""} text-black/70 playfair-display-400`}>
         {subtitle}
       </p>
     )}
@@ -67,12 +67,12 @@ export const PillarCard: React.FC<{
       <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-black/5">
         {icon}
       </div>
-      <h3 className="text-xl font-semibold font-playfair">{title}</h3>
+      <h3 className="text-xl font-semibold playfair-display-600">{title}</h3>
     </div>
-    <p className="mb-4 text-black/70">{description}</p>
+    <p className="mb-4 text-black/70 playfair-display-400">{description}</p>
     <ul className="space-y-2">
       {features.map((feature, i) => (
-        <li key={i} className="flex items-center gap-2 text-sm text-black/70">
+        <li key={i} className="flex items-center gap-2 text-sm text-black/70 playfair-display-400">
           <CheckCircle2 className="h-4 w-4 text-green-500" />
           {feature}
         </li>
@@ -92,8 +92,8 @@ export const FlowStep: React.FC<{
       {icon}
     </div>
     <div className="flex-1">
-      <h4 className="font-semibold font-playfair">{title}</h4>
-      <p className="mt-1 text-sm text-black/70">{description}</p>
+      <h4 className="font-semibold playfair-display-600">{title}</h4>
+      <p className="mt-1 text-sm text-black/70 playfair-display-400">{description}</p>
     </div>
     {!isLast && <ArrowRight className="mt-3 h-5 w-5 text-black/40" />}
   </div>
@@ -101,8 +101,8 @@ export const FlowStep: React.FC<{
 
 export const ConnectorLogo: React.FC<{ name: string; category: string }> = ({ name, category }) => (
   <div className="flex items-center justify-center rounded-xl border border-black/10 bg-white px-4 py-3 text-sm text-black/70">
-    <span className="font-medium">{name}</span>
-    <span className="ml-2 text-xs text-black/50">({category})</span>
+    <span className="font-medium playfair-display-500">{name}</span>
+    <span className="ml-2 text-xs text-black/50 playfair-display-400">({category})</span>
   </div>
 );
 
@@ -117,11 +117,11 @@ export const FAQItem: React.FC<{
       onClick={onToggle}
       className="flex w-full items-center justify-between py-4 text-left"
     >
-      <span className="font-semibold font-playfair">{question}</span>
+      <span className="font-semibold playfair-display-600">{question}</span>
       {isOpen ? <ChevronDown className="h-5 w-5" /> : <ChevronRight className="h-5 w-5" />}
     </button>
     {isOpen && (
-      <div className="pb-4 text-black/70">
+      <div className="pb-4 text-black/70 playfair-display-400">
         {answer}
       </div>
     )}

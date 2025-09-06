@@ -18,28 +18,28 @@ export const IntegrationSection: React.FC = () => {
               <div className="rounded-xl border border-black/10 bg-green-50 p-4">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="h-5 w-5 text-green-600" />
-                  <span className="font-semibold font-playfair">Feed Health</span>
+                  <span className="font-semibold playfair-display-600">Feed Health</span>
                 </div>
                 <div className="mt-2 text-sm text-black/70">95% within SLA</div>
               </div>
               <div className="rounded-xl border border-black/10 bg-blue-50 p-4">
                 <div className="flex items-center gap-2">
                   <Clock className="h-5 w-5 text-blue-600" />
-                  <span className="font-semibold font-playfair">Freshness</span>
+                  <span className="font-semibold playfair-display-600">Freshness</span>
                 </div>
                 <div className="mt-2 text-sm text-black/70">Avg 2.3 hours</div>
               </div>
               <div className="rounded-xl border border-black/10 bg-orange-50 p-4">
                 <div className="flex items-center gap-2">
                   <AlertTriangle className="h-5 w-5 text-orange-600" />
-                  <span className="font-semibold font-playfair">Issues</span>
+                  <span className="font-semibold playfair-display-600">Issues</span>
                 </div>
                 <div className="mt-2 text-sm text-black/70">3 active alerts</div>
               </div>
             </div>
             
             <div className="mb-6">
-              <h4 className="mb-4 font-semibold font-playfair">Feed Status</h4>
+              <h4 className="mb-4 font-semibold playfair-display-600">Feed Status</h4>
               <div className="space-y-2">
                 {[
                   { name: "SAP GL Feed", status: "Healthy", lastUpdate: "2 hours ago", completeness: "98%" },
@@ -66,7 +66,7 @@ export const IntegrationSection: React.FC = () => {
             </div>
             
             <div className="rounded-xl bg-black/5 p-4">
-              <h5 className="mb-2 font-semibold font-playfair">Safety Features</h5>
+              <h5 className="mb-2 font-semibold playfair-display-600">Safety Features</h5>
               <div className="grid grid-cols-1 gap-2 text-sm text-black/70 md:grid-cols-3">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-green-500" />

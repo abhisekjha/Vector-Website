@@ -18,7 +18,7 @@ export const ComplianceSection: React.FC = () => {
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-black/5">
                 <Database className="h-8 w-8 text-black" />
               </div>
-              <h3 className="mb-2 text-xl font-semibold font-playfair">Audit-grade Ledger</h3>
+              <h3 className="mb-2 text-xl font-semibold playfair-display-600">Audit-grade Ledger</h3>
               <p className="text-black/70">
                 Event sourcing with immutable records. Replay any point in time for accruals, claims, and approvals.
               </p>
@@ -27,7 +27,7 @@ export const ComplianceSection: React.FC = () => {
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-black/5">
                 <Code className="h-8 w-8 text-black" />
               </div>
-              <h3 className="mb-2 text-xl font-semibold font-playfair">Policy-as-Code</h3>
+              <h3 className="mb-2 text-xl font-semibold playfair-display-600">Policy-as-Code</h3>
               <p className="text-black/70">
                 OPA policies with plain-English explanations. Every automated action includes policy links and rationale.
               </p>
@@ -36,7 +36,7 @@ export const ComplianceSection: React.FC = () => {
               <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-black/5">
                 <GitBranch className="h-8 w-8 text-black" />
               </div>
-              <h3 className="mb-2 text-xl font-semibold font-playfair">Complete Lineage</h3>
+              <h3 className="mb-2 text-xl font-semibold playfair-display-600">Complete Lineage</h3>
               <p className="text-black/70">
                 Trace every number from source feeds through models to final decisions and P&L impact.
               </p>
@@ -58,29 +58,29 @@ export const ComplianceSection: React.FC = () => {
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-black/5">
                 <ShieldCheck className="h-6 w-6 text-black" />
               </div>
-              <h4 className="mb-2 font-semibold font-playfair">SOC 2 Type II</h4>
-              <p className="text-sm text-black/70">In progress</p>
+              <h4 className="mb-2 font-semibold playfair-display-600">SOC 2 Type II</h4>
+              <p className="text-sm text-black/70 playfair-display-400">In progress</p>
             </div>
             <div className="text-center">
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-black/5">
                 <Lock className="h-6 w-6 text-black" />
               </div>
-              <h4 className="mb-2 font-semibold font-playfair">ISO 27001</h4>
-              <p className="text-sm text-black/70">Roadmap</p>
+              <h4 className="mb-2 font-semibold playfair-display-600">ISO 27001</h4>
+              <p className="text-sm text-black/70 playfair-display-400">Roadmap</p>
             </div>
             <div className="text-center">
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-black/5">
                 <Users className="h-6 w-6 text-black" />
               </div>
-              <h4 className="mb-2 font-semibold font-playfair">SSO/SAML</h4>
-              <p className="text-sm text-black/70">Okta, Azure AD</p>
+              <h4 className="mb-2 font-semibold playfair-display-600">SSO/SAML</h4>
+              <p className="text-sm text-black/70 playfair-display-400">Okta, Azure AD</p>
             </div>
             <div className="text-center">
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-black/5">
                 <Globe className="h-6 w-6 text-black" />
               </div>
-              <h4 className="mb-2 font-semibold font-playfair">Data Residency</h4>
-              <p className="text-sm text-black/70">US, EU options</p>
+              <h4 className="mb-2 font-semibold playfair-display-600">Data Residency</h4>
+              <p className="text-sm text-black/70 playfair-display-400">US, EU options</p>
             </div>
           </div>
         </Container>
@@ -97,7 +97,7 @@ export const ComplianceSection: React.FC = () => {
           <div className="rounded-3xl border border-black/10 bg-white p-8">
             <div className="grid gap-8 lg:grid-cols-2">
               <div>
-                <h4 className="mb-4 font-semibold font-playfair">System Architecture</h4>
+                <h4 className="mb-4 font-semibold playfair-display-600">System Architecture</h4>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <div className="h-3 w-3 rounded-full bg-blue-500" />
@@ -131,7 +131,7 @@ export const ComplianceSection: React.FC = () => {
                 </div>
               </div>
               <div>
-                <h4 className="mb-4 font-semibold font-playfair">Technical Features</h4>
+                <h4 className="mb-4 font-semibold playfair-display-600">Technical Features</h4>
                 <div className="space-y-3 text-sm">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="h-4 w-4 text-green-500" />

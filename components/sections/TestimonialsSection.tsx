@@ -130,23 +130,23 @@ export const TestimonialsSection: React.FC = () => {
             <div className="grid items-center gap-8 md:grid-cols-[1fr,2fr]">
               {/* Left side - Company info */}
               <div className="text-center md:text-left">
-                <div className="text-3xl font-semibold text-black mb-2 transform transition-transform duration-300 hover:scale-105">
+                <div className="text-3xl font-semibold text-black mb-2 transform transition-transform duration-300 hover:scale-105 playfair-display-600">
                   {currentStory.company}
                 </div>
-                <div className="text-xs uppercase tracking-widest text-black/60 mb-4">Vector solutions used</div>
-                <div className="inline-block rounded-full border border-black/10 px-4 py-2 text-sm font-semibold mb-4 bg-white/80 backdrop-blur">
+                <div className="text-xs uppercase tracking-widest text-black/60 mb-4 playfair-display-500">Vector solutions used</div>
+                <div className="inline-block rounded-full border border-black/10 px-4 py-2 text-sm font-semibold mb-4 bg-white/80 backdrop-blur playfair-display-600">
                   {currentStory.industry}
                 </div>
                 
                 {/* Metrics */}
                 <div className="space-y-3">
                   <div className="rounded-xl bg-gradient-to-r from-green-100 to-blue-100 p-4 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-green-200/50">
-                    <div className="text-lg font-semibold text-green-800">{currentStory.savings}</div>
-                    <div className="text-sm text-green-700">Annual Savings</div>
+                    <div className="text-lg font-semibold text-green-800 playfair-display-600">{currentStory.savings}</div>
+                    <div className="text-sm text-green-700 playfair-display-400">Annual Savings</div>
                   </div>
                   <div className="rounded-xl bg-gradient-to-r from-blue-100 to-purple-100 p-4 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-blue-200/50">
-                    <div className="text-lg font-semibold text-blue-800">{currentStory.improvement}</div>
-                    <div className="text-sm text-blue-700">Key Improvement</div>
+                    <div className="text-lg font-semibold text-blue-800 playfair-display-600">{currentStory.improvement}</div>
+                    <div className="text-sm text-blue-700 playfair-display-400">Key Improvement</div>
                   </div>
                 </div>
               </div>
@@ -154,12 +154,12 @@ export const TestimonialsSection: React.FC = () => {
               {/* Right side - Quote */}
               <div className="relative">
                 <Quote className="absolute -top-2 -left-2 h-8 w-8 text-black/20 animate-pulse" />
-                <blockquote className="text-lg leading-relaxed text-black mb-4 pl-6 font-semibold">
+                <blockquote className="text-lg leading-relaxed text-black mb-4 pl-6 font-semibold playfair-display-500">
                   "{currentStory.quote}"
                 </blockquote>
                 <div className="text-sm text-black/70 pl-6">
-                  <div className="font-semibold text-black">{currentStory.author}</div>
-                  <div className="text-black/60">{currentStory.title} at {currentStory.company}</div>
+                  <div className="font-semibold text-black playfair-display-600">{currentStory.author}</div>
+                  <div className="text-black/60 playfair-display-400">{currentStory.title} at {currentStory.company}</div>
                 </div>
               </div>
             </div>
@@ -203,10 +203,10 @@ export const TestimonialsSection: React.FC = () => {
 
             {/* Counter and auto-play indicator */}
             <div className="flex items-center justify-between mt-4">
-              <div className="text-sm text-black/50">
+              <div className="text-sm text-black/50 playfair-display-400">
                 {currentIndex + 1} of {successStories.length}
               </div>
-              <div className="flex items-center gap-2 text-xs text-black/40">
+              <div className="flex items-center gap-2 text-xs text-black/40 playfair-display-400">
                 <div className={`w-2 h-2 rounded-full ${isAutoPlaying ? 'bg-green-400 animate-pulse' : 'bg-gray-400'}`} />
                 {isAutoPlaying ? 'Auto-playing' : 'Paused'}
               </div>

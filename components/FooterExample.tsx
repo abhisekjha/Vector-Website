@@ -8,8 +8,8 @@ export const FooterExample: React.FC = () => {
     <div className="min-h-screen bg-[#FAFAFA]">
       {/* Your page content goes here */}
       <main className="p-8">
-        <h1 className="text-3xl font-semibold font-playfair">Your Page Content</h1>
-        <p className="mt-2 text-black/70">This is where your main content would go.</p>
+        <h1 className="text-3xl font-semibold playfair-display-600">Your Page Content</h1>
+        <p className="mt-2 text-black/70 playfair-display-400">This is where your main content would go.</p>
       </main>
       
       {/* Footer automatically added at the bottom */}

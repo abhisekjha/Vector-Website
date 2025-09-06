@@ -85,11 +85,11 @@ const CapabilityRow: React.FC<{
         <span className="h-2 w-2 rounded-full bg-lime-400" />
         <span className="text-xs font-semibold uppercase tracking-widest text-black/60">{label}</span>
       </div>
-      <h3 className="text-2xl font-semibold sm:text-3xl font-playfair">{title}</h3>
+      <h3 className="text-2xl font-semibold sm:text-3xl playfair-display-600">{title}</h3>
       <p className="mt-3 text-black/70">{body}</p>
       <div className="mt-4 flex gap-3">
         <Button href="#product" variant="ghost" icon={<span>→</span>}>{cta}</Button>
-        <Button href="#demo" showLogo icon={<span>→</span>}>Let's chat</Button>
+        <Button href="#demo" showLogo icon={<span>→</span>}>Book a demo</Button>
       </div>
     </div>
     {flip && <DiagramCard variant={variant} />}
@@ -125,7 +125,7 @@ const DarkAIPanel: React.FC = () => (
         <span className="text-sm uppercase tracking-widest">Not just any AI solution.</span>
         <div className="h-px w-12 bg-accent" />
       </div>
-      <h3 className="text-3xl font-semibold font-playfair">Agentic, explainable, and audit‑ready</h3>
+      <h3 className="text-3xl font-semibold playfair-display-600">Agentic, explainable, and audit‑ready</h3>
       <p className="mt-3 text-white/80">Founded with AI at the core: uplift models, policy enforcement, and an audit‑grade ledger. Delivered in‑product so feedback loops are fast and trustworthy.</p>
       <a href="#learn-more" className="mt-3 inline-block text-white/80 underline">Learn more</a>
     </div>
@@ -202,10 +202,10 @@ const ImpactCallout: React.FC = () => (
           </div>
         </div>
         <div>
-          <h3 className="text-3xl font-semibold font-playfair">Double your impact: scale savings in operations & profits</h3>
+          <h3 className="text-3xl font-semibold playfair-display-600">Double your impact: scale savings in operations & profits</h3>
           <p className="mt-3 text-black/70">Let's talk through your pain points and show how automating extraction, accruals, and claims drives margin and speed. It's not just about data entry.</p>
           <div className="mt-5">
-            <Button href="#demo" showLogo icon={<span>→</span>}>Let's chat</Button>
+            <Button href="#demo" showLogo icon={<span>→</span>}>Book a demo</Button>
           </div>
         </div>
       </div>
@@ -219,7 +219,7 @@ const ResourceFeature: React.FC = () => (
     <Container>
       <div className="grid items-center gap-8 md:grid-cols-2">
         <div>
-          <h3 className="text-3xl font-semibold font-playfair">"The critical question isn't if or when to adopt AI in trade — it's how."</h3>
+          <h3 className="text-3xl font-semibold playfair-display-600">"The critical question isn't if or when to adopt AI in trade — it's how."</h3>
           <p className="mt-3 text-black/70">A concise guide to starting with AI in trade spend: balancing automation with human expertise, governance you can trust, and pitfalls to avoid.</p>
           <div className="mt-5">
             <Button href="#whitepaper" icon={<span>→</span>}>Download PDF</Button>

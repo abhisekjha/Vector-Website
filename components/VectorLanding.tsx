@@ -57,7 +57,7 @@ const Eyebrow: React.FC<{ children: React.ReactNode }> = ({ children }) => (
 const SectionTitle: React.FC<{ title: string; subtitle?: string; eyebrow?: string; align?: "left" | "center" }> = ({ title, subtitle, eyebrow, align = "left" }) => (
   <div className={`mb-10 ${align === "center" ? "text-center" : ""}`}>
     {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
-    <h2 className="text-3xl font-semibold leading-tight text-black sm:text-4xl font-playfair">{title}</h2>
+    <h2 className="text-3xl font-semibold leading-tight text-black sm:text-4xl playfair-display-600">{title}</h2>
     {subtitle && <p className={`mt-3 max-w-2xl ${align === "center" ? "mx-auto" : ""} text-black/70`}>{subtitle}</p>}
   </div>
 );
@@ -456,7 +456,7 @@ const DarkAIPanel: React.FC = () => (
         <span className="text-sm uppercase tracking-widest">Not just any AI solution.</span>
         <div style={{ background: ACCENT }} className="h-px w-12" />
       </div>
-      <h3 className="text-3xl font-semibold sm:text-4xl font-playfair">Agentic, explainable, and audit‑ready</h3>
+      <h3 className="text-3xl font-semibold sm:text-4xl playfair-display-600">Agentic, explainable, and audit‑ready</h3>
       <p className="mt-3 text-white/80">Founded with AI at the core: uplift models, policy enforcement, and an audit‑grade ledger. Delivered in‑product so feedback loops are fast and trustworthy.</p>
       <a href="#learn-more" className="mt-3 inline-block text-white/80 underline">Learn more</a>
     </div>
@@ -530,11 +530,11 @@ const CapabilityRow: React.FC<{ label: string; title: string; body: string; cta:
         <span className="h-2 w-2 rounded-full bg-lime-400" />
         <span className="text-xs font-semibold uppercase tracking-widest text-black/60">{label}</span>
       </div>
-      <h3 className="text-2xl font-semibold sm:text-3xl font-playfair">{title}</h3>
+      <h3 className="text-2xl font-semibold sm:text-3xl playfair-display-600">{title}</h3>
       <p className="mt-3 text-black/70">{body}</p>
       <div className="mt-4 flex gap-3">
         <Button href="#product" variant="ghost">{cta} <ArrowRight className="h-4 w-4" /></Button>
-                <Button href="#demo" showLogo={true}>Let's chat <ArrowRight className="h-4 w-4" /></Button>
+                <Button href="#demo" showLogo={true}>Book a demo <ArrowRight className="h-4 w-4" /></Button>
       </div>
     </div>
     {flip && <DiagramCard variant={variant} />}
@@ -553,11 +553,11 @@ const SkyHero: React.FC = () => (
         <div className="relative grid place-items-center bg-gradient-to-b from-[var(--grad-start)] to-[var(--grad-end)] px-6 py-20 text-center text-white sm:py-28">
           <div className="mx-auto max-w-4xl">
             <DividerLine />
-            <h1 className="display mt-6 text-4xl font-semibold sm:text-6xl font-playfair">$1M annual savings & 2,000 extra hours a month await.</h1>
+            <h1 className="display mt-6 text-4xl font-semibold sm:text-6xl playfair-display-600">$1M annual savings & 2,000 extra hours a month await.</h1>
             <DividerLine className="mt-6" />
             <p className="mx-auto mt-6 max-w-2xl text-white/90">Explore how policy‑bound automation across planning, accruals, and claims compounds into serious annual savings. It all starts with a demo.</p>
             <div className="mt-8 flex items-center justify-center">
-              <Button href="#demo" variant="dark" showLogo={true}>Let's chat <ArrowRight className="h-4 w-4" /></Button>
+              <Button href="#demo" variant="dark" showLogo={true}>Book a demo <ArrowRight className="h-4 w-4" /></Button>
             </div>
           </div>
         </div>
@@ -603,7 +603,7 @@ export default function VectorLanding() {
         <Container className="flex h-16 items-center justify-between">
           <a href="/" className="flex items-center gap-3">
             <img src="/vector-logo.svg" alt="Vector" className="h-10 w-10" />
-            <span className="text-xl font-bold font-playfair">Vector</span>
+            <span className="text-xl font-bold playfair-display-600">Vector</span>
           </a>
           <nav className="hidden items-center gap-6 text-sm md:flex">
             <div className="relative">
@@ -630,7 +630,7 @@ export default function VectorLanding() {
             <a href="/about" className="text-black/80 hover:text-black">About</a>
           </nav>
           <div className="flex items-center gap-2">
-            <Button href="#demo" showLogo={true}>Let's chat <ArrowRight className="h-4 w-4" /></Button>
+            <Button href="#demo" showLogo={true}>Book a demo <ArrowRight className="h-4 w-4" /></Button>
           </div>
         </Container>
       </header>
@@ -653,10 +653,10 @@ export default function VectorLanding() {
                 />
                 <span className="text-sm font-semibold uppercase tracking-widest text-black/60">Vector Platform</span>
               </div>
-              <h2 className="text-4xl font-semibold leading-tight sm:text-6xl font-playfair">AI‑powered workflow automation for <span className="whitespace-nowrap">CPG trade</span></h2>
+              <h2 className="text-4xl font-semibold leading-tight sm:text-6xl playfair-display-600">AI‑powered workflow automation for <span className="whitespace-nowrap">CPG trade</span></h2>
               <p className="mt-4 max-w-xl text-lg text-black/70">Drive efficiency, growth, and customer value across the promotion lifecycle. From Planning & Accruals to Claims & Settlement, Vector streamlines operations with policy‑bound autonomy.</p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <Button href="#demo" showLogo={true}>Let's chat <ArrowRight className="h-4 w-4" /></Button>
+                <Button href="#demo" showLogo={true}>Book a demo <ArrowRight className="h-4 w-4" /></Button>
                 <Button href="#onepager" variant="ghost">Download one‑pager <FileText className="h-4 w-4" /></Button>
               </div>
             </div>
@@ -725,9 +725,9 @@ export default function VectorLanding() {
               </div>
             </div>
             <div>
-              <h3 className="text-3xl font-semibold font-playfair">Double your impact: scale savings in operations & profits</h3>
+              <h3 className="text-3xl font-semibold playfair-display-600">Double your impact: scale savings in operations & profits</h3>
               <p className="mt-3 text-black/70">Let's talk through your pain points and show how automating extraction, accruals, and claims drives margin and speed. It's not just about data entry.</p>
-              <div className="mt-5"><Button href="#demo" showLogo={true}>Let's chat <ArrowRight className="h-4 w-4" /></Button></div>
+              <div className="mt-5"><Button href="#demo" showLogo={true}>Book a demo <ArrowRight className="h-4 w-4" /></Button></div>
             </div>
           </div>
         </Container>
@@ -738,7 +738,7 @@ export default function VectorLanding() {
         <Container>
           <div className="grid items-center gap-8 md:grid-cols-2">
             <div>
-              <h3 className="text-3xl font-semibold font-playfair">"The critical question isn't if or when to adopt AI in trade — it's how."</h3>
+              <h3 className="text-3xl font-semibold playfair-display-600">"The critical question isn't if or when to adopt AI in trade — it's how."</h3>
               <p className="mt-3 text-black/70">A concise guide to starting with AI in trade spend: balancing automation with human expertise, governance you can trust, and pitfalls to avoid.</p>
               <div className="mt-5"><Button href="#whitepaper">Download PDF <ArrowRight className="h-4 w-4" /></Button></div>
             </div>
@@ -782,11 +782,11 @@ export default function VectorLanding() {
         <Container>
           <div className="grid items-center gap-8 rounded-2xl border border-black/10 bg-black px-8 py-10 text-white md:grid-cols-3">
             <div className="md:col-span-2">
-              <h3 className="text-2xl font-semibold font-playfair">$1M annual savings & thousands of hours await.</h3>
+              <h3 className="text-2xl font-semibold playfair-display-600">$1M annual savings & thousands of hours await.</h3>
               <p className="mt-2 max-w-xl text-white/80">Explore how automating workflows can free your team and improve margins. It all starts with a conversation.</p>
             </div>
             <div className="flex justify-start md:justify-end">
-              <Button href="#demo" variant="dark" showLogo={true}>Let's chat <ArrowRight className="h-4 w-4" /></Button>
+              <Button href="#demo" variant="dark" showLogo={true}>Book a demo <ArrowRight className="h-4 w-4" /></Button>
             </div>
           </div>
         </Container>

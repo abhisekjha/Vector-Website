@@ -77,16 +77,16 @@ export const HeroSection: React.FC = () => {
                 height={48}
                 className="w-12 h-12"
               />
-              <span className="text-sm font-semibold uppercase tracking-widest text-black/60">Vector Platform</span>
+              <span className="text-sm font-semibold uppercase tracking-widest text-black/60 playfair-display-500">Vector Platform</span>
             </div>
-            <h2 className="text-4xl font-semibold leading-tight sm:text-6xl font-playfair">
+            <h2 className="text-4xl font-semibold leading-tight sm:text-6xl playfair-display-600">
               AI‑powered workflow automation for <span className="whitespace-nowrap">CPG trade</span>
             </h2>
-            <p className="mt-4 max-w-xl text-lg text-black/70">
+            <p className="mt-4 max-w-xl text-lg text-black/70 playfair-display-400">
               Drive efficiency, growth, and customer value across the promotion lifecycle. From Planning & Accruals to Claims & Settlement, Vector streamlines operations with policy‑bound autonomy.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <CTAButton href="#demo">Let's chat</CTAButton>
+              <CTAButton href="#demo">Book a demo</CTAButton>
               <Button href="#onepager" variant="ghost" icon={<FileText className="h-4 w-4" />}>
                 Download one‑pager
               </Button>
@@ -99,7 +99,7 @@ export const HeroSection: React.FC = () => {
           </div>
         </div>
         <div className="mt-10">
-          <span className="mb-2 inline-block text-xs font-semibold uppercase tracking-widest text-black/60">
+          <span className="mb-2 inline-block text-xs font-semibold uppercase tracking-widest text-black/60 playfair-display-500">
             Trusted by organizations from around the world
           </span>
           <LogoCloud />

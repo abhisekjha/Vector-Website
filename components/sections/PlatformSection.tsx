@@ -407,7 +407,7 @@ export const PlatformSection: React.FC = () => {
             
             {/* Right side - Text */}
             <div>
-              <h2 className="mb-6 text-3xl font-semibold sm:text-4xl font-playfair">
+              <h2 className="mb-6 text-3xl font-semibold sm:text-4xl playfair-display-600">
                 One platform, Multiple solutions—built on AI
               </h2>
               <p className="mb-4 text-black/70">
@@ -434,7 +434,7 @@ export const PlatformSection: React.FC = () => {
             
             {/* Right side - Text */}
             <div>
-              <h2 className="mb-6 text-3xl font-semibold sm:text-4xl font-playfair">
+              <h2 className="mb-6 text-3xl font-semibold sm:text-4xl playfair-display-600">
                 Benefit at immense scale
               </h2>
               <p className="mb-4 text-black/70">
