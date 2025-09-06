@@ -82,7 +82,7 @@ export default function DemoPage() {
               <div className="max-w-2xl mx-auto">
                 <div className="bg-white rounded-2xl border border-black/10 p-8 lg:p-12 shadow-sm text-center">
               <div className="mb-8">
-                <CheckCircle2 className="h-20 w-20 text-[#D8FF3D] mx-auto mb-6" />
+                <CheckCircle2 className="h-20 w-20 text-blue-600 mx-auto mb-6" />
                 <h1 className="text-4xl font-bold playfair-display-600 mb-4">
                   Demo Request Submitted!
                 </h1>
@@ -95,15 +95,15 @@ export default function DemoPage() {
                 <h3 className="text-lg font-semibold playfair-display-600 mb-4">What happens next?</h3>
                 <div className="space-y-3 text-left">
                   <div className="flex items-center gap-3">
-                    <div className="w-6 h-6 bg-[#D8FF3D] text-black rounded-full flex items-center justify-center text-sm font-bold">1</div>
+                    <div className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">1</div>
                     <span className="playfair-display-400 text-black/70">We'll review your specific trade automation needs</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="w-6 h-6 bg-[#D8FF3D] text-black rounded-full flex items-center justify-center text-sm font-bold">2</div>
+                    <div className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">2</div>
                     <span className="playfair-display-400 text-black/70">Schedule a 30-minute personalized demo</span>
                   </div>
                   <div className="flex items-center gap-3">
-                    <div className="w-6 h-6 bg-[#D8FF3D] text-black rounded-full flex items-center justify-center text-sm font-bold">3</div>
+                    <div className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">3</div>
                     <span className="playfair-display-400 text-black/70">Show you how Vector can transform your trade operations</span>
                   </div>
                 </div>
@@ -111,7 +111,7 @@ export default function DemoPage() {
               
               <a 
                 href="/" 
-                className="inline-flex items-center gap-2 bg-[#D8FF3D] text-black px-8 py-4 rounded-full text-lg font-semibold playfair-display-600 hover:bg-[#D8FF3D]/90 transition-colors duration-200"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-full text-lg font-semibold playfair-display-600 hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
               >
                 Back to Home
                 <ArrowRight className="h-5 w-5" />
@@ -166,7 +166,7 @@ export default function DemoPage() {
                       value={formData.firstName}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 bg-white border border-black/10 rounded-lg text-black placeholder-black/50 focus:outline-none focus:border-[#D8FF3D] focus:ring-1 focus:ring-[#D8FF3D] playfair-display-400"
+                      className="w-full px-4 py-3 bg-white border border-black/10 rounded-lg text-black placeholder-black/50 focus:outline-none focus:border-[blue-600] focus:ring-1 focus:ring-[blue-600] playfair-display-400"
                       placeholder="John"
                     />
                   </div>
@@ -180,7 +180,7 @@ export default function DemoPage() {
                       value={formData.lastName}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 bg-white border border-black/10 rounded-lg text-black placeholder-black/50 focus:outline-none focus:border-[#D8FF3D] focus:ring-1 focus:ring-[#D8FF3D] playfair-display-400"
+                      className="w-full px-4 py-3 bg-white border border-black/10 rounded-lg text-black placeholder-black/50 focus:outline-none focus:border-[blue-600] focus:ring-1 focus:ring-[blue-600] playfair-display-400"
                       placeholder="Smith"
                     />
                   </div>
@@ -196,7 +196,7 @@ export default function DemoPage() {
                     value={formData.company}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-[#D8FF3D] focus:ring-1 focus:ring-[#D8FF3D] playfair-display-400"
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-[blue-600] focus:ring-1 focus:ring-[blue-600] playfair-display-400"
                     placeholder="Acme Corporation"
                   />
                 </div>
@@ -211,7 +211,7 @@ export default function DemoPage() {
                     value={formData.jobTitle}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-[#D8FF3D] focus:ring-1 focus:ring-[#D8FF3D] playfair-display-400"
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-[blue-600] focus:ring-1 focus:ring-[blue-600] playfair-display-400"
                     placeholder="Trade Finance Manager"
                   />
                 </div>
@@ -227,7 +227,7 @@ export default function DemoPage() {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 bg-white border border-black/10 rounded-lg text-black placeholder-black/50 focus:outline-none focus:border-[#D8FF3D] focus:ring-1 focus:ring-[#D8FF3D] playfair-display-400"
+                      className="w-full px-4 py-3 bg-white border border-black/10 rounded-lg text-black placeholder-black/50 focus:outline-none focus:border-[blue-600] focus:ring-1 focus:ring-[blue-600] playfair-display-400"
                       placeholder="john@acme.com"
                     />
                   </div>
@@ -240,7 +240,7 @@ export default function DemoPage() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-white border border-black/10 rounded-lg text-black placeholder-black/50 focus:outline-none focus:border-[#D8FF3D] focus:ring-1 focus:ring-[#D8FF3D] playfair-display-400"
+                      className="w-full px-4 py-3 bg-white border border-black/10 rounded-lg text-black placeholder-black/50 focus:outline-none focus:border-[blue-600] focus:ring-1 focus:ring-[blue-600] playfair-display-400"
                       placeholder="+1 (555) 123-4567"
                     />
                   </div>
@@ -260,7 +260,7 @@ export default function DemoPage() {
                           value={size}
                           checked={formData.companySize === size}
                           onChange={handleInputChange}
-                          className="w-4 h-4 text-[#D8FF3D] bg-white/10 border-white/20 focus:ring-[#D8FF3D]"
+                          className="w-4 h-4 text-[blue-600] bg-white/10 border-white/20 focus:ring-[blue-600]"
                         />
                         <span className="playfair-display-400 text-black/70">{size}</span>
                       </label>
@@ -282,7 +282,7 @@ export default function DemoPage() {
                           value={spend}
                           checked={formData.tradeSpend === spend}
                           onChange={handleInputChange}
-                          className="w-4 h-4 text-[#D8FF3D] bg-white/10 border-white/20 focus:ring-[#D8FF3D]"
+                          className="w-4 h-4 text-[blue-600] bg-white/10 border-white/20 focus:ring-[blue-600]"
                         />
                         <span className="playfair-display-400 text-black/70">{spend}</span>
                       </label>
@@ -312,7 +312,7 @@ export default function DemoPage() {
                           value={challenge}
                           checked={formData.currentChallenges.includes(challenge)}
                           onChange={handleCheckboxChange}
-                          className="w-4 h-4 text-[#D8FF3D] bg-white/10 border-white/20 focus:ring-[#D8FF3D] mt-1"
+                          className="w-4 h-4 text-[blue-600] bg-white/10 border-white/20 focus:ring-[blue-600] mt-1"
                         />
                         <span className="playfair-display-400 text-black/70 text-sm">{challenge}</span>
                       </label>
@@ -331,7 +331,7 @@ export default function DemoPage() {
                     onChange={handleInputChange}
                     required
                     aria-label="Implementation timeline"
-                    className="w-full px-4 py-3 bg-white border border-black/10 rounded-lg text-black focus:outline-none focus:border-[#D8FF3D] focus:ring-1 focus:ring-[#D8FF3D] playfair-display-400"
+                    className="w-full px-4 py-3 bg-white border border-black/10 rounded-lg text-black focus:outline-none focus:border-[blue-600] focus:ring-1 focus:ring-[blue-600] playfair-display-400"
                   >
                     <option value="" className="bg-gray-900">Select timeline</option>
                     <option value="immediately" className="bg-gray-900">Immediately (0-3 months)</option>
@@ -352,7 +352,7 @@ export default function DemoPage() {
                     value={formData.additionalInfo}
                     onChange={handleInputChange}
                     rows={4}
-                    className="w-full px-4 py-3 bg-white border border-black/10 rounded-lg text-black placeholder-black/50 focus:outline-none focus:border-[#D8FF3D] focus:ring-1 focus:ring-[#D8FF3D] playfair-display-400 resize-none"
+                    className="w-full px-4 py-3 bg-white border border-black/10 rounded-lg text-black placeholder-black/50 focus:outline-none focus:border-[blue-600] focus:ring-1 focus:ring-[blue-600] playfair-display-400 resize-none"
                     placeholder="Describe your current systems, processes, team size, and any specific requirements..."
                   />
                 </div>
@@ -360,18 +360,18 @@ export default function DemoPage() {
                 {/* Privacy Policy */}
                 <p className="text-sm playfair-display-400 text-black/60">
                   By submitting this form, your information will be processed in accordance with our{' '}
-                  <a href="/privacy" className="text-[#D8FF3D] hover:underline">Privacy Policy</a>.
+                  <a href="/privacy" className="text-[blue-600] hover:underline">Privacy Policy</a>.
                 </p>
 
                 {/* Submit Button */}
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-[#D8FF3D] text-black px-8 py-4 rounded-lg text-lg font-semibold playfair-display-600 hover:bg-[#D8FF3D]/90 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold playfair-display-600 hover:from-blue-700 hover:to-blue-800 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                 >
                   {isSubmitting ? (
                     <>
-                      <div className="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin" />
+                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                       Submitting...
                     </>
                   ) : (
@@ -401,50 +401,118 @@ export default function DemoPage() {
 
               <div className="grid grid-cols-2 gap-6 mb-8">
                 <div className="bg-white rounded-xl p-4 border border-black/10">
-                  <TrendingUp className="h-8 w-8 text-[#D8FF3D] mb-3" />
+                  <TrendingUp className="h-8 w-8 text-[blue-600] mb-3" />
                   <h3 className="font-semibold playfair-display-600 mb-2">3-5% ROI Lift</h3>
                   <p className="text-sm playfair-display-400 text-black/70">Average trade spend optimization</p>
                 </div>
                 <div className="bg-white rounded-xl p-4 border border-black/10">
-                  <Clock className="h-8 w-8 text-[#D8FF3D] mb-3" />
+                  <Clock className="h-8 w-8 text-[blue-600] mb-3" />
                   <h3 className="font-semibold playfair-display-600 mb-2">90 Days</h3>
                   <p className="text-sm playfair-display-400 text-black/70">To full implementation</p>
                 </div>
                 <div className="bg-white rounded-xl p-4 border border-black/10">
-                  <Shield className="h-8 w-8 text-[#D8FF3D] mb-3" />
+                  <Shield className="h-8 w-8 text-[blue-600] mb-3" />
                   <h3 className="font-semibold playfair-display-600 mb-2">Audit-Grade</h3>
                   <p className="text-sm playfair-display-400 text-black/70">Compliance & documentation</p>
                 </div>
                 <div className="bg-white rounded-xl p-4 border border-black/10">
-                  <Zap className="h-8 w-8 text-[#D8FF3D] mb-3" />
+                  <Zap className="h-8 w-8 text-[blue-600] mb-3" />
                   <h3 className="font-semibold playfair-display-600 mb-2">Real-Time</h3>
                   <p className="text-sm playfair-display-400 text-black/70">Live liability & health monitoring</p>
                 </div>
               </div>
+
+              {/* Trusted by Section */}
+              <div className="text-center">
+                <h3 className="text-lg font-semibold playfair-display-600 mb-6">
+                  Trusted by leading trade finance teams
+                </h3>
+                <div className="grid grid-cols-2 gap-3 opacity-80">
+                  {[
+                    { 
+                      name: "P&G", 
+                      logo: (
+                        <div className="w-6 h-6 bg-blue-600 rounded flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">P&G</span>
+                        </div>
+                      ), 
+                      fullName: "P&G" 
+                    },
+                    { 
+                      name: "Unilever", 
+                      logo: (
+                        <div className="w-6 h-6 bg-green-600 rounded flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">U</span>
+                        </div>
+                      ), 
+                      fullName: "Unilever" 
+                    },
+                    { 
+                      name: "Nestlé", 
+                      logo: (
+                        <div className="w-6 h-6 bg-red-600 rounded flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">N</span>
+                        </div>
+                      ), 
+                      fullName: "Nestlé" 
+                    },
+                    { 
+                      name: "Coca-Cola", 
+                      logo: (
+                        <div className="w-6 h-6 bg-red-600 rounded flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">C</span>
+                        </div>
+                      ), 
+                      fullName: "Coca-Cola" 
+                    },
+                    { 
+                      name: "PepsiCo", 
+                      logo: (
+                        <div className="w-6 h-6 bg-blue-600 rounded flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">P</span>
+                        </div>
+                      ), 
+                      fullName: "PepsiCo" 
+                    },
+                    { 
+                      name: "Johnson & Johnson", 
+                      logo: (
+                        <div className="w-6 h-6 bg-pink-600 rounded flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">J&J</span>
+                        </div>
+                      ), 
+                      fullName: "Johnson & Johnson" 
+                    },
+                    { 
+                      name: "Mars", 
+                      logo: (
+                        <div className="w-6 h-6 bg-yellow-600 rounded flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">M</span>
+                        </div>
+                      ), 
+                      fullName: "Mars" 
+                    },
+                    { 
+                      name: "Kraft Heinz", 
+                      logo: (
+                        <div className="w-6 h-6 bg-orange-600 rounded flex items-center justify-center">
+                          <span className="text-white text-xs font-bold">K</span>
+                        </div>
+                      ), 
+                      fullName: "Kraft Heinz" 
+                    }
+                  ].map((company, i) => (
+                    <div key={i} className="bg-white rounded-lg p-3 text-center border border-black/10 hover:shadow-md transition-all duration-200 hover:scale-105">
+                      <div className="mx-auto mb-2 flex items-center justify-center">
+                        {company.logo}
+                      </div>
+                      <p className="text-xs playfair-display-500 text-black/80 font-medium">{company.fullName}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
 
-            <div>
-              <h3 className="text-lg font-semibold playfair-display-600 mb-6">
-                Trusted by leading trade finance teams
-              </h3>
-              <div className="grid grid-cols-3 gap-4 opacity-60">
-                {[
-                  { name: "Global CPG", icon: <Building2 className="h-8 w-8" /> },
-                  { name: "Fortune 500", icon: <Target className="h-8 w-8" /> },
-                  { name: "Enterprise", icon: <BarChart3 className="h-8 w-8" /> },
-                  { name: "Mid-Market", icon: <Users className="h-8 w-8" /> },
-                  { name: "Retail", icon: <FileText className="h-8 w-8" /> },
-                  { name: "Manufacturing", icon: <Building2 className="h-8 w-8" /> }
-                ].map((company, i) => (
-                  <div key={i} className="bg-white rounded-lg p-3 text-center border border-black/10">
-                    <div className="text-black/60 mb-2 flex justify-center">
-                      {company.icon}
-                    </div>
-                    <p className="text-xs playfair-display-400 text-black/60">{company.name}</p>
-                  </div>
-                ))}
-              </div>
-              </div>
             </div>
           </Container>
         </section>
