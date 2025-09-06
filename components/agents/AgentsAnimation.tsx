@@ -521,3 +521,4 @@ export const AgentsAnimation: React.FC = () => {
     </div>
   );
 };
+

@@ -72,3 +72,4 @@ export const PillarsSection: React.FC = () => {
     </section>
   );
 };
+

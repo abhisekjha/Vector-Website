@@ -1,73 +1,149 @@
 "use client";
-import React, { useState } from "react";
-import { ChevronDown, ArrowRight } from "lucide-react";
+import React, { useState, useRef, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { ChevronDown, ArrowRight, Menu, X } from "lucide-react";
+import { Container, CTAButton } from "@/components/ui";
 
-// Container component
-function Container({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return <div className={`mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 ${className}`}>{children}</div>;
-}
-
-// Button component
-function Button({ children, href = "#", variant = "default", showLogo = false, ...props }: { 
-  children: React.ReactNode; 
-  href?: string; 
-  variant?: "default" | "ghost" | "dark";
-  showLogo?: boolean;
-  [key: string]: any 
-}) {
-  const baseClasses = "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors";
-  const variants = {
-    default: "bg-black text-white hover:bg-black/90",
-    ghost: "border border-black/20 bg-white text-black hover:bg-black/5",
-    dark: "bg-black text-white hover:bg-black/80"
-  };
-  
-  return (
-    <a href={href} className={`${baseClasses} ${variants[variant]}`} {...props}>
-      {showLogo && <img src="/vector-logo.svg" alt="Vector" className="h-4 w-4" />}
-      {children}
-    </a>
-  );
-}
-
-export default function Navbar() {
+export function Navbar() {
   const [openProducts, setOpenProducts] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setOpenProducts(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const products = [
+    { t: "Planning & Funds", d: "Budgeting, guardrails", href: "/planning" },
+    { t: "Accruals & Claims", d: "Live balances, settlement", href: "/accruals" },
+    { t: "Live Health", d: "Drivers, drift", href: "/health" }
+  ];
 
   return (
     <header className="sticky top-0 z-40 border-b border-black/10 bg-white/80 backdrop-blur">
       <Container className="flex h-16 items-center justify-between">
-        <a href="/" className="flex items-center gap-3">
-          <img src="/vector-logo.svg" alt="Vector" className="h-10 w-10" />
+        <Link href="/" className="flex items-center gap-3 focus-ring rounded-lg">
+          <Image src="/vector-logo.svg" alt="Vector" width={40} height={40} className="h-10 w-10" />
           <span className="text-xl font-semibold font-playfair">Vector</span>
-        </a>
-        <nav className="hidden items-center gap-6 text-sm md:flex">
-          <div className="relative">
-            <button onClick={() => setOpenProducts(!openProducts)} className="inline-flex items-center gap-1 text-black/80 hover:text-black">
-              Products <ChevronDown className="h-4 w-4" />
+        </Link>
+        
+        {/* Desktop Navigation */}
+        <nav className="hidden items-center gap-6 text-sm md:flex" role="navigation" aria-label="Main navigation">
+          <div className="relative" ref={dropdownRef}>
+            <button 
+              onClick={() => setOpenProducts(!openProducts)} 
+              className="inline-flex items-center gap-1 text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1"
+              aria-label="Products menu"
+            >
+              Products <ChevronDown className={`h-4 w-4 transition-transform ${openProducts ? 'rotate-180' : ''}`} />
             </button>
             {openProducts && (
-              <div className="absolute left-0 top-9 w-[280px] rounded-2xl border border-black/10 bg-white p-3 shadow-xl">
-                {[
-                  { t: "Planning & Funds", d: "Budgeting, guardrails" },
-                  { t: "Accruals & Claims", d: "Live balances, settlement" },
-                  { t: "Live Health", d: "Drivers, drift" }
-                ].map((i) => (
-                  <a key={i.t} href="#" className="block rounded-xl p-3 hover:bg-black/5">
-                    <div className="text-sm font-semibold">{i.t}</div>
-                    <div className="text-xs text-black/60">{i.d}</div>
-                  </a>
+              <div 
+                className="absolute left-0 top-9 w-[280px] rounded-2xl border border-black/10 bg-white p-3 shadow-xl"
+                aria-label="Products submenu"
+              >
+                {products.map((item) => (
+                  <Link 
+                    key={item.t} 
+                    href={item.href} 
+                    className="block rounded-xl p-3 hover:bg-black/5 focus-ring"
+                  >
+                    <div className="text-sm font-semibold">{item.t}</div>
+                    <div className="text-xs text-black/60">{item.d}</div>
+                  </Link>
                 ))}
               </div>
             )}
           </div>
-          <a href="/platform" className="text-black/80 hover:text-black">Platform</a>
-          <a href="/resources" className="text-black/80 hover:text-black">Resources</a>
-          <a href="/about" className="text-black/80 hover:text-black">About</a>
+          <Link href="/platform" className="text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1">Platform</Link>
+          <Link href="/resources" className="text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1">Resources</Link>
+          <Link href="/about" className="text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1">About</Link>
         </nav>
-        <div className="flex items-center gap-2">
-          <Button href="#demo" showLogo={true}>Let's chat <ArrowRight className="h-4 w-4" /></Button>
+
+        {/* Desktop CTA */}
+        <div className="hidden items-center gap-2 md:flex">
+          <CTAButton href="#demo">Let&apos;s chat</CTAButton>
         </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden p-2 rounded-lg focus-ring"
+          aria-label="Toggle mobile menu"
+        >
+          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
       </Container>
+
+      {/* Mobile Navigation */}
+      {mobileMenuOpen && (
+        <div className="md:hidden border-t border-black/10 bg-white/95 backdrop-blur">
+          <Container className="py-4">
+            <nav className="space-y-4" role="navigation" aria-label="Mobile navigation">
+              <div>
+                <button 
+                  onClick={() => setOpenProducts(!openProducts)}
+                  className="flex items-center gap-2 text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1 w-full text-left"
+                >
+                  Products <ChevronDown className={`h-4 w-4 transition-transform ${openProducts ? 'rotate-180' : ''}`} />
+                </button>
+                {openProducts && (
+                  <div className="mt-2 ml-4 space-y-2">
+                    {products.map((item) => (
+                      <Link 
+                        key={item.t} 
+                        href={item.href} 
+                        className="block rounded-lg p-2 hover:bg-black/5 focus-ring"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        <div className="text-sm font-semibold">{item.t}</div>
+                        <div className="text-xs text-black/60">{item.d}</div>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+              <Link 
+                href="/platform" 
+                className="block text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Platform
+              </Link>
+              <Link 
+                href="/resources" 
+                className="block text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Resources
+              </Link>
+              <Link 
+                href="/about" 
+                className="block text-black/80 hover:text-black focus-ring rounded-lg px-2 py-1"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                About
+              </Link>
+              <div className="pt-4">
+                <CTAButton href="#demo" className="w-full justify-center">
+                  Let&apos;s chat
+                </CTAButton>
+              </div>
+            </nav>
+          </Container>
+        </div>
+      )}
     </header>
   );
 }
+
+export default Navbar;
