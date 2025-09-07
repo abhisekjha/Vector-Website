@@ -99,12 +99,35 @@ export const FlowStep: React.FC<{
   </div>
 );
 
-export const ConnectorLogo: React.FC<{ name: string; category: string }> = ({ name, category }) => (
-  <div className="flex items-center justify-center rounded-xl border border-black/10 bg-white px-4 py-3 text-sm text-black/70">
-    <span className="font-medium playfair-display-500">{name}</span>
-    <span className="ml-2 text-xs text-black/50 playfair-display-400">({category})</span>
-  </div>
-);
+export const ConnectorLogo: React.FC<{ name: string; category: string }> = ({ name, category }) => {
+  const getLogo = (name: string) => {
+    const logos: { [key: string]: string } = {
+      'SAP': '🟦',
+      'Oracle': '🔴',
+      'Salesforce': '☁️',
+      'NIQ': '📊',
+      'Circana': '📈',
+      'EDI 852': '📋',
+      'EDI 810': '📄',
+      'EDI 812': '📑',
+      'S3': '🪣',
+      'BigQuery': '🔍',
+      'Snowflake': '❄️',
+      'Azure': '🌐'
+    };
+    return logos[name] || '🔗';
+  };
+
+  return (
+    <div className="flex items-center justify-center rounded-xl border border-black/10 bg-white px-4 py-3 text-sm text-black/70 hover:shadow-md transition-shadow">
+      <span className="text-lg mr-2">{getLogo(name)}</span>
+      <div className="flex flex-col items-center">
+        <span className="font-medium playfair-display-500">{name}</span>
+        <span className="text-xs text-black/50 playfair-display-400">({category})</span>
+      </div>
+    </div>
+  );
+};
 
 export const FAQItem: React.FC<{ 
   question: string; 
