@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
@@ -238,8 +238,19 @@ const categories = [
 ];
 
 export default function Blog() {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  
   const featuredPosts = blogPosts.filter(post => post.featured);
   const regularPosts = blogPosts.filter(post => !post.featured);
+  
+  // Filter posts based on selected category
+  const filteredPosts = selectedCategory === "All" 
+    ? blogPosts 
+    : blogPosts.filter(post => post.category === selectedCategory);
+  
+  const filteredRegularPosts = selectedCategory === "All" 
+    ? regularPosts 
+    : regularPosts.filter(post => post.category === selectedCategory);
 
   return (
     <>
@@ -286,7 +297,7 @@ export default function Blog() {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {featuredPosts.map((post) => (
+              {(selectedCategory === "All" ? featuredPosts : featuredPosts.filter(post => post.category === selectedCategory)).map((post) => (
                 <article key={post.id} className="bg-white rounded-2xl border border-black/10 overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
                   <div className="relative h-48 bg-gradient-to-br from-blue-100 to-purple-100">
                     <div className="absolute inset-0 flex items-center justify-center">
@@ -355,8 +366,9 @@ export default function Blog() {
               {categories.map((category) => (
                 <button
                   key={category}
+                  onClick={() => setSelectedCategory(category)}
                   className={`px-4 py-2 rounded-full text-sm font-semibold playfair-display-600 transition-colors duration-200 ${
-                    category === "All" 
+                    category === selectedCategory
                       ? "bg-blue-600 text-white" 
                       : "bg-white text-black/70 hover:bg-blue-50 hover:text-blue-600"
                   }`}
@@ -379,7 +391,7 @@ export default function Blog() {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {regularPosts.map((post) => (
+              {filteredRegularPosts.map((post) => (
                 <article key={post.id} className="bg-white rounded-2xl border border-black/10 overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
                   <div className="relative h-40 bg-gradient-to-br from-gray-100 to-gray-200">
                     <div className="absolute inset-0 flex items-center justify-center">

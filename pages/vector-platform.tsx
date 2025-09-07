@@ -53,17 +53,15 @@ export default function VectorPlatform() {
               </div>
               
               <h1 className="text-5xl md:text-7xl font-bold playfair-display-600 mb-6 leading-tight">
-                The Complete
+                Trade Promotions That
                 <br />
-                <span className="text-blue-600">Trade Automation</span>
-                <br />
-                Platform
+                <span className="text-blue-600">Optimize Themselves</span>
               </h1>
               
               <div className="mb-8">
                 <p className="text-2xl playfair-display-500 text-black/80 mb-2">Direction. Magnitude. ROI.</p>
                 <p className="text-lg playfair-display-400 text-black/70 max-w-3xl mx-auto">
-                  Vector Platform is the comprehensive AI-powered solution that transforms your trade operations from manual, error-prone processes to intelligent, automated systems.
+                  Vector is the next-generation Trade Promotion Management platform that plans, optimizes, monitors, and settles trade promotions with agentic automation, policy guardrails, and an audit-grade ledger.
                 </p>
               </div>
               
@@ -174,22 +172,22 @@ export default function VectorPlatform() {
                 <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-6">
                   <Users className="h-6 w-6 text-orange-600" />
                 </div>
-                <h3 className="text-xl font-semibold playfair-display-600 mb-4">Vector Agents</h3>
+                <h3 className="text-xl font-semibold playfair-display-600 mb-4">Eight Specialized Agents</h3>
                 <p className="playfair-display-400 text-black/70 mb-4">
-                  AI-powered agents that handle complex trade operations autonomously.
+                  Promo Agent (optimization), Claims/Deduction Agent (settlement), Contract Intelligence Agent (evidence), Accruals Agent (accounting), Integration Agent (SLA & backfills), Data Quality Agent (DQ), Policy/Guardrail Agent, and Executive Insights Agent (digest).
                 </p>
                 <ul className="space-y-2">
                   <li className="flex items-center gap-2 text-sm playfair-display-400 text-black/70">
                     <CheckCircle2 className="h-4 w-4 text-orange-600" />
-                    Autonomous decision making
+                    Four operating modes: Assist, Recommend, Auto + Approval, Auto within Policy
                   </li>
                   <li className="flex items-center gap-2 text-sm playfair-display-400 text-black/70">
                     <CheckCircle2 className="h-4 w-4 text-orange-600" />
-                    Policy-bound operations
+                    Each agent explains reasoning in plain English
                   </li>
                   <li className="flex items-center gap-2 text-sm playfair-display-400 text-black/70">
                     <CheckCircle2 className="h-4 w-4 text-orange-600" />
-                    Continuous learning
+                    All actions logged to Vector Ledger with complete traceability
                   </li>
                 </ul>
               </div>

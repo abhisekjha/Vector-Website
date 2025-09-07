@@ -10,8 +10,8 @@ export default function AutomationROICaseStudy() {
   return (
     <>
       <Head>
-        <title>Case Study: How a Fortune 500 CPG Company Achieved 40% Cost Reduction — Vector Blog</title>
-        <meta name="description" content="An in-depth look at how a major consumer goods company implemented AI-powered trade automation and achieved remarkable results in just 6 months." />
+        <title>Vision: How AI-Powered Trade Automation Will Deliver 40% Cost Reduction — Vector Blog</title>
+        <meta name="description" content="An in-depth look at how AI-powered trade automation platforms like Vector will transform CPG operations and deliver remarkable results." />
         <meta name="keywords" content="case study, CPG automation, ROI, trade automation, AI implementation" />
         <meta property="og:title" content="Case Study: How a Fortune 500 CPG Company Achieved 40% Cost Reduction" />
         <meta property="og:description" content="An in-depth look at how a major consumer goods company implemented AI-powered trade automation and achieved remarkable results." />
@@ -43,11 +43,11 @@ export default function AutomationROICaseStudy() {
               </div>
               
               <h1 className="text-4xl md:text-6xl font-bold playfair-display-600 mb-6 leading-tight">
-                Case Study: How a Fortune 500 CPG Company Achieved 40% Cost Reduction
+                Vision: How AI-Powered Trade Automation Will Deliver 40% Cost Reduction
               </h1>
               
               <p className="text-xl playfair-display-400 text-black/70 mb-8">
-                An in-depth look at how a major consumer goods company implemented AI-powered trade automation and achieved remarkable results in just 6 months, including 40% cost reduction, 95% accuracy improvement, and $15M in annual savings.
+                An in-depth look at how next-generation AI-powered trade automation platforms like Vector will transform CPG operations, delivering 40% cost reduction, 95% accuracy improvement, and $15M+ in annual savings through intelligent automation.
               </p>
               
               <div className="flex flex-wrap items-center gap-6 text-sm text-black/60 mb-8">
@@ -91,8 +91,131 @@ export default function AutomationROICaseStudy() {
                 <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl p-8 mb-12">
                   <h2 className="text-2xl font-semibold playfair-display-600 mb-4">Executive Summary</h2>
                   <p className="text-lg playfair-display-400 text-black/80">
-                    This case study examines how a Fortune 500 Consumer Packaged Goods company transformed their trade operations through AI-powered automation. In just 6 months, they achieved a 40% reduction in operational costs, 95% improvement in data accuracy, and $15M in annual savings. The implementation serves as a blueprint for other organizations looking to modernize their trade management processes.
+                    This vision document examines how next-generation AI-powered trade automation platforms will transform CPG operations. Companies implementing these solutions can expect a 40% reduction in operational costs, 95% improvement in data accuracy, and $15M+ in annual savings. This serves as a blueprint for organizations preparing to modernize their trade management processes with agentic automation.
                   </p>
+                </div>
+                
+                <div className="bg-white border border-gray-200 rounded-2xl p-8 mb-12">
+                  <h2 className="text-2xl font-semibold playfair-display-600 mb-6">Before vs. After: The Vector Vision</h2>
+                  
+                  <div className="grid md:grid-cols-2 gap-8">
+                    <div className="bg-red-50 rounded-xl p-6">
+                      <h3 className="text-xl font-semibold playfair-display-600 mb-4 text-red-800">Before Vector</h3>
+                      <ul className="space-y-3 text-sm">
+                        <li className="flex items-start gap-2">
+                          <div className="w-1.5 h-1.5 bg-red-600 rounded-full mt-2 flex-shrink-0" />
+                          <span>Planner sets -10% price without realizing margin floor is breached; Finance discovers after month-end</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="w-1.5 h-1.5 bg-red-600 rounded-full mt-2 flex-shrink-0" />
+                          <span>POS is late, accruals drift; claims arrive with weak support; recovery rate ~45%</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="w-1.5 h-1.5 bg-red-600 rounded-full mt-2 flex-shrink-0" />
+                          <span>Manual processes lead to errors and delays</span>
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-green-50 rounded-xl p-6">
+                      <h3 className="text-xl font-semibold playfair-display-600 mb-4 text-green-800">With Vector</h3>
+                      <ul className="space-y-3 text-sm">
+                        <li className="flex items-start gap-2">
+                          <div className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 flex-shrink-0" />
+                          <span>At planning: Guardrails block unsafe depth; Scenario Studio finds -6% price + 2wk display that passes and yields 1.28× ROI</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 flex-shrink-0" />
+                          <span>Mid-flight: Promo Agent detects competitor cut; suggests +1wk display; applied within policy the same day</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="w-1.5 h-1.5 bg-green-600 rounded-full mt-2 flex-shrink-0" />
+                          <span>Settlement: Deduction Agent assembles Evidence Pack; recovery win rate → 70%+; accruals reconcile weekly</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-6 bg-blue-50 rounded-xl p-6">
+                    <h4 className="text-lg font-semibold playfair-display-600 mb-3 text-blue-800">Net Effect (Illustrative)</h4>
+                    <p className="playfair-display-400 text-black/80">
+                      +4-8% promotion ROI, -30-50% cycle time, +20-30% recovery value
+                    </p>
+                  </div>
+                </div>
+
+                <h2 className="text-3xl font-semibold playfair-display-600 mb-6">Vector's End-to-End Workflows</h2>
+                
+                <p className="text-lg playfair-display-400 text-black/80 mb-6">
+                  Next-generation platforms like Vector will handle complete workflows from detection to resolution with specific examples:
+                </p>
+                
+                <div className="space-y-8 mb-12">
+                  <div className="bg-white border border-gray-200 rounded-2xl p-8">
+                    <h3 className="text-2xl font-semibold playfair-display-600 mb-4 text-green-800">Fix Drift on Live Promotion (PR-4JUL)</h3>
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <h4 className="font-semibold mb-2">Detection & Diagnosis</h4>
+                        <ul className="text-sm space-y-1 text-gray-700">
+                          <li>• Live Health flags PR-4JUL as Amber (Distribution -3%, Competitor -5%)</li>
+                          <li>• Promo Agent explains likely causes with 84% confidence</li>
+                          <li>• Simulates options: +1wk display, -1% price, both</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold mb-2">Resolution & Outcome</h4>
+                        <ul className="text-sm space-y-1 text-gray-700">
+                          <li>• Policy passes (both), fails (-1% price) on margin floor</li>
+                          <li>• In Auto within Policy, agent applies immediately</li>
+                          <li>• Result: ROI lift +3-7% within hours</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-white border border-gray-200 rounded-2xl p-8">
+                    <h3 className="text-2xl font-semibold playfair-display-600 mb-4 text-blue-800">Recover Invalid Deduction (CL-812-0912)</h3>
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <h4 className="font-semibold mb-2">Intake & Analysis</h4>
+                        <ul className="text-sm space-y-1 text-gray-700">
+                          <li>• New 812 (CL-812-0912) auto-matched to PR-4JUL accrual</li>
+                          <li>• Contract excerpts (§4.2), invoices, ASN compiled into Evidence Pack v1</li>
+                          <li>• EV $22.3k @ 91% confidence; reasons: off-invoice mismatch & shipment shortfall</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold mb-2">Recovery & Settlement</h4>
+                        <ul className="text-sm space-y-1 text-gray-700">
+                          <li>• Policy requires Auto + Approval for &gt;$10k; routed to Finance</li>
+                          <li>• Finance approves; recovery posted with attachments</li>
+                          <li>• Result: Same-day recovery; higher win rate via consistent evidence</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-white border border-gray-200 rounded-2xl p-8">
+                    <h3 className="text-2xl font-semibold playfair-display-600 mb-4 text-purple-800">Repair Late POS Feed (NIQ)</h3>
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <h4 className="font-semibold mb-2">Detection & Self-Heal</h4>
+                        <ul className="text-sm space-y-1 text-gray-700">
+                          <li>• NIQ POS shows LATE (2d)</li>
+                          <li>• Agent runs Test, launches Backfill (idempotent)</li>
+                          <li>• Ledger updates sources/versions; recomputes queued</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold mb-2">Resolution & Notification</h4>
+                        <ul className="text-sm space-y-1 text-gray-700">
+                          <li>• Health returns to OK; owners receive summary</li>
+                          <li>• Avoids stale decisions; saves 1-2 hours of ad-hoc ops</li>
+                          <li>• Complete lineage tracking for audit compliance</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <h2 className="text-3xl font-semibold playfair-display-600 mb-6">Company Background</h2>
@@ -178,10 +301,10 @@ export default function AutomationROICaseStudy() {
                   </div>
                 </div>
 
-                <h2 className="text-3xl font-semibold playfair-display-600 mb-6">The Solution: Vector AI-Powered Trade Automation</h2>
+                <h2 className="text-3xl font-semibold playfair-display-600 mb-6">The Solution: Next-Generation AI-Powered Trade Automation</h2>
                 
                 <p className="text-lg playfair-display-400 text-black/80 mb-6">
-                  The company partnered with Vector to implement a comprehensive AI-powered trade automation platform that addressed their core challenges:
+                  Next-generation platforms like Vector will provide comprehensive AI-powered trade automation that addresses these core challenges through agentic automation:
                 </p>
                 
                 <div className="grid md:grid-cols-2 gap-6 mb-8">

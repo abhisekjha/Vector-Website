@@ -24,6 +24,8 @@ import {
   ChevronRight
 } from "lucide-react";
 import { Footer } from "./Footer";
+import { OperatingLoop } from "./OperatingLoop";
+import { Navbar } from "./Navbar";
 
 /** dynamically import the client-only chart */
 const ClientHealthChart = dynamic(() => import("./ClientHealthChart"), { ssr: false });
@@ -70,20 +72,20 @@ const successStories = [
   {
     company: "Navia Freight",
     industry: "Finance",
-    quote: "AI now takes care of tasks our staff did not enjoy. The automation required us to optimize our processes and revealed areas for improvement. We now provide better service.",
+    quote: "The vision of AI agents handling complex trade operations autonomously while maintaining policy compliance is exactly what we need. Vector's approach to agentic automation will transform how we manage trade promotions.",
     author: "Rob Ardesi",
     title: "COO",
-    savings: "$850K annually",
-    improvement: "40% faster claims processing"
+    savings: "$850K projected annually",
+    improvement: "40% faster processing expected"
   },
   {
     company: "DSV Global",
     industry: "Logistics",
-    quote: "Vector's automation reduced our manual accrual entry by 85%. Our finance team now focuses on strategic analysis instead of data entry.",
+    quote: "The concept of an audit-grade ledger that explains every decision is revolutionary. Vector's Vector Ledger will give us complete confidence in our trade operations and financial reporting.",
     author: "Maria Santos",
     title: "CFO",
-    savings: "$1.2M annually", 
-    improvement: "85% reduction in manual work"
+    savings: "$1.2M projected annually", 
+    improvement: "85% reduction in manual work expected"
   },
   {
     company: "Expeditors International",
@@ -97,11 +99,11 @@ const successStories = [
   {
     company: "Wayne Brands",
     industry: "CPG",
-    quote: "Trade promotion management used to be our biggest headache. Vector transformed it into our competitive advantage with intelligent automation.",
+    quote: "The idea of trade promotions that optimize themselves is exactly what we need. Vector's eight specialized agents will transform our trade promotion management into a competitive advantage.",
     author: "Sarah Williams",
     title: "Trade Marketing Director",
-    savings: "$950K annually",
-    improvement: "60% reduction in errors"
+    savings: "$950K projected annually",
+    improvement: "60% reduction in errors expected"
   },
   {
     company: "Stark Foods",
@@ -522,7 +524,7 @@ const DiagramCard: React.FC<{ variant?: "extract" | "health" }> = ({ variant = "
   </div>
 );
 
-const CapabilityRow: React.FC<{ label: string; title: string; body: string; cta: string; variant?: "extract" | "health"; flip?: boolean }> = ({ label, title, body, cta, variant = "extract", flip }) => (
+const CapabilityRow: React.FC<{ label: string; title: string; body: string; cta: string; ctaHref?: string; variant?: "extract" | "health"; flip?: boolean }> = ({ label, title, body, cta, ctaHref = "#product", variant = "extract", flip }) => (
   <div className={`grid items-center gap-8 ${flip ? "md:grid-cols-[1fr,1.2fr]" : "md:grid-cols-[1.2fr,1fr]"}`}>
     {!flip && <DiagramCard variant={variant} />}
     <div>
@@ -533,7 +535,7 @@ const CapabilityRow: React.FC<{ label: string; title: string; body: string; cta:
       <h3 className="text-2xl font-semibold sm:text-3xl playfair-display-600">{title}</h3>
       <p className="mt-3 text-black/70">{body}</p>
       <div className="mt-4 flex gap-3">
-        <Button href="#product" variant="ghost">{cta} <ArrowRight className="h-4 w-4" /></Button>
+        <Button href={ctaHref} variant="ghost">{cta} <ArrowRight className="h-4 w-4" /></Button>
                 <Button href="/demo" showLogo={true}>Book a demo <ArrowRight className="h-4 w-4" /></Button>
       </div>
     </div>
@@ -594,46 +596,10 @@ const GlobalStatsBand: React.FC = () => (
 
 // =============== PAGE ============================================
 export default function VectorLanding() {
-  const [openProducts, setOpenProducts] = useState(false);
 
   return (
     <div className="min-h-screen bg-[#FAFAFA] text-black">
-      {/* NAV (raft-like) */}
-      <header className="sticky top-0 z-40 border-b border-black/10 bg-white/80 backdrop-blur">
-        <Container className="flex h-16 items-center justify-between">
-          <a href="/" className="flex items-center gap-3">
-            <img src="/vector-logo.svg" alt="Vector" className="h-10 w-10" />
-            <span className="text-xl font-bold playfair-display-600">Vector</span>
-          </a>
-          <nav className="hidden items-center gap-6 text-sm md:flex">
-            <div className="relative">
-              <button onClick={() => setOpenProducts(!openProducts)} className="inline-flex items-center gap-1 text-black/80 hover:text-black">
-                Products <ChevronDown className="h-4 w-4" />
-              </button>
-              {openProducts && (
-                <div className="absolute left-0 top-9 w-[280px] rounded-2xl border border-black/10 bg-white p-3 shadow-xl">
-                  {[
-                    { t: "Planning & Funds", d: "Budgeting, guardrails" },
-                    { t: "Accruals & Claims", d: "Live balances, settlement" },
-                    { t: "Live Health", d: "Drivers, drift" }
-                  ].map((i) => (
-                    <a key={i.t} href="#" className="block rounded-xl p-3 hover:bg-black/5">
-                      <div className="text-sm font-semibold">{i.t}</div>
-                      <div className="text-xs text-black/60">{i.d}</div>
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
-            <a href="/platform" className="text-black/80 hover:text-black">Platform</a>
-            <a href="/resources" className="text-black/80 hover:text-black">Resources</a>
-            <a href="/about" className="text-black/80 hover:text-black">About</a>
-          </nav>
-          <div className="flex items-center gap-2">
-            <Button href="/demo" showLogo={true}>Book a demo <ArrowRight className="h-4 w-4" /></Button>
-          </div>
-        </Container>
-      </header>
+      <Navbar />
 
       {/* SKY HERO (raft-like claim) */}
       <SkyHero />
@@ -653,10 +619,11 @@ export default function VectorLanding() {
                 />
                 <span className="text-sm font-semibold uppercase tracking-widest text-black/60">Vector Platform</span>
               </div>
-              <h2 className="text-4xl font-semibold leading-tight sm:text-6xl playfair-display-600">AI‑powered workflow automation for <span className="whitespace-nowrap">CPG trade</span></h2>
-              <p className="mt-4 max-w-xl text-lg text-black/70">Drive efficiency, growth, and customer value across the promotion lifecycle. From Planning & Accruals to Claims & Settlement, Vector streamlines operations with policy‑bound autonomy.</p>
+              <h2 className="text-4xl font-semibold leading-tight sm:text-6xl playfair-display-600">Trade promotions that <span className="whitespace-nowrap">optimize themselves</span></h2>
+              <p className="mt-4 max-w-xl text-lg text-black/70">Vector is the next-generation Trade Promotion Management platform that plans, optimizes, monitors, and settles trade promotions with agentic automation, policy guardrails, and an audit-grade ledger.</p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Button href="/demo" showLogo={true}>Book a demo <ArrowRight className="h-4 w-4" /></Button>
+                <Button href="/blog" variant="ghost">Read our blog <FileText className="h-4 w-4" /></Button>
                 <Button href="#onepager" variant="ghost">Download one‑pager <FileText className="h-4 w-4" /></Button>
               </div>
             </div>
@@ -696,8 +663,26 @@ export default function VectorLanding() {
         <Container>
           <SectionTitle eyebrow="A suite of workflow automation capabilities" title="Plan, optimize, and settle" subtitle="Automate what should be automated—facilitate what shouldn't." />
           <div className="space-y-16">
-            <CapabilityRow label="Accruals & Claims" title="Your profit margin's first line of defense" body="From day one, invoices and claims match against accruals automatically with the highest level of data accuracy. Human‑in‑the‑loop focuses your team only on exceptions." cta="Accruals & Claims" variant="extract" />
-            <CapabilityRow label="Operations" title="Automate ops, get notified only when it matters" body="Remove manual data entry and extraction from workflows. Standardize across teams with ready‑to‑go automations and get alerts only for exceptions." cta="Operations" variant="health" flip />
+            <CapabilityRow label="Vector Agents" title="Eight specialized AI agents working for you" body="From Promo Agent optimization to Claims/Deduction Agent settlement, Vector's eight specialized agents operate in four modes: Assist, Recommend, Auto + Approval, and Auto within Policy. Each agent explains its reasoning and logs every action to the Vector Ledger." cta="Learn about Agents" ctaHref="/platform" variant="extract" />
+            
+            {/* Operating Loop Section */}
+            <div className="grid items-center gap-8 md:grid-cols-[1fr,1.2fr]">
+              <div>
+                <div className="mb-2 flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-lime-400" />
+                  <span className="text-xs font-semibold uppercase tracking-widest text-black/60">Operating Loop</span>
+                </div>
+                <h3 className="text-2xl font-semibold sm:text-3xl">Sense → Explain → Simulate → Check → Act → Log → Learn</h3>
+                <p className="mt-3 text-black/70">Vector's consistent loop powers both planning and settlement. Agents sense data changes, explain what matters in plain English, simulate safe options, check policies, act when approved, log everything to the Vector Ledger, and learn from outcomes. This ensures speed with safety.</p>
+                <div className="mt-4 flex gap-3">
+                  <Button href="/scenario-studio" variant="ghost">Operating Loop <ArrowRight className="h-4 w-4" /></Button>
+                  <Button href="/demo">Let's chat <ArrowRight className="h-4 w-4" /></Button>
+                </div>
+              </div>
+              <div className="rounded-3xl border border-black/10 bg-white p-6">
+                <OperatingLoop />
+              </div>
+            </div>
           </div>
         </Container>
       </section>
@@ -756,9 +741,9 @@ export default function VectorLanding() {
       <section className="border-t border-black/10 py-16">
         <Container>
           <SectionTitle 
-            eyebrow="Customer Success Stories" 
-            title="Transforming trade operations across industries" 
-            subtitle="See how organizations are achieving millions in savings and operational excellence with Vector's AI-powered automation."
+            eyebrow="Industry Vision & Feedback" 
+            title="How Vector will transform trade operations across industries" 
+            subtitle="See how organizations envision achieving millions in savings and operational excellence with Vector's agentic automation platform."
             align="center"
           />
           <SuccessStoriesCarousel />

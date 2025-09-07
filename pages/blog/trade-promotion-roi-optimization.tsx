@@ -495,7 +495,7 @@ export default function TradePromotionROIOptimization() {
                 Ready to Optimize Your Trade Promotion ROI?
               </h2>
               <p className="text-xl playfair-display-400 text-black/80 mb-8">
-                See how Vector's advanced analytics platform can help you achieve 25%+ ROI improvements.
+                Learn how Vector's vision for advanced analytics and agentic automation will help you achieve 25%+ ROI improvements.
               </p>
               
               <Link 

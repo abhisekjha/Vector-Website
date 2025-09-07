@@ -225,9 +225,9 @@ export default function FutureOfAccrualManagement() {
                 </p>
                 
                 <div className="bg-blue-50 rounded-xl p-6 mb-8">
-                  <h4 className="text-lg font-semibold playfair-display-600 mb-3">Real-World Example</h4>
+                  <h4 className="text-lg font-semibold playfair-display-600 mb-3">The Future: Intelligent Accrual Management</h4>
                   <p className="playfair-display-400 text-black/80">
-                    A leading CPG company implemented AI-powered accrual management and achieved 95% accuracy in accrual calculations while reducing processing time from 5 days to 2 hours. The system provides real-time visibility into $500M+ in trade liabilities across 200+ retail partners.
+                    Next-generation platforms like Vector will deliver 95% accuracy in accrual calculations while reducing processing time from 5 days to 2 hours. These systems will provide real-time visibility into $500M+ in trade liabilities across 200+ retail partners through AI-powered automation and the Vector Ledger.
                   </p>
                 </div>
 
@@ -514,7 +514,7 @@ export default function FutureOfAccrualManagement() {
                 Ready to Transform Your Accrual Management?
               </h2>
               <p className="text-xl playfair-display-400 text-black/80 mb-8">
-                See how Vector's AI-powered platform can revolutionize your accrual processes and deliver 95% accuracy improvements.
+                Learn how Vector's vision for AI-powered accrual management will revolutionize your processes and deliver 95% accuracy improvements.
               </p>
               
               <Link 

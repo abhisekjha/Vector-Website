@@ -173,9 +173,9 @@ export default function AIRevolutionTradeManagement() {
                 </p>
                 
                 <div className="bg-blue-50 rounded-xl p-6 mb-8">
-                  <h4 className="text-lg font-semibold playfair-display-600 mb-3">Real-World Example</h4>
+                  <h4 className="text-lg font-semibold playfair-display-600 mb-3">The Future: Agentic Trade Management</h4>
                   <p className="playfair-display-400 text-black/80">
-                    A leading CPG company implemented AI-driven decision support for their trade promotion planning. The system analyzed market conditions, competitor activities, and historical performance to recommend optimal promotion timing and parameters. The result? A 23% improvement in promotion ROI and 40% reduction in planning time.
+                    Imagine a system where AI agents follow a consistent loop: Sense data changes, Explain what matters in plain English, Simulate safe options, Check policies, Act when approved, Log everything to an audit-grade ledger, and Learn from outcomes. This is the vision behind Vector's operating loop, which will deliver 23%+ ROI improvements and 40% reduction in planning time through intelligent automation.
                   </p>
                 </div>
 
@@ -198,6 +198,35 @@ export default function AIRevolutionTradeManagement() {
                     <h4 className="text-lg font-semibold playfair-display-600 mb-3">Computer Vision</h4>
                     <p className="playfair-display-400 text-black/80 text-sm">
                       AI that can analyze images and documents to extract structured data automatically.
+                    </p>
+                  </div>
+                </div>
+
+                <h2 className="text-3xl font-semibold playfair-display-600 mb-6">Vector's End-to-End Workflows</h2>
+                
+                <p className="text-lg playfair-display-400 text-black/80 mb-6">
+                  Next-generation platforms like Vector will handle complete workflows from detection to resolution:
+                </p>
+                
+                <div className="space-y-6 mb-8">
+                  <div className="bg-green-50 rounded-xl p-6">
+                    <h4 className="text-lg font-semibold playfair-display-600 mb-3 text-green-800">Fix Drift on Live Promotions</h4>
+                    <p className="playfair-display-400 text-black/80 mb-3">
+                      Promo Agent detects drift (e.g., Distribution -3%, Competitor -5%), explains causes with 84% confidence, simulates options like +1wk display or -1% price, checks policies (margin floors), and applies safe corrections. Result: ROI lift +3-7% within hours.
+                    </p>
+                  </div>
+                  
+                  <div className="bg-blue-50 rounded-xl p-6">
+                    <h4 className="text-lg font-semibold playfair-display-600 mb-3 text-blue-800">Recover Invalid Deductions</h4>
+                    <p className="playfair-display-400 text-black/80 mb-3">
+                      Claims/Deduction Agent auto-matches 812s to accruals, assembles Evidence Packs with contract excerpts and invoices, computes expected recovery with confidence scores, and routes for approval when thresholds are met. Result: Same-day recovery with higher win rates.
+                    </p>
+                  </div>
+                  
+                  <div className="bg-purple-50 rounded-xl p-6">
+                    <h4 className="text-lg font-semibold playfair-display-600 mb-3 text-purple-800">Self-Heal Integration Issues</h4>
+                    <p className="playfair-display-400 text-black/80 mb-3">
+                      Integration Agent detects late POS feeds, runs tests, launches idempotent backfills, updates lineage, and notifies stakeholders. Result: Avoids stale decisions and saves 1-2 hours of ad-hoc operations.
                     </p>
                   </div>
                 </div>
@@ -422,7 +451,7 @@ export default function AIRevolutionTradeManagement() {
                 Ready to Transform Your Trade Operations?
               </h2>
               <p className="text-xl playfair-display-400 text-black/80 mb-8">
-                See how Vector's AI-powered platform can revolutionize your trade management processes.
+                Learn how Vector's vision for AI-powered trade automation will revolutionize your trade management processes.
               </p>
               
               <Link 

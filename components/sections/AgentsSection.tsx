@@ -1,5 +1,5 @@
 import React from "react";
-import { TrendingUp, FileText, BarChart3, Database, Shield, Link } from "lucide-react";
+import { TrendingUp, FileText, BarChart3, Database, Shield, Link, BookOpen, Eye } from "lucide-react";
 import { Container, SectionTitle } from "../ui/SharedComponents";
 import { AgentsAnimation } from "../agents/AgentsAnimation";
 import { AgentCard } from "../agents/AgentCard";
@@ -9,7 +9,7 @@ export const AgentsSection: React.FC = () => {
     <section className="py-16">
       <Container>
         <SectionTitle 
-          title="Six intelligent agents" 
+          title="Eight intelligent agents" 
           subtitle="Each agent operates in multiple modes with clear guardrails and measurable outcomes"
           align="center"
         />
@@ -62,6 +62,22 @@ export const AgentsSection: React.FC = () => {
             skills={["SLA monitoring", "Safe replay", "Backfill operations", "Lineage emission"]}
             modes={["Assist", "Recommend", "Auto-approval"]}
             icon={<Link className="h-5 w-5" />}
+          />
+          <AgentCard
+            name="Contract Intelligence Agent"
+            purpose="Extract eligible products, windows, exclusions; cite clauses; flag ambiguities"
+            triggers={["Contract upload", "Policy change", "Evidence request"]}
+            skills={["OCR processing", "Clause extraction", "Ambiguity detection", "Evidence bundling"]}
+            modes={["Assist", "Recommend", "Auto-approval"]}
+            icon={<BookOpen className="h-5 w-5" />}
+          />
+          <AgentCard
+            name="Executive Insights Agent"
+            purpose="Summarize weekly what mattered and why; attribute impact to specific decisions"
+            triggers={["Weekly review", "KPI threshold", "Executive request"]}
+            skills={["KPI analysis", "Impact attribution", "Executive reporting", "Trend analysis"]}
+            modes={["Assist", "Recommend"]}
+            icon={<Eye className="h-5 w-5" />}
           />
         </div>
       </Container>

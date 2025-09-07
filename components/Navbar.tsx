@@ -59,7 +59,7 @@ export function Navbar() {
         { 
           title: "Scenario Studio", 
           description: "Constraint optimization and what-ifs", 
-          href: "/scenarios",
+          href: "/scenario-studio",
           icon: "🎯"
         }
       ]
@@ -105,7 +105,7 @@ export function Navbar() {
         { 
           title: "Integration Center", 
           description: "Observable data feeds and SLAs", 
-          href: "/integrations",
+          href: "/integration-center",
           icon: "🔗"
         }
       ]

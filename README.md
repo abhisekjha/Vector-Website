@@ -1,8 +1,8 @@
-# Vector - AI-Powered Workflow Automation
+# Vector - Next-Generation Trade Promotion Management
 
-> **Direction. Magnitude. ROI.**
+> **Trade promotions that optimize themselves.**
 
-Vector is an agentic commercial OS for trade that unifies TPM + TPO in a single flow — plan → execute → claims/settlement — with policy-bound autonomy, an audit-grade ledger, and observable integrations.
+Vector is the next-generation Trade Promotion Management (TPM) platform for CPG and retail manufacturers. It plans, optimizes, monitors, and settles trade promotions with agentic automation, policy guardrails, Evidence Packs, and an audit-grade ledger (the Vector Ledger).
 
 ## 🚀 Quick Start
 
@@ -58,14 +58,37 @@ Vector uses a custom design system with:
 - **Components**: Modular, accessible UI components
 - **Responsive**: Mobile-first design approach
 
-## 📱 Features
+## 🎯 Vector's Vision
 
-- **AI-Powered Automation**: Policy-bound autonomy for trade workflows
-- **Real-time Health Monitoring**: Live promotion health with drift detection
-- **Audit-Grade Ledger**: Event-sourced core with complete traceability
-- **Integration Command Center**: Feed monitoring and self-healing connectors
-- **Evidence Packs**: Automated document bundling for claims
-- **Scenario Studio**: Constraint optimization for trade planning
+- **Eight Specialized Agents**: Promo Agent (optimization), Claims/Deduction Agent (settlement), Contract Intelligence Agent (evidence), Accruals Agent (accounting), Integration Agent (SLA & backfills), Data Quality Agent (DQ), Policy/Guardrail Agent, and Executive Insights Agent (digest)
+- **Four Operating Modes**: Assist, Recommend, Auto + Approval, Auto within Policy
+- **Operating Loop**: Sense → Explain → Simulate → Check → Act → Log → Learn
+- **Vector Ledger**: Audit-grade ledger that explains every decision and enables as-of replay
+- **Evidence Packs**: Compile all documents needed to resolve claims fast
+- **Policy Guardrails**: Prevent bad decisions and standardize approvals
+- **Scenario Studio**: Constraint optimizer for trade planning with what-if analysis
+- **Integration Command Center**: SLA monitoring, schema diffs, and automated backfills
+- **Expected Outcomes**: Higher ROI, lower leakage, fewer errors, faster cycles
+
+## 📋 Current Implementation Status
+
+### ✅ **Completed (Marketing Website)**
+- **8-Agent Architecture**: All agents implemented with detailed descriptions
+- **Operating Loop Visualization**: Interactive component showing the 7-step process
+- **Scenario Studio Page**: Complete page with constraint optimization examples
+- **Integration Command Center**: SLA monitoring and backfill management page
+- **Workflow Examples**: Specific examples from vector-description (PR-4JUL, CL-812-0912, NIQ)
+- **Blog Content**: 4 articles aligned with Vector vision
+- **Product Pages**: Planning, Accruals, Ledger, Platform pages
+- **Responsive Design**: Modern UI with Tailwind CSS and Next.js
+
+### 🚧 **Next Steps (Software Development)**
+- Backend services implementation
+- Database and Vector Ledger development
+- Policy engine (OPA) integration
+- Real-time data processing
+- Integration connectors (SAP, NIQ)
+- Agent automation logic
 
 ## 🔧 Development
 

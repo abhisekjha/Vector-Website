@@ -1,0 +1,243 @@
+# Vector — What It Is & How It Works (0→1)
+
+> **One‑line:** *Vector — Direction. Magnitude. ROI*
+Trade promotions that optimize themselves.
+>
+> **Purpose:** This document explains — in plain language — **what Vector is**, **what it does**, and **how it works** end‑to‑end. It focuses on concepts, agents, workflows, and outcomes (no development/tech plan).
+
+---
+
+## 1) What is Vector?
+
+Vector is a next‑generation **Trade Promotion Management (TPM)** platform for CPG and retail manufacturers. It **plans**, **optimizes**, **monitors**, and **settles** trade promotions with:
+
+* **Agentic automation** that can recommend or execute actions safely.
+* **Policy guardrails** that prevent bad decisions and standardize approvals.
+* **Evidence Packs** that compile all documents needed to resolve claims fast.
+* An **audit‑grade ledger** (the *Vector Ledger*) that explains every decision.
+
+**In short:** Vector turns fragmented, manual TPM work into a **closed‑loop system** where every step is explainable, reversible, and tied to measurable ROI.
+
+### Who uses Vector?
+
+* **Trade/Shopper Marketing:** plan promos, simulate scenarios, optimize ROI.
+* **Sales/Customer Teams:** align execution with customer constraints and calendars.
+* **Finance:** keep accruals accurate and resolve deductions with evidence.
+* **Data/Operations:** keep integrations healthy (ERP, POS, EDI, NIQ/Circana) and in SLA.
+* **Leadership:** see KPIs and the decisions that created them.
+
+### What outcomes should you expect?
+
+* **Higher ROI** on promotions (avoid unprofitable setups; correct drift mid‑flight).
+* **Lower leakage** through faster, evidenceable deduction recovery.
+* **Fewer errors** with policy‑aware automation and consistent approvals.
+* **Faster cycles** because agents handle repetitive work and surface only exceptions.
+
+---
+
+## 2) Core concepts (the mental model)
+
+* **Promotion:** A planned activity (price/feature/display, dates, SKUs, customer).
+* **Fund/Budget:** Money allocated to promotions with usage and caps.
+* **Accrual:** Expected spend tracked to the GL and recomputed as data lands.
+* **Claim/Deduction (812/short‑pay):** A retailer payment variance to resolve.
+* **Evidence Pack:** Contract excerpts, invoices, shipments (ASN), and policy cites — bundled for a claim or decision.
+* **Guardrail/Policy:** Rules (e.g., margin floors, budget caps, approvals) evaluated for any scenario or action.
+* **Vector Ledger:** An append‑only record; lets you recreate state *as of* any time and explain why a decision was made.
+* **Agent:** A focused, policy‑aware worker that senses, proposes, and/or performs actions.
+
+---
+
+## 3) Agents — What they are and how they behave
+
+All agents operate in **four modes**, set by the org or by policy per action:
+
+* **Assist:** drafts & explanations only.
+* **Recommend:** proposes actions with **expected value (EV)** and **confidence**.
+* **Auto + Approval:** queues safe actions; a human approves.
+* **Auto within Policy:** executes automatically when guardrails pass.
+
+Every agent:
+
+1. **Explains** the reason for a recommendation in plain language.
+2. **Checks policies** before doing anything.
+3. **Logs** results to the **Vector Ledger**.
+
+### Agent catalog (inputs → actions → outputs → safeguards)
+
+**1) Promo Agent (Optimization)**
+
+* *Inputs:* Plan vs. actuals, driver deltas (price, display, distribution, seasonality, competitor), elasticity/uplift models, policies.
+* *Actions:* Detect drift, simulate what‑ifs (e.g., −1% price + 1wk display), compute ΔROI, apply when safe.
+* *Outputs:* Scenario card with ROI delta + confidence; applied or routed.
+* *Safeguards:* Margin floor, budget cap, cross‑banner mix; English explanation of any rejection.
+
+**2) Claims/Deduction Agent (Settlement)**
+
+* *Inputs:* 812s, invoices, shipments (ASN), contracts, promotion IDs, accruals, policy refs.
+* *Actions:* Classify & match to promo/accrual; assemble **Evidence Pack**; compute expected recovery.
+* *Outputs:* Recovery proposal with EV/confidence; bulk actions for repeat patterns.
+* *Safeguards:* Dollar thresholds require **Auto + Approval**; tamper‑evident ledger.
+
+**3) Contract Intelligence Agent (Evidence)**
+
+* *Inputs:* PDFs/docs (contracts, trade terms), OCR text, metadata.
+* *Actions:* Extract eligible products, windows, exclusions; cite clauses; flag ambiguities.
+* *Outputs:* Contract excerpts with page anchors inside Evidence Packs.
+* *Safeguards:* Confidence scoring; human confirm for low confidence.
+
+**4) Accruals Agent (Accounting Integrity)**
+
+* *Inputs:* POS, shipments, invoices, promotion actuals, prior balances, accounting policy.
+* *Actions:* Recompute accruals; raise variances; propose GL postings.
+* *Outputs:* Recompute events, variance alerts, proposed postings.
+* *Safeguards:* Posted only in **Auto + Approval** or lower per policy; full explanation.
+
+**5) Integration Agent (SLA & Backfills)**
+
+* *Inputs:* Connector freshness, errors, schema diffs, volumes.
+* *Actions:* Detect lateness; run **Test**; launch **Backfill**; update lineage.
+* *Outputs:* SLA status, backfill progress, alerts.
+* *Safeguards:* Idempotent retries; quarantine on data‑quality issues.
+
+**6) Data Quality Agent (DQ)**
+
+* *Inputs:* Profiling, nulls/outliers, model drift, validation tests.
+* *Actions:* Flag issues; suggest fixes; downgrade other agents to safer modes if needed.
+* *Outputs:* DQ alerts; quarantine decisions.
+* *Safeguards:* Agents auto‑restrict to Assist/Recommend during DQ incidents.
+
+**7) Policy/Guardrail Agent**
+
+* *Inputs:* Central policy registry + scenario context.
+* *Actions:* Evaluate pass/fail; generate readable reasons; request approvals.
+* *Outputs:* `POLICY_CHECK_PASSED/FAILED` with explanations.
+* *Safeguards:* Overrides require role/threshold; all overrides logged with reason.
+
+**8) Executive Insights Agent (Digest)**
+
+* *Inputs:* KPIs, highlights, risks, big wins.
+* *Actions:* Summarize weekly what mattered and why; attribute impact to specific decisions.
+* *Outputs:* Email/Slack digest; ledger event with links to underlying decisions.
+* *Safeguards:* Read‑only; never executes actions.
+
+---
+
+## 4) How Vector works (the operating loop)
+
+A consistent loop powers both planning and settlement:
+
+**Sense → Explain → Simulate → Check → Act → Log → Learn**
+
+1. **Sense**: Ingest data (ERP, POS, EDI, syndicated) and compute health/drivers.
+2. **Explain**: Agents describe what changed and why it matters, in English.
+3. **Simulate**: Scenario Studio calculates ROI deltas for safe options.
+4. **Check**: Policies/guardrails run; unsafe options are blocked with reasons.
+5. **Act**: In Recommend or Auto modes, actions are queued or executed.
+6. **Log**: The Vector Ledger records the event, rationale, inputs, and outcomes.
+7. **Learn**: Future confidence calibrates from realized outcomes.
+
+This loop ensures **speed with safety**: fast enough to catch issues mid‑flight, strict enough to satisfy audit and finance.
+
+---
+
+## 5) End‑to‑end workflows (step‑by‑step with savings)
+
+### A) Fix drift on a live promotion (Promo Agent)
+
+**Goal:** Prevent margin erosion as conditions change.
+
+1. *Detect* — Live Health flags **PR‑4JUL** as Amber (Distribution −3, Competitor −5%).
+2. *Diagnose* — Promo Agent explains likely causes (conf 0.84).
+3. *Simulate* — Runs options: (a) +1wk display, (b) −1% price, (c) both; shows ΔROI.
+4. *Check* — Policy passes (c), fails (b) on margin floor.
+5. *Act* — In **Recommend**, user clicks **Apply**; in **Auto within Policy**, agent applies immediately.
+6. *Log* — `PROMO_SCENARIO_APPLIED` with rationale and expected impact.
+
+**Outcome:** Drift arrested within hours; typical **ROI lift +3–7%**.
+**Time saved:** \~2–3 hours per incident (no manual trending/approvals).
+
+---
+
+### B) Recover an invalid deduction (Claims/Deduction + Contract Intelligence)
+
+**Goal:** Increase recovery speed and win rate.
+
+1. *Ingest* — New 812 (`CL‑812‑0912`) auto‑matched to PR‑4JUL accrual.
+2. *Assemble* — Contract excerpts (§4.2), invoices, ASN compiled into **Evidence Pack** v1.
+3. *Propose* — EV \$22.3k @ 91% confidence; reasons: off‑invoice mismatch & shipment shortfall.
+4. *Check* — Policy requires **Auto + Approval** for >\$10k; routed to Finance.
+5. *Approve* — Finance approves; recovery posted with attachments.
+6. *Log* — `DEDUCTION_RECOVERY_APPROVED` recorded with evidence hashes.
+
+**Outcome:** Same‑day recovery; **higher win rate** via consistent evidence.
+**Time saved:** \~3–4 hours per claim.
+
+---
+
+### C) Repair a late POS feed (Integration Agent)
+
+**Goal:** Keep analytics and accruals fresh.
+
+1. *Detect* — NIQ POS shows **LATE (2d)**.
+2. *Self‑heal* — Agent runs **Test**, launches **Backfill** (idempotent).
+3. *Lineage* — Ledger updates sources/versions; recomputes queued.
+4. *Notify* — Health returns to OK; owners receive summary.
+
+**Outcome:** Avoids stale decisions; **saves 1–2 hours** of ad‑hoc ops.
+
+---
+
+### D) Create a safe new promotion (Promo Agent + Policy)
+
+**Goal:** Ship profitable, compliant promotions from the start.
+
+1. *Draft* — Planner enters customer/SKUs, dates, depth.
+2. *Check* — Policy validates budget, margin floor, cross‑banner mix; explains any fail.
+3. *Simulate* — Scenario Studio previews ROI variants; pick the best passing option.
+4. *Approve* — Routed per approval thresholds.
+5. *Activate* — Scheduled with integration pre‑checks.
+
+**Outcome:** Fewer mid‑flight corrections; faster approvals; predictable ROI.
+
+---
+
+## 6) Before/After — concrete example
+
+**Before Vector**
+
+* Planner sets −10% price without realizing margin floor is breached; Finance discovers after month‑end.
+* POS is late, accruals drift; claims arrive with weak support; recovery rate \~45%.
+
+**With Vector**
+
+* **At planning:** Guardrails block unsafe depth; Scenario Studio finds −6% price + 2wk display that passes and yields **1.28× ROI**.
+* **Mid‑flight:** Promo Agent detects competitor cut; suggests +1wk display; applied within policy the same day.
+* **Settlement:** Deduction Agent assembles Evidence Pack; **recovery win rate → 70%+**; accruals reconcile weekly.
+
+**Net effect (illustrative):** +4–8% promotion ROI, −30–50% cycle time, +20–30% recovery value.
+
+---
+
+## 7) What Vector *does not* do (scope)
+
+* It is **not** an ERP; it **integrates** with your ERP/warehouse/CRM.
+* It is **not** a generic BI tool; it ships with TPM‑specific analytics and evidence.
+* It **won’t auto‑act** outside policy; overrides always require roles/approvals and are logged.
+
+---
+
+## 8) Glossary (quick reference)
+
+* **ΔROI (ROI delta):** The change in expected ROI when a scenario is applied.
+* **Auto within Policy:** Agent executes without human approval only if all guardrails pass.
+* **Evidence Pack:** Bundle of contract/invoice/shipment/policy artifacts attached to a claim or decision.
+* **Guardrail:** A rule that must pass (e.g., margin floor, budget cap) for an action to proceed.
+* **Ledger (Vector Ledger):** Immutable sequence of decision events; enables *as‑of* replay.
+* **Drift:** Deviation from plan due to driver shifts (distribution, competitor moves, etc.).
+
+---
+
+### TL;DR
+
+Vector centralizes the TPM lifecycle with **agents** that **simulate, check, and act** under **guardrails**, producing **explainable decisions** and **evidence‑backed settlements**. The result is **higher ROI, lower leakage, fewer errors, and faster cycles** — with a complete audit trail for every step.
