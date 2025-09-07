@@ -112,12 +112,17 @@ export const Footer: React.FC = () => {
           <div>
             <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider playfair-display-600">Guides</h3>
             <ul className="space-y-3">
-              <li><FooterLink href="/guide/data-labeling">Data Labeling</FooterLink></li>
-              <li><FooterLink href="/guide/ml-training">ML Model Training</FooterLink></li>
-              <li><FooterLink href="/guide/ai-ecommerce">AI for eCommerce</FooterLink></li>
-              <li><FooterLink href="/guide/computer-vision">Computer Vision</FooterLink></li>
-              <li><FooterLink href="/guide/llm">Large Language Models</FooterLink></li>
+              <li><FooterLink href="/guide/trade-promotion-101">Trade Promotion 101</FooterLink></li>
+              <li><FooterLink href="/guide/scenario-roi-handbook">Scenario & ROI Handbook</FooterLink></li>
+              <li><FooterLink href="/guide/accruals-claims">Accruals & Claims</FooterLink></li>
+              <li><FooterLink href="/guide/evidence-packs">Evidence Packs</FooterLink></li>
+              <li><FooterLink href="/guide/guardrails-governance">Guardrails & Governance</FooterLink></li>
+              <li><FooterLink href="/guide/data-slas">Data & SLAs</FooterLink></li>
+              <li><FooterLink href="/guide/tpm-kpis">TPM KPIs</FooterLink></li>
             </ul>
+            <div className="mt-4">
+              <FooterLink href="/guides">All Guides →</FooterLink>
+            </div>
           </div>
 
           {/* FOLLOW US */}
