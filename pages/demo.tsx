@@ -196,7 +196,7 @@ export default function DemoPage() {
                     value={formData.company}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-[blue-600] focus:ring-1 focus:ring-[blue-600] playfair-display-400"
+                    className="w-full px-4 py-3 bg-white border border-black/10 rounded-lg text-black placeholder-black/50 focus:outline-none focus:border-[blue-600] focus:ring-1 focus:ring-[blue-600] playfair-display-400"
                     placeholder="Acme Corporation"
                   />
                 </div>
@@ -211,7 +211,7 @@ export default function DemoPage() {
                     value={formData.jobTitle}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-[blue-600] focus:ring-1 focus:ring-[blue-600] playfair-display-400"
+                    className="w-full px-4 py-3 bg-white border border-black/10 rounded-lg text-black placeholder-black/50 focus:outline-none focus:border-[blue-600] focus:ring-1 focus:ring-[blue-600] playfair-display-400"
                     placeholder="Trade Finance Manager"
                   />
                 </div>
@@ -260,7 +260,7 @@ export default function DemoPage() {
                           value={size}
                           checked={formData.companySize === size}
                           onChange={handleInputChange}
-                          className="w-4 h-4 text-[blue-600] bg-white/10 border-white/20 focus:ring-[blue-600]"
+                          className="w-4 h-4 text-[blue-600] bg-white border-black/20 focus:ring-[blue-600]"
                         />
                         <span className="playfair-display-400 text-black/70">{size}</span>
                       </label>
@@ -282,7 +282,7 @@ export default function DemoPage() {
                           value={spend}
                           checked={formData.tradeSpend === spend}
                           onChange={handleInputChange}
-                          className="w-4 h-4 text-[blue-600] bg-white/10 border-white/20 focus:ring-[blue-600]"
+                          className="w-4 h-4 text-[blue-600] bg-white border-black/20 focus:ring-[blue-600]"
                         />
                         <span className="playfair-display-400 text-black/70">{spend}</span>
                       </label>
@@ -312,7 +312,7 @@ export default function DemoPage() {
                           value={challenge}
                           checked={formData.currentChallenges.includes(challenge)}
                           onChange={handleCheckboxChange}
-                          className="w-4 h-4 text-[blue-600] bg-white/10 border-white/20 focus:ring-[blue-600] mt-1"
+                          className="w-4 h-4 text-[blue-600] bg-white border-black/20 focus:ring-[blue-600] mt-1"
                         />
                         <span className="playfair-display-400 text-black/70 text-sm">{challenge}</span>
                       </label>
@@ -333,12 +333,12 @@ export default function DemoPage() {
                     aria-label="Implementation timeline"
                     className="w-full px-4 py-3 bg-white border border-black/10 rounded-lg text-black focus:outline-none focus:border-[blue-600] focus:ring-1 focus:ring-[blue-600] playfair-display-400"
                   >
-                    <option value="" className="bg-gray-900">Select timeline</option>
-                    <option value="immediately" className="bg-gray-900">Immediately (0-3 months)</option>
-                    <option value="short-term" className="bg-gray-900">Short-term (3-6 months)</option>
-                    <option value="medium-term" className="bg-gray-900">Medium-term (6-12 months)</option>
-                    <option value="long-term" className="bg-gray-900">Long-term (12+ months)</option>
-                    <option value="exploring" className="bg-gray-900">Just exploring options</option>
+                    <option value="">Select timeline</option>
+                    <option value="immediately">Immediately (0-3 months)</option>
+                    <option value="short-term">Short-term (3-6 months)</option>
+                    <option value="medium-term">Medium-term (6-12 months)</option>
+                    <option value="long-term">Long-term (12+ months)</option>
+                    <option value="exploring">Just exploring options</option>
                   </select>
                 </div>
 
@@ -385,7 +385,7 @@ export default function DemoPage() {
               </div>
 
               {/* Right Side - Benefits & Social Proof Box */}
-              <div className="bg-white rounded-2xl border border-black/10 p-8 lg:p-12 shadow-sm">
+              <div className="bg-gray-50 rounded-2xl border border-black/10 p-8 lg:p-12 shadow-sm">
               <div className="mb-8">
                 <h2 className="text-3xl font-bold playfair-display-600 mb-4">
                   Why Leading CPG Companies Choose Vector

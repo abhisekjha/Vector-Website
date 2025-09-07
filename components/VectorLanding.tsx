@@ -624,7 +624,66 @@ export default function VectorLanding() {
               <div className="mt-6 flex flex-wrap gap-3">
                 <Button href="/demo" showLogo={true}>Book a demo <ArrowRight className="h-4 w-4" /></Button>
                 <Button href="/blog" variant="ghost">Read our blog <FileText className="h-4 w-4" /></Button>
-                <Button href="#onepager" variant="ghost">Download one‑pager <FileText className="h-4 w-4" /></Button>
+                <button 
+                  onClick={() => {
+                    // Create and download a simple text-based one-pager
+                    const onePagerContent = `
+VECTOR PLATFORM
+Trade Promotions That Optimize Themselves
+
+OVERVIEW
+Vector is the next-generation Trade Promotion Management platform that plans, optimizes, monitors, and settles trade promotions with agentic automation, policy guardrails, and an audit-grade ledger.
+
+KEY FEATURES
+• Eight Specialized AI Agents
+• Four Operating Modes: Assist, Recommend, Auto + Approval, Auto within Policy
+• Real-time Trade Health Monitoring
+• Audit-Grade Vector Ledger
+• Policy Engine with Guardrails
+• Integration Command Center
+
+OPERATING LOOP
+Sense → Explain → Simulate → Check → Act → Log → Learn
+
+AGENTS
+1. Promo Agent - Optimizes promotion parameters
+2. Claims/Deduction Agent - Handles settlement workflows
+3. Contract Intelligence Agent - Manages contract terms
+4. Accruals Agent - Tracks live balances
+5. Integration Agent - Manages data feeds
+6. Data Quality Agent - Ensures data integrity
+7. Policy/Guardrail Agent - Enforces business rules
+8. Executive Insights Agent - Provides strategic analytics
+
+BENEFITS
+• 3-5% ROI Lift through optimization
+• 90 Days to full implementation
+• Audit-Grade compliance & documentation
+• Real-time liability & health monitoring
+
+CONTACT
+Book a demo: /demo
+Learn more: /platform
+Read our blog: /blog
+
+© 2024 Vector Platform. All rights reserved.
+                    `;
+                    
+                    const blob = new Blob([onePagerContent], { type: 'text/plain' });
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'vector-one-pager.txt';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(url);
+                  }}
+                  className="inline-flex items-center gap-2 bg-white text-black border border-black/10 px-6 py-3 rounded-lg text-sm font-semibold playfair-display-600 hover:bg-black/5 transition-all duration-200"
+                >
+                  <FileText className="h-4 w-4" />
+                  Download one‑pager
+                </button>
               </div>
             </div>
             <div>
