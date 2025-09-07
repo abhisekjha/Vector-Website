@@ -609,14 +609,14 @@ export default function SurvivalGuide() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a 
                   href="/demo" 
-                  className="inline-flex items-center gap-2 bg-[blue-600] text-black px-8 py-4 rounded-full text-lg font-semibold playfair-display-600 hover:bg-[blue-600]/90 transition-colors duration-200"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-full text-lg font-semibold playfair-display-600 hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                 >
                   Schedule a Demo
                   <ArrowRight className="h-5 w-5" />
                 </a>
                 <a 
                   href="mailto:hello@vector.ai" 
-                  className="inline-flex items-center gap-2 border border-white/20 bg-white backdrop-blur px-8 py-4 rounded-full text-lg font-semibold playfair-display-600 hover:bg-white/20 transition-colors duration-200"
+                  className="inline-flex items-center gap-2 border border-black/10 bg-white px-8 py-4 rounded-full text-lg font-semibold playfair-display-600 hover:bg-black/5 transition-colors duration-200"
                 >
                   Contact Sales
                 </a>
