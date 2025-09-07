@@ -255,55 +255,69 @@ export default function SurvivalGuide() {
           </Container>
         </section>
 
-        {/* The Six Agents */}
+        {/* The Eight Agents */}
         <section className="py-16 bg-gray-50">
           <Container>
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-4xl font-semibold playfair-display-600 mb-12 text-center">The Six Agents</h2>
+              <h2 className="text-4xl font-semibold playfair-display-600 mb-12 text-center">The Eight Agents</h2>
               
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {[
                   {
                     name: "Promo Agent",
-                    purpose: "Optimizes trade promotions",
-                    triggers: "Budget changes, market shifts",
-                    actions: "Scenario modeling, approval routing",
+                    purpose: "Optimizes trade promotions and detects drift",
+                    triggers: "Budget changes, market shifts, variance thresholds",
+                    actions: "Scenario modeling, approval routing, what-if analysis",
                     icon: <Target className="h-6 w-6" />
                   },
                   {
                     name: "Deduction Agent",
-                    purpose: "Manages deduction recovery",
-                    triggers: "New deductions, evidence gaps",
-                    actions: "Evidence collection, dispute filing",
+                    purpose: "Manages deduction recovery and evidence bundling",
+                    triggers: "New deductions, evidence gaps, aging thresholds",
+                    actions: "Evidence collection, dispute filing, recovery matching",
                     icon: <FileText className="h-6 w-6" />
                   },
                   {
                     name: "Finance Agent",
-                    purpose: "Maintains live liability",
-                    triggers: "Accrual updates, period close",
-                    actions: "Balance reconciliation, GL export",
+                    purpose: "Maintains live liability and accrual management",
+                    triggers: "Accrual updates, period close, variance alerts",
+                    actions: "Balance reconciliation, GL export, audit packs",
                     icon: <BarChart3 className="h-6 w-6" />
                   },
                   {
-                    name: "Data Steward",
-                    purpose: "Ensures data quality",
-                    triggers: "Schema changes, data anomalies",
-                    actions: "Validation, enrichment, alerts",
+                    name: "Data Steward Agent",
+                    purpose: "Ensures data quality and MDM enforcement",
+                    triggers: "Schema changes, data anomalies, failed validations",
+                    actions: "Validation, enrichment, alerts, fix proposals",
                     icon: <Database className="h-6 w-6" />
                   },
                   {
-                    name: "Deal Desk",
-                    purpose: "Manages deal approvals",
-                    triggers: "New deals, policy violations",
-                    actions: "Approval routing, exception handling",
+                    name: "Deal Desk Agent",
+                    purpose: "Manages deal approvals and policy checking",
+                    triggers: "New deals, policy violations, risk thresholds",
+                    actions: "Approval routing, exception handling, risk assessment",
                     icon: <Users className="h-6 w-6" />
                   },
                   {
                     name: "Integration Agent",
-                    purpose: "Monitors system health",
-                    triggers: "Feed failures, SLA breaches",
-                    actions: "Auto-recovery, notifications",
+                    purpose: "Monitors system health and SLA management",
+                    triggers: "Feed failures, SLA breaches, schema changes",
+                    actions: "Auto-recovery, notifications, safe replay",
                     icon: <Globe className="h-6 w-6" />
+                  },
+                  {
+                    name: "Contract Intelligence Agent",
+                    purpose: "Processes contracts and manages evidence",
+                    triggers: "Contract upload, policy change, evidence request",
+                    actions: "OCR processing, clause extraction, evidence bundling",
+                    icon: <FileText className="h-6 w-6" />
+                  },
+                  {
+                    name: "Executive Insights Agent",
+                    purpose: "Provides strategic analytics and reporting",
+                    triggers: "Weekly review, KPI threshold, executive request",
+                    actions: "KPI analysis, impact attribution, trend analysis",
+                    icon: <Eye className="h-6 w-6" />
                   }
                 ].map((agent, i) => (
                   <div key={i} className="bg-white rounded-2xl p-6">

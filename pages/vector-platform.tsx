@@ -174,7 +174,7 @@ export default function VectorPlatform() {
                 </div>
                 <h3 className="text-xl font-semibold playfair-display-600 mb-4">Eight Specialized Agents</h3>
                 <p className="playfair-display-400 text-black/70 mb-4">
-                  Promo Agent (optimization), Claims/Deduction Agent (settlement), Contract Intelligence Agent (evidence), Accruals Agent (accounting), Integration Agent (SLA & backfills), Data Quality Agent (DQ), Policy/Guardrail Agent, and Executive Insights Agent (digest).
+                  Promo Agent (optimization), Deduction Agent (settlement), Finance Agent (accrual management), Data Steward Agent (data quality), Deal Desk Agent (policy checking), Integration Agent (SLA & backfills), Contract Intelligence Agent (evidence), and Executive Insights Agent (strategic analytics).
                 </p>
                 <ul className="space-y-2">
                   <li className="flex items-center gap-2 text-sm playfair-display-400 text-black/70">
