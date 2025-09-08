@@ -60,6 +60,7 @@ const agents: Agent[] = [
     name: 'Deal Desk Agent',
     purpose: 'Manages deal approvals and policy checking',
     icon: <Users className="h-5 w-5" />,
+    color: 'bg-red-500',
     status: 'idle'
   },
   {

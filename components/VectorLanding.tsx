@@ -774,14 +774,14 @@ Read our blog: /blog
         <Container>
           <div className="grid items-center gap-8 md:grid-cols-2">
             <div>
-              <h3 className="text-3xl font-semibold playfair-display-600">"The critical question isn't if or when to adopt AI in trade — it's how."</h3>
-              <p className="mt-3 text-black/70">A concise guide to starting with AI in trade spend: balancing automation with human expertise, governance you can trust, and pitfalls to avoid.</p>
-              <div className="mt-5"><Button href="#whitepaper">Download PDF <ArrowRight className="h-4 w-4" /></Button></div>
+              <h3 className="text-3xl font-semibold playfair-display-600">"Trade promotions that optimize themselves through agentic automation."</h3>
+              <p className="mt-3 text-black/70">A comprehensive guide to Vector's closed-loop TPM system: eight specialized agents, policy guardrails, audit-grade ledger, and measurable ROI outcomes.</p>
+              <div className="mt-5"><Button href="/platform">Learn more <ArrowRight className="h-4 w-4" /></Button></div>
             </div>
             <div className="rounded-3xl border border-black/10 bg-[#1c1c1c] p-6 text-white">
               <div className="rounded-2xl bg-white/10 p-8">
                 <div className="text-xl font-semibold">Vector Research</div>
-                <div className="mt-2 text-white/80">AI Imperative: A New Era for Trade Promotions</div>
+                <div className="mt-2 text-white/80">Agentic Automation: The Future of Trade Promotion Management</div>
               </div>
             </div>
           </div>

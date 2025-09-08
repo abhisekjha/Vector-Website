@@ -30,7 +30,7 @@ const agents: Agent[] = [
   },
   {
     name: 'Claims/Deduction Agent',
-    purpose: 'Settlement & evidence bundling',
+    purpose: 'Settlement & Evidence Pack assembly',
     icon: <FileText className="h-5 w-5" />,
     color: 'text-green-600',
     bgColor: 'bg-green-50',
@@ -136,8 +136,9 @@ export const AgentsSection: React.FC = () => {
           <div className="rounded-3xl border border-black/10 bg-gray-50 p-8 text-center">
             <h3 className="text-xl font-semibold text-gray-900 mb-4 playfair-display-600">Collaborative Intelligence</h3>
             <p className="text-gray-600 max-w-2xl mx-auto mb-6">
-              All eight agents work together seamlessly in Vector's operating loop, 
-              sharing insights and coordinating actions to deliver comprehensive trade promotion automation.
+              All eight agents work together seamlessly in Vector's operating loop: 
+              <strong> Sense → Explain → Simulate → Check → Act → Log → Learn</strong>. 
+              This ensures speed with safety: fast enough to catch issues mid-flight, strict enough to satisfy audit and finance.
             </p>
             <div className="flex flex-wrap justify-center gap-2">
               {['Planning', 'Settlement', 'Finance', 'Data', 'Compliance', 'Integration', 'Intelligence', 'Analytics'].map((category) => (

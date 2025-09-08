@@ -1,8 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Container } from "../ui/SharedComponents";
+import { 
+  TrendingUp, 
+  FileText, 
+  Shield, 
+  Users, 
+  Settings, 
+  BarChart3, 
+  Brain,
+  Database,
+  Zap,
+  Eye
+} from "lucide-react";
 
-// Enhanced Isometric Stack - keeping original style but with life
-const EnhancedIsometricStack: React.FC = () => {
+// Vector Platform Architecture - Enhanced with Vector-specific layers
+const VectorPlatformArchitecture: React.FC = () => {
   const [time, setTime] = useState(0);
 
   useEffect(() => {
@@ -16,15 +28,250 @@ const EnhancedIsometricStack: React.FC = () => {
   return (
     <div className="flex items-center justify-center">
       <div className="relative">
-        {/* Floating particles */}
-        <div className="absolute inset-0 w-[500px] h-[400px]">
-          {Array.from({ length: 8 }, (_, i) => {
-            const x = 20 + i * 15 + Math.sin(time + i) * 8;
-            const y = 20 + (i % 3) * 30 + Math.cos(time * 0.7 + i) * 6;
+        {/* Floating data particles */}
+        <div className="absolute inset-0 w-[600px] h-[500px]">
+          {Array.from({ length: 12 }, (_, i) => {
+            const x = 15 + i * 8 + Math.sin(time + i) * 6;
+            const y = 15 + (i % 4) * 25 + Math.cos(time * 0.8 + i) * 4;
             return (
               <div
                 key={i}
-                className="absolute w-1 h-1 bg-blue-400/40 rounded-full animate-pulse"
+                className="absolute w-1 h-1 bg-blue-400/30 rounded-full animate-pulse"
+                style={{
+                  left: `${x}%`,
+                  top: `${y}%`,
+                  animationDelay: `${i * 0.2}s`
+                }}
+              />
+            );
+          })}
+        </div>
+
+        {/* Vector Platform Architecture */}
+        <svg viewBox="0 0 700 600" className="h-[500px] w-[600px]">
+          <defs>
+            {/* Enhanced gradients for Vector layers */}
+            <linearGradient id="vectorAppGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#3b82f6" />
+              <stop offset="100%" stopColor="#1d4ed8" />
+            </linearGradient>
+            <linearGradient id="vectorAgentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#f59e0b" />
+              <stop offset="100%" stopColor="#d97706" />
+            </linearGradient>
+            <linearGradient id="vectorPolicyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#10b981" />
+              <stop offset="100%" stopColor="#059669" />
+            </linearGradient>
+            <linearGradient id="vectorLedgerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#8b5cf6" />
+              <stop offset="100%" stopColor="#7c3aed" />
+            </linearGradient>
+            <linearGradient id="vectorIntegrationGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#ef4444" />
+              <stop offset="100%" stopColor="#dc2626" />
+            </linearGradient>
+
+            {/* Enhanced shadows and effects */}
+            <filter id="vectorShadow">
+              <feDropShadow dx="3" dy="6" stdDeviation="4" floodColor="rgba(0,0,0,0.2)"/>
+            </filter>
+            <filter id="vectorGlow">
+              <feDropShadow dx="0" dy="0" stdDeviation="8" floodColor="rgba(59, 130, 246, 0.3)"/>
+            </filter>
+          </defs>
+          
+          {/* Bottom layer - Integrations (ERP, POS, EDI, NIQ/Circana) */}
+          <g>
+            <animateTransform
+              attributeName="transform"
+              type="translate"
+              values="60,450; 61,449; 60,450"
+              dur="5s"
+              repeatCount="indefinite"
+            />
+            <g transform="rotate(-30) skewX(30)">
+              <rect 
+                width="280" 
+                height="60" 
+                fill="url(#vectorIntegrationGradient)" 
+                rx="8"
+                filter="url(#vectorShadow)"
+                opacity="0.9"
+              />
+              <text x="140" y="38" textAnchor="middle" className="text-sm font-bold fill-white">
+                INTEGRATIONS
+              </text>
+              <text x="140" y="52" textAnchor="middle" className="text-xs fill-white/80">
+                ERP • POS • EDI • NIQ/Circana
+              </text>
+            </g>
+          </g>
+          
+          {/* Vector Ledger - Foundation layer */}
+          <g>
+            <animateTransform
+              attributeName="transform"
+              type="translate"
+              values="80,370; 81,369; 80,370"
+              dur="4.5s"
+              repeatCount="indefinite"
+            />
+            <g transform="rotate(-30) skewX(30)">
+              <rect 
+                width="260" 
+                height="60" 
+                fill="url(#vectorLedgerGradient)" 
+                rx="8"
+                filter="url(#vectorShadow)"
+                opacity="0.95"
+              />
+              <text x="130" y="38" textAnchor="middle" className="text-sm font-bold fill-white">
+                VECTOR LEDGER
+              </text>
+              <text x="130" y="52" textAnchor="middle" className="text-xs fill-white/80">
+                Audit-grade • Immutable • As-of replay
+              </text>
+            </g>
+          </g>
+          
+          {/* Policy & Guardrails Layer */}
+          <g>
+            <animateTransform
+              attributeName="transform"
+              type="translate"
+              values="100,290; 101,289; 100,290"
+              dur="4s"
+              repeatCount="indefinite"
+            />
+            <g transform="rotate(-30) skewX(30)">
+              <rect 
+                width="240" 
+                height="60" 
+                fill="url(#vectorPolicyGradient)" 
+                rx="8"
+                filter="url(#vectorShadow)"
+                opacity="0.9"
+              />
+              <text x="120" y="38" textAnchor="middle" className="text-sm font-bold fill-white">
+                POLICY & GUARDRAILS
+              </text>
+              <text x="120" y="52" textAnchor="middle" className="text-xs fill-white/80">
+                Margin floors • Budget caps • Approvals
+              </text>
+            </g>
+          </g>
+
+          {/* Eight Specialized Agents Layer */}
+          <g>
+            <animateTransform
+              attributeName="transform"
+              type="translate"
+              values="120,210; 121,209; 120,210"
+              dur="3.5s"
+              repeatCount="indefinite"
+            />
+            <g transform="rotate(-30) skewX(30)">
+              <rect 
+                width="220" 
+                height="60" 
+                fill="url(#vectorAgentGradient)" 
+                rx="8"
+                filter="url(#vectorShadow)"
+                opacity="0.95"
+              />
+              <text x="110" y="38" textAnchor="middle" className="text-sm font-bold fill-white">
+                EIGHT SPECIALIZED AGENTS
+              </text>
+              <text x="110" y="52" textAnchor="middle" className="text-xs fill-white/80">
+                Promo • Claims • Accruals • DQ • Policy • Integration • Contract • Insights
+              </text>
+            </g>
+          </g>
+          
+          {/* Top layer - Vector Applications */}
+          <g>
+            <animateTransform
+              attributeName="transform"
+              type="translate"
+              values="140,130; 141,129; 140,130"
+              dur="3s"
+              repeatCount="indefinite"
+            />
+            <g transform="rotate(-30) skewX(30)">
+              <rect 
+                width="200" 
+                height="60" 
+                fill="url(#vectorAppGradient)" 
+                rx="8"
+                filter="url(#vectorGlow)"
+                opacity="0.95"
+              />
+              <text x="100" y="38" textAnchor="middle" className="text-sm font-bold fill-white">
+                VECTOR APPLICATIONS
+              </text>
+              <text x="100" y="52" textAnchor="middle" className="text-xs fill-white/80">
+                Planning • Accruals • Claims • Settlement
+              </text>
+            </g>
+          </g>
+
+          {/* Operating Loop Visualization */}
+          <g transform="translate(450, 200)">
+            <circle cx="0" cy="0" r="80" fill="none" stroke="#3b82f6" strokeWidth="2" opacity="0.3">
+              <animate attributeName="stroke-dasharray" values="0,502;251,251;0,502" dur="4s" repeatCount="indefinite"/>
+            </circle>
+            <text x="0" y="-5" textAnchor="middle" className="text-xs font-semibold fill-blue-600">
+              OPERATING LOOP
+            </text>
+            <text x="0" y="8" textAnchor="middle" className="text-xs fill-blue-600">
+              Sense → Explain → Simulate
+            </text>
+            <text x="0" y="20" textAnchor="middle" className="text-xs fill-blue-600">
+              Check → Act → Log → Learn
+            </text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  );
+};
+
+// Vector Agent Ecosystem - Shows agent interactions and Evidence Packs
+const VectorAgentEcosystem: React.FC = () => {
+  const [time, setTime] = useState(0);
+
+  useEffect(() => {
+    const animate = () => {
+      setTime(prev => prev + 0.02);
+      requestAnimationFrame(animate);
+    };
+    animate();
+  }, []);
+
+  const agents = [
+    { name: 'Promo Agent', icon: TrendingUp, color: '#3b82f6', x: 100, y: 100 },
+    { name: 'Claims Agent', icon: FileText, color: '#10b981', x: 300, y: 100 },
+    { name: 'Accruals Agent', icon: BarChart3, color: '#8b5cf6', x: 500, y: 100 },
+    { name: 'Data Quality Agent', icon: Shield, color: '#f59e0b', x: 100, y: 250 },
+    { name: 'Policy Agent', icon: Users, color: '#ef4444', x: 300, y: 250 },
+    { name: 'Integration Agent', icon: Settings, color: '#06b6d4', x: 500, y: 250 },
+    { name: 'Contract Agent', icon: Brain, color: '#84cc16', x: 200, y: 400 },
+    { name: 'Insights Agent', icon: Eye, color: '#f97316', x: 400, y: 400 }
+  ];
+
+  return (
+    <div className="flex items-center justify-center">
+      <div className="relative">
+        {/* Floating evidence particles */}
+        <div className="absolute inset-0 w-[600px] h-[500px]">
+          {Array.from({ length: 8 }, (_, i) => {
+            const x = 20 + i * 15 + Math.sin(time + i) * 10;
+            const y = 20 + (i % 3) * 30 + Math.cos(time * 0.6 + i) * 8;
+            return (
+              <div
+                key={i}
+                className="absolute w-1.5 h-1.5 bg-green-400/40 rounded-full animate-pulse"
                 style={{
                   left: `${x}%`,
                   top: `${y}%`,
@@ -35,358 +282,121 @@ const EnhancedIsometricStack: React.FC = () => {
           })}
         </div>
 
-        {/* Clean Isometric layered diagram - matching second diagram style */}
-        <svg viewBox="0 0 600 500" className="h-[400px] w-[500px]">
+        <svg viewBox="0 0 700 600" className="h-[500px] w-[600px]">
           <defs>
-            {/* Gradients for each layer - same as second diagram */}
-            <linearGradient id="appGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#ef4444" />
-              <stop offset="100%" stopColor="#dc2626" />
-            </linearGradient>
-            <linearGradient id="advancedGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#f97316" />
-              <stop offset="100%" stopColor="#ea580c" />
-            </linearGradient>
-            <linearGradient id="configGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#10b981" />
-              <stop offset="100%" stopColor="#059669" />
-            </linearGradient>
-            <linearGradient id="platformGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#f59e0b" />
-              <stop offset="100%" stopColor="#d97706" />
-            </linearGradient>
-            <linearGradient id="integrationGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#3b82f6" />
-              <stop offset="100%" stopColor="#2563eb" />
-            </linearGradient>
-
-            {/* Subtle shadow - same as second diagram */}
-            <filter id="subtleShadow">
-              <feDropShadow dx="2" dy="4" stdDeviation="3" floodColor="rgba(0,0,0,0.15)"/>
+            <filter id="agentGlow">
+              <feDropShadow dx="0" dy="0" stdDeviation="6" floodColor="rgba(59, 130, 246, 0.4)"/>
+            </filter>
+            <filter id="evidenceGlow">
+              <feDropShadow dx="0" dy="0" stdDeviation="4" floodColor="rgba(16, 185, 129, 0.3)"/>
             </filter>
           </defs>
-          
-          {/* Bottom layer - Integrations */}
-          <g>
-            <animateTransform
-              attributeName="transform"
-              type="translate"
-              values="80,350; 81,349; 80,350"
-              dur="4s"
-              repeatCount="indefinite"
-            />
-            <g transform="rotate(-30) skewX(30)">
-              <rect 
-                width="240" 
-                height="50" 
-                fill="url(#integrationGradient)" 
-                rx="6"
-                filter="url(#subtleShadow)"
-                opacity="0.8"
-              />
-              <text x="120" y="32" textAnchor="middle" className="text-sm font-semibold fill-white">
-                INTEGRATIONS
-              </text>
-            </g>
-          </g>
-          
-          {/* Platform AI layer */}
-          <g>
-            <animateTransform
-              attributeName="transform"
-              type="translate"
-              values="100,280; 102,278; 100,280"
-              dur="3s"
-              repeatCount="indefinite"
-            />
-            <g transform="rotate(-30) skewX(30)">
-              <rect 
-                width="220" 
-                height="50" 
-                fill="url(#platformGradient)" 
-                rx="6"
-                filter="url(#subtleShadow)"
-                opacity="0.95"
-              />
-              <text x="110" y="32" textAnchor="middle" className="text-sm font-semibold fill-white">
-                PLATFORM AI
-              </text>
-            </g>
-          </g>
-          
-          {/* Configuration Layer */}
-          <g>
-            <animateTransform
-              attributeName="transform"
-              type="translate"
-              values="120,210; 121,209; 120,210"
-              dur="3.5s"
-              repeatCount="indefinite"
-            />
-            <g transform="rotate(-30) skewX(30)">
-              <rect 
-                width="200" 
-                height="50" 
-                fill="url(#configGradient)" 
-                rx="6"
-                filter="url(#subtleShadow)"
-                opacity="0.9"
-              />
-              <text x="100" y="32" textAnchor="middle" className="text-sm font-semibold fill-white">
-                CONFIGURATION LAYER
-              </text>
-            </g>
+
+          {/* Vector Ledger at the center */}
+          <g transform="translate(300, 300)">
+            <circle cx="0" cy="0" r="60" fill="#8b5cf6" opacity="0.9" filter="url(#agentGlow)">
+              <animate attributeName="r" values="60;65;60" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <text x="0" y="-5" textAnchor="middle" className="text-xs font-bold fill-white">
+              VECTOR
+            </text>
+            <text x="0" y="8" textAnchor="middle" className="text-xs font-bold fill-white">
+              LEDGER
+            </text>
+            <text x="0" y="20" textAnchor="middle" className="text-xs fill-white/80">
+              Audit Trail
+            </text>
           </g>
 
-          {/* Advanced layer */}
-          <g>
-            <animateTransform
-              attributeName="transform"
-              type="translate"
-              values="140,140; 141,139; 140,140"
-              dur="2.5s"
-              repeatCount="indefinite"
-            />
-            <g transform="rotate(-30) skewX(30)">
-              <rect 
-                width="180" 
-                height="50" 
-                fill="url(#advancedGradient)" 
-                rx="6"
-                filter="url(#subtleShadow)"
-                opacity="0.9"
-              />
-              <text x="90" y="32" textAnchor="middle" className="text-sm font-semibold fill-white">
-                ADVANCED
-              </text>
-            </g>
-          </g>
-          
-          {/* Top layer - Applications */}
-          <g>
-            <animateTransform
-              attributeName="transform"
-              type="translate"
-              values="160,70; 161,69; 160,70"
-              dur="2s"
-              repeatCount="indefinite"
-            />
-            <g transform="rotate(-30) skewX(30)">
-              <rect 
-                width="160" 
-                height="50" 
-                fill="url(#appGradient)" 
-                rx="6"
-                filter="url(#subtleShadow)"
-                opacity="0.9"
-              />
-              <text x="80" y="32" textAnchor="middle" className="text-sm font-semibold fill-white">
-                APPLICATIONS
-              </text>
-            </g>
-          </g>
-        </svg>
-      </div>
-    </div>
-  );
-};
-
-// Enhanced AI Platform with subtle callout animation
-const EnhancedAIPlatformIsometric: React.FC = () => {
-  return (
-    <div className="flex items-center justify-center">
-      <div className="relative">
-        {/* Floating particles */}
-        <div className="absolute inset-0 w-[500px] h-[400px]">
-          {Array.from({ length: 6 }, (_, i) => (
-            <div
-              key={i}
-              className="absolute w-1.5 h-1.5 bg-orange-400/60 rounded-full animate-pulse"
-              style={{
-                left: `${30 + i * 12}%`,
-                top: `${40 + (i % 2) * 20}%`,
-                animationDelay: `${i * 0.4}s`
-              }}
-            />
-          ))}
-        </div>
-
-        {/* Clean Isometric diagram with Platform AI highlight and better spacing */}
-        <svg viewBox="0 0 600 500" className="h-[400px] w-[500px]">
-          <defs>
-            {/* Enhanced gradients */}
-            <linearGradient id="appGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#ef4444" />
-              <stop offset="100%" stopColor="#dc2626" />
-            </linearGradient>
-            <linearGradient id="configGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#10b981" />
-              <stop offset="100%" stopColor="#059669" />
-            </linearGradient>
-            <linearGradient id="platformGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#f59e0b" />
-              <stop offset="100%" stopColor="#d97706" />
-            </linearGradient>
-            <linearGradient id="integrationGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#3b82f6" />
-              <stop offset="100%" stopColor="#2563eb" />
-            </linearGradient>
-
-            {/* Enhanced glow for Platform AI */}
-            <filter id="platformGlow">
-              <feDropShadow dx="2" dy="4" stdDeviation="4" floodColor="rgba(245, 158, 11, 0.4)"/>
-            </filter>
+          {/* Agent nodes */}
+          {agents.map((agent, index) => {
+            const IconComponent = agent.icon;
+            const angle = (index * 45) * Math.PI / 180;
+            const radius = 120;
+            const x = 300 + Math.cos(angle) * radius;
+            const y = 300 + Math.sin(angle) * radius;
             
-            <filter id="subtleShadow2">
-              <feDropShadow dx="2" dy="4" stdDeviation="3" floodColor="rgba(0,0,0,0.15)"/>
-            </filter>
-          </defs>
-          
-          {/* Bottom layer - Integrations with clean spacing */}
-          <g>
-            <animateTransform
-              attributeName="transform"
-              type="translate"
-              values="80,350; 81,349; 80,350"
-              dur="4s"
-              repeatCount="indefinite"
-            />
-            <g transform="rotate(-30) skewX(30)">
-              <rect 
-                width="240" 
-                height="50" 
-                fill="url(#integrationGradient2)" 
-                rx="6"
-                filter="url(#subtleShadow2)"
-                opacity="0.8"
-              />
-              <text x="120" y="32" textAnchor="middle" className="text-sm font-semibold fill-white">
-                INTEGRATIONS
-              </text>
-            </g>
-          </g>
-          
-          {/* Platform AI layer - HIGHLIGHTED with enhanced spacing */}
-          <g>
-            <animateTransform
-              attributeName="transform"
-              type="translate"
-              values="100,280; 102,278; 100,280"
-              dur="3s"
-              repeatCount="indefinite"
-            />
-            <g transform="rotate(-30) skewX(30)">
-              <rect 
-                width="220" 
-                height="50" 
-                fill="url(#platformGradient2)" 
-                rx="6"
-                filter="url(#platformGlow)"
-                opacity="0.95"
-              />
-              {/* Enhanced pulsing glow */}
-              <rect width="220" height="50" fill="rgba(245, 158, 11, 0.3)" rx="6">
-                <animate attributeName="opacity" values="0.2;0.5;0.2" dur="2s" repeatCount="indefinite"/>
-              </rect>
-              <text x="110" y="32" textAnchor="middle" className="text-sm font-semibold fill-white">
-                PLATFORM AI
-              </text>
-            </g>
-          </g>
-          
-          {/* Configuration Layer with clean spacing */}
-          <g>
-            <animateTransform
-              attributeName="transform"
-              type="translate"
-              values="120,210; 121,209; 120,210"
-              dur="3.5s"
-              repeatCount="indefinite"
-            />
-            <g transform="rotate(-30) skewX(30)">
-              <rect 
-                width="200" 
-                height="50" 
-                fill="url(#configGradient2)" 
-                rx="6"
-                filter="url(#subtleShadow2)"
-                opacity="0.9"
-              />
-              <text x="100" y="32" textAnchor="middle" className="text-sm font-semibold fill-white">
-                CONFIGURATION LAYER
-              </text>
-            </g>
-          </g>
-          
-          {/* Top layer - Applications with clean spacing */}
-          <g>
-            <animateTransform
-              attributeName="transform"
-              type="translate"
-              values="140,140; 141,139; 140,140"
-              dur="2.5s"
-              repeatCount="indefinite"
-            />
-            <g transform="rotate(-30) skewX(30)">
-              <rect 
-                width="180" 
-                height="50" 
-                fill="url(#appGradient2)" 
-                rx="6"
-                filter="url(#subtleShadow2)"
-                opacity="0.9"
-              />
-              <text x="90" y="32" textAnchor="middle" className="text-sm font-semibold fill-white">
-                APPLICATIONS
-              </text>
-            </g>
-          </g>
-          
-          {/* Clean callout for Platform AI */}
-          <g transform="translate(400, 200)">
-            <rect 
-              width="150" 
-              height="80" 
-              fill="white" 
-              stroke="#e5e7eb" 
-              strokeWidth="1" 
-              rx="8"
-              opacity="0.95"
-              filter="url(#subtleShadow2)"
-            />
-            <text x="75" y="20" textAnchor="middle" className="text-sm font-semibold fill-black">
-              PLATFORM AI
+            return (
+              <g key={agent.name} transform={`translate(${x}, ${y})`}>
+                {/* Agent circle */}
+                <circle cx="0" cy="0" r="35" fill={agent.color} opacity="0.9" filter="url(#agentGlow)">
+                  <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" repeatCount="indefinite"/>
+                </circle>
+                
+                {/* Agent icon */}
+                <g transform="translate(-8, -8)">
+                  <IconComponent className="h-4 w-4 fill-white" />
+                </g>
+                
+                {/* Agent name */}
+                <text x="0" y="25" textAnchor="middle" className="text-xs font-semibold fill-white">
+                  {agent.name.split(' ')[0]}
+                </text>
+                
+                {/* Connection line to Vector Ledger */}
+                <line 
+                  x1="0" y1="0" 
+                  x2={300 - x} y2={300 - y} 
+                  stroke={agent.color} 
+                  strokeWidth="2" 
+                  opacity="0.6"
+                >
+                  <animate attributeName="stroke-dasharray" values="0,100;50,50;0,100" dur="3s" repeatCount="indefinite"/>
+                </line>
+              </g>
+            );
+          })}
+
+          {/* Evidence Pack visualization */}
+          <g transform="translate(50, 50)">
+            <rect width="120" height="80" fill="#10b981" opacity="0.9" rx="8" filter="url(#evidenceGlow)">
+              <animate attributeName="opacity" values="0.9;1;0.9" dur="2.5s" repeatCount="indefinite"/>
+            </rect>
+            <text x="60" y="20" textAnchor="middle" className="text-xs font-bold fill-white">
+              EVIDENCE PACK
             </text>
-            <text x="75" y="38" textAnchor="middle" className="text-xs fill-black/70">
-              LLMs trained on
+            <text x="60" y="35" textAnchor="middle" className="text-xs fill-white/80">
+              Contract excerpts
             </text>
-            <text x="75" y="52" textAnchor="middle" className="text-xs fill-black/70">
-              logistics documents
+            <text x="60" y="48" textAnchor="middle" className="text-xs fill-white/80">
+              Invoices • ASN
             </text>
-            <g transform="translate(15, 60)">
-              <circle r="2" fill="#f59e0b">
-                <animate attributeName="opacity" values="0.5;1;0.5" dur="1.5s" repeatCount="indefinite"/>
-              </circle>
-              <text x="8" y="4" className="text-xs fill-orange-600">Processing documents</text>
-            </g>
+            <text x="60" y="61" textAnchor="middle" className="text-xs fill-white/80">
+              Policy cites
+            </text>
           </g>
-          
-          {/* Clean animated arrow pointing to Platform AI */}
-          <path 
-            d="M 350 305 L 400 240" 
-            stroke="#6b7280" 
-            strokeWidth="2" 
-            markerEnd="url(#arrowhead2)"
-            opacity="0.7"
-          >
-            <animate attributeName="stroke-dasharray" values="0,12;12,0" dur="2s" repeatCount="indefinite"/>
-          </path>
-          
-          <defs>
-            <marker id="arrowhead2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-              <polygon points="0 0, 10 3.5, 0 7" fill="#6b7280"/>
-            </marker>
-          </defs>
+
+          {/* Operating modes callout */}
+          <g transform="translate(500, 50)">
+            <rect width="140" height="100" fill="white" stroke="#e5e7eb" strokeWidth="1" rx="8" opacity="0.95">
+              <animate attributeName="opacity" values="0.95;1;0.95" dur="3s" repeatCount="indefinite"/>
+            </rect>
+            <text x="70" y="20" textAnchor="middle" className="text-xs font-bold fill-black">
+              OPERATING MODES
+            </text>
+            <text x="70" y="35" textAnchor="middle" className="text-xs fill-black/70">
+              Assist
+            </text>
+            <text x="70" y="48" textAnchor="middle" className="text-xs fill-black/70">
+              Recommend
+            </text>
+            <text x="70" y="61" textAnchor="middle" className="text-xs fill-black/70">
+              Auto + Approval
+            </text>
+            <text x="70" y="74" textAnchor="middle" className="text-xs fill-black/70">
+              Auto within Policy
+            </text>
+          </g>
+
+          {/* Data flow arrows */}
+          <g transform="translate(200, 150)">
+            <path d="M 0 0 Q 50 25 100 0" stroke="#3b82f6" strokeWidth="2" fill="none" opacity="0.7">
+              <animate attributeName="stroke-dasharray" values="0,150;75,75;0,150" dur="4s" repeatCount="indefinite"/>
+            </path>
+            <text x="50" y="-5" textAnchor="middle" className="text-xs fill-blue-600">
+              Data Flow
+            </text>
+          </g>
         </svg>
       </div>
     </div>
@@ -396,54 +406,61 @@ const EnhancedAIPlatformIsometric: React.FC = () => {
 export const PlatformSection: React.FC = () => {
   return (
     <>
-      {/* One platform, Multiple solutions - Enhanced Isometric */}
+      {/* Vector Platform Architecture */}
       <section className="border-t border-black/10 py-16">
         <Container>
           <div className="grid gap-10 lg:grid-cols-[1fr,1fr] items-center">
-            {/* Left side - Enhanced Isometric Stack */}
+            {/* Left side - Vector Platform Architecture */}
             <div className="flex items-center justify-center">
-              <EnhancedIsometricStack />
+              <VectorPlatformArchitecture />
             </div>
             
             {/* Right side - Text */}
             <div>
               <h2 className="mb-6 text-3xl font-semibold sm:text-4xl playfair-display-600">
-                One platform, Multiple solutions—built on AI
+                Built on Vector's opinionated foundation
               </h2>
               <p className="mb-4 text-black/70">
-                Vector transforms trade operations by automating workflows across the entire promotion lifecycle. 
-                The Planning, Accruals, and Claims solutions are seamlessly integrated, designed from the ground up 
-                with AI at their core—not as an afterthought.
+                Vector transforms trade operations with a comprehensive architecture built on five core pillars: 
+                Agentic Core, Vector Ledger, Policy-as-Code, Lineage & Observability, and Connectors & Composability.
+              </p>
+              <p className="mb-4 text-black/70">
+                The Vector Ledger provides an audit-grade record that explains every decision, while the eight specialized agents 
+                work together in the operating loop: <strong>Sense → Explain → Simulate → Check → Act → Log → Learn</strong>.
               </p>
               <p className="text-black/70">
-                With Vector, you get a comprehensive, AI-powered system that handles all your needs in one place.
+                This ensures speed with safety: fast enough to catch issues mid-flight, strict enough to satisfy audit and finance.
               </p>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* Benefit at immense scale - Enhanced Isometric */}
+      {/* Vector Agent Ecosystem */}
       <section className="border-t border-black/10 bg-white py-16">
         <Container>
           <div className="grid gap-10 lg:grid-cols-[1fr,1fr] items-center">
-            {/* Left side - Enhanced AI Platform Isometric */}
+            {/* Left side - Vector Agent Ecosystem */}
             <div className="flex items-center justify-center">
-              <EnhancedAIPlatformIsometric />
+              <VectorAgentEcosystem />
             </div>
             
             {/* Right side - Text */}
             <div>
               <h2 className="mb-6 text-3xl font-semibold sm:text-4xl playfair-display-600">
-                Benefit at immense scale
+                Eight specialized agents working in harmony
               </h2>
               <p className="mb-4 text-black/70">
-                The Platform AI layer uses Large Language Models (LLMs) trained on logistics-specific documents 
-                to identify document types, content, and conversion formats (units of measure, currencies, time zones).
+                Each agent specializes in a specific aspect of trade promotion management, all connected through the Vector Ledger 
+                and working together to deliver comprehensive automation and insights.
+              </p>
+              <p className="mb-4 text-black/70">
+                The Claims/Deduction Agent assembles Evidence Packs that compile all documents needed to resolve claims fast, 
+                while the Promo Agent detects drift and simulates scenarios to optimize ROI.
               </p>
               <p className="text-black/70">
-                Platform AI allows customers to benefit from the vast scale and high quality of trained data, 
-                capable of processing hundreds of documents per second to enhance operational efficiency.
+                All agents operate in four modes: Assist, Recommend, Auto + Approval, and Auto within Policy—ensuring 
+                human oversight where needed while maximizing automation where safe.
               </p>
             </div>
           </div>

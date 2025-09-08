@@ -61,7 +61,7 @@ export default function VectorPlatform() {
               <div className="mb-8">
                 <p className="text-2xl playfair-display-500 text-black/80 mb-2">Direction. Magnitude. ROI.</p>
                 <p className="text-lg playfair-display-400 text-black/70 max-w-3xl mx-auto">
-                  Vector is the next-generation Trade Promotion Management platform that plans, optimizes, monitors, and settles trade promotions with agentic automation, policy guardrails, and an audit-grade ledger.
+                  Vector is a next-generation Trade Promotion Management (TPM) platform for CPG and retail manufacturers. It plans, optimizes, monitors, and settles trade promotions with agentic automation, policy guardrails, Evidence Packs, and an audit-grade Vector Ledger.
                 </p>
               </div>
               
@@ -126,7 +126,7 @@ export default function VectorPlatform() {
                 </div>
                 <h3 className="text-xl font-semibold playfair-display-600 mb-4">Accruals & Claims</h3>
                 <p className="playfair-display-400 text-black/70 mb-4">
-                  Automated accrual management and claims processing with audit-grade documentation.
+                  Automated accrual management and claims processing with Evidence Packs that compile all documents needed to resolve claims fast.
                 </p>
                 <ul className="space-y-2">
                   <li className="flex items-center gap-2 text-sm playfair-display-400 text-black/70">
@@ -135,11 +135,11 @@ export default function VectorPlatform() {
                   </li>
                   <li className="flex items-center gap-2 text-sm playfair-display-400 text-black/70">
                     <CheckCircle2 className="h-4 w-4 text-green-600" />
-                    Claims validation
+                    Evidence Pack assembly
                   </li>
                   <li className="flex items-center gap-2 text-sm playfair-display-400 text-black/70">
                     <CheckCircle2 className="h-4 w-4 text-green-600" />
-                    Audit trail generation
+                    Higher recovery win rates
                   </li>
                 </ul>
               </div>
@@ -174,7 +174,7 @@ export default function VectorPlatform() {
                 </div>
                 <h3 className="text-xl font-semibold playfair-display-600 mb-4">Eight Specialized Agents</h3>
                 <p className="playfair-display-400 text-black/70 mb-4">
-                  Promo Agent (optimization), Deduction Agent (settlement), Finance Agent (accrual management), Data Steward Agent (data quality), Deal Desk Agent (policy checking), Integration Agent (SLA & backfills), Contract Intelligence Agent (evidence), and Executive Insights Agent (strategic analytics).
+                  Promo Agent (optimization), Claims/Deduction Agent (settlement), Accruals Agent (accounting integrity), Data Quality Agent (DQ), Policy/Guardrail Agent (policy evaluation), Integration Agent (SLA & backfills), Contract Intelligence Agent (evidence), and Executive Insights Agent (weekly digest).
                 </p>
                 <ul className="space-y-2">
                   <li className="flex items-center gap-2 text-sm playfair-display-400 text-black/70">
@@ -198,20 +198,20 @@ export default function VectorPlatform() {
                 </div>
                 <h3 className="text-xl font-semibold playfair-display-600 mb-4">Security & Compliance</h3>
                 <p className="playfair-display-400 text-black/70 mb-4">
-                  Enterprise-grade security with comprehensive compliance and audit capabilities.
+                  Enterprise-grade security with the Vector Ledger providing an audit-grade record that explains every decision.
                 </p>
                 <ul className="space-y-2">
                   <li className="flex items-center gap-2 text-sm playfair-display-400 text-black/70">
                     <CheckCircle2 className="h-4 w-4 text-red-600" />
-                    SOC 2 compliance
+                    Vector Ledger audit trail
                   </li>
                   <li className="flex items-center gap-2 text-sm playfair-display-400 text-black/70">
                     <CheckCircle2 className="h-4 w-4 text-red-600" />
-                    End-to-end encryption
+                    Policy guardrails
                   </li>
                   <li className="flex items-center gap-2 text-sm playfair-display-400 text-black/70">
                     <CheckCircle2 className="h-4 w-4 text-red-600" />
-                    Audit-grade logging
+                    Explainable decisions
                   </li>
                 </ul>
               </div>
@@ -222,20 +222,20 @@ export default function VectorPlatform() {
                 </div>
                 <h3 className="text-xl font-semibold playfair-display-600 mb-4">Analytics & ROI</h3>
                 <p className="playfair-display-400 text-black/70 mb-4">
-                  Comprehensive analytics and ROI tracking to measure your success.
+                  Comprehensive analytics delivering higher ROI, lower leakage, fewer errors, and faster cycles.
                 </p>
                 <ul className="space-y-2">
                   <li className="flex items-center gap-2 text-sm playfair-display-400 text-black/70">
                     <CheckCircle2 className="h-4 w-4 text-yellow-600" />
-                    ROI dashboards
+                    Higher ROI on promotions
                   </li>
                   <li className="flex items-center gap-2 text-sm playfair-display-400 text-black/70">
                     <CheckCircle2 className="h-4 w-4 text-yellow-600" />
-                    Performance metrics
+                    Lower leakage through faster recovery
                   </li>
                   <li className="flex items-center gap-2 text-sm playfair-display-400 text-black/70">
                     <CheckCircle2 className="h-4 w-4 text-yellow-600" />
-                    Predictive analytics
+                    Fewer errors with policy-aware automation
                   </li>
                 </ul>
               </div>
@@ -251,7 +251,7 @@ export default function VectorPlatform() {
                 Ready to Transform Your Trade Operations?
               </h2>
               <p className="text-xl playfair-display-400 text-black/80 mb-8">
-                Schedule a demo to see Vector Platform in action and discover how we can help you achieve measurable ROI improvements.
+                Schedule a demo to see Vector Platform in action and discover how we can help you achieve higher ROI, lower leakage, fewer errors, and faster cycles with a complete audit trail for every step.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

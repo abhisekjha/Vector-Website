@@ -25,8 +25,8 @@ export const PillarsSection: React.FC = () => {
           />
           <PillarCard
             icon={<Database className="h-6 w-6 text-black" />}
-            title="Audit-grade Ledger"
-            description="Append-only events, replay 'as-of' states for accruals/claims/approvals."
+            title="Vector Ledger"
+            description="An append-only record that lets you recreate state as-of any time and explain why a decision was made."
             features={[
               "Immutable event sourcing",
               "As-of reporting",

@@ -83,7 +83,7 @@ export const HeroSection: React.FC = () => {
               AI‑powered workflow automation for <span className="whitespace-nowrap">CPG trade</span>
             </h2>
             <p className="mt-4 max-w-xl text-lg text-black/70 playfair-display-400">
-              Drive efficiency, growth, and customer value across the promotion lifecycle. From Planning & Accruals to Claims & Settlement, Vector streamlines operations with policy‑bound autonomy.
+              Vector turns fragmented, manual TPM work into a closed‑loop system where every step is explainable, reversible, and tied to measurable ROI. From Planning & Accruals to Claims & Settlement with Evidence Packs.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <CTAButton href="/demo">Book a demo</CTAButton>
