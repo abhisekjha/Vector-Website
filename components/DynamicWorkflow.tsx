@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Play, Pause, RotateCcw, CheckCircle, AlertCircle, Brain, Zap, Shield, FileText, BarChart3, Settings, Users, TrendingUp } from 'lucide-react';
+import { CheckCircle, AlertCircle, Brain, Zap, Shield, FileText, BarChart3, Settings, Users, TrendingUp } from 'lucide-react';
 
 interface WorkflowStep {
   id: string;
@@ -91,59 +91,18 @@ const agentIcons: { [key: string]: React.ReactNode } = {
 
 export const DynamicWorkflow: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [showDetails, setShowDetails] = useState(false);
+  const [showDetails, setShowDetails] = useState(true);
 
   useEffect(() => {
-    let interval: NodeJS.Timeout;
-    if (isPlaying) {
-      interval = setInterval(() => {
-        setCurrentStep((prev) => (prev + 1) % workflowSteps.length);
-      }, 3000);
-    }
+    const interval = setInterval(() => {
+      setCurrentStep((prev) => (prev + 1) % workflowSteps.length);
+    }, 3000);
+    
     return () => clearInterval(interval);
-  }, [isPlaying]);
-
-  const handlePlayPause = () => {
-    setIsPlaying(!isPlaying);
-  };
-
-  const handleReset = () => {
-    setCurrentStep(0);
-    setIsPlaying(false);
-  };
-
-  const handleStepClick = (stepIndex: number) => {
-    setCurrentStep(stepIndex);
-    setIsPlaying(false);
-  };
+  }, []);
 
   return (
     <div className="w-full max-w-6xl mx-auto">
-      {/* Controls */}
-      <div className="flex items-center justify-center gap-4 mb-8">
-        <button
-          onClick={handlePlayPause}
-          className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
-        >
-          {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
-          {isPlaying ? 'Pause' : 'Play'} Demo
-        </button>
-        <button
-          onClick={handleReset}
-          className="flex items-center gap-2 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
-        >
-          <RotateCcw className="h-4 w-4" />
-          Reset
-        </button>
-        <button
-          onClick={() => setShowDetails(!showDetails)}
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-        >
-          <Brain className="h-4 w-4" />
-          {showDetails ? 'Hide' : 'Show'} Details
-        </button>
-      </div>
 
       {/* Workflow Steps */}
       <div className="relative">
@@ -154,21 +113,22 @@ export const DynamicWorkflow: React.FC = () => {
           {workflowSteps.map((step, index) => (
             <div key={step.id} className="relative z-10">
               {/* Step Circle */}
-              <button
-                onClick={() => handleStepClick(index)}
+              <div
                 className={`w-16 h-16 rounded-full border-4 transition-all duration-500 flex items-center justify-center ${
-                  index <= currentStep
+                  index === currentStep
+                    ? `${step.color} border-white text-white shadow-lg scale-110`
+                    : index < currentStep
                     ? `${step.color} border-white text-white shadow-lg`
-                    : 'bg-white border-gray-300 text-gray-400 hover:border-gray-400'
+                    : 'bg-white border-gray-300 text-gray-400'
                 }`}
               >
                 {step.icon}
-              </button>
+              </div>
               
               {/* Step Label */}
               <div className="mt-3 text-center">
-                <div className={`text-sm font-semibold ${
-                  index <= currentStep ? 'text-gray-900' : 'text-gray-500'
+                <div className={`text-sm font-semibold transition-colors duration-300 ${
+                  index === currentStep ? 'text-gray-900' : index < currentStep ? 'text-gray-700' : 'text-gray-500'
                 }`}>
                   {step.title}
                 </div>
@@ -192,30 +152,28 @@ export const DynamicWorkflow: React.FC = () => {
               {workflowSteps[currentStep].description}
             </p>
             
-            {showDetails && (
-              <div className="space-y-4">
-                {/* Active Agents */}
-                <div>
-                  <h4 className="text-sm font-semibold text-gray-700 mb-2">Active Agents:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {workflowSteps[currentStep].agents.map((agent) => (
-                      <div key={agent} className="flex items-center gap-2 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
-                        {agentIcons[agent]}
-                        {agent}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                
-                {/* Example */}
-                <div>
-                  <h4 className="text-sm font-semibold text-gray-700 mb-2">Example:</h4>
-                  <div className="p-3 bg-gray-100 rounded-lg text-sm text-gray-700">
-                    {workflowSteps[currentStep].example}
-                  </div>
+            <div className="space-y-4">
+              {/* Active Agents */}
+              <div>
+                <h4 className="text-sm font-semibold text-gray-700 mb-2">Active Agents:</h4>
+                <div className="flex flex-wrap gap-2">
+                  {workflowSteps[currentStep].agents.map((agent) => (
+                    <div key={agent} className="flex items-center gap-2 px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
+                      {agentIcons[agent]}
+                      {agent}
+                    </div>
+                  ))}
                 </div>
               </div>
-            )}
+              
+              {/* Example */}
+              <div>
+                <h4 className="text-sm font-semibold text-gray-700 mb-2">Example:</h4>
+                <div className="p-3 bg-gray-100 rounded-lg text-sm text-gray-700">
+                  {workflowSteps[currentStep].example}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -227,7 +185,7 @@ export const DynamicWorkflow: React.FC = () => {
             <div
               key={index}
               className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-                index <= currentStep ? 'bg-purple-600' : 'bg-gray-300'
+                index === currentStep ? 'bg-purple-600 scale-125' : index < currentStep ? 'bg-purple-500' : 'bg-gray-300'
               }`}
             />
           ))}

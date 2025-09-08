@@ -28,7 +28,7 @@ export default function VectorPlatform() {
   return (
     <>
       <Head>
-        <title>Vector Platform — AI-Powered Trade Automation</title>
+        <title>Vector — AI-Powered Trade Automation</title>
         <meta name="description" content="Vector Platform: The comprehensive AI-powered trade automation solution for CPG companies. Plan, optimize, and settle with real-time intelligence." />
       </Head>
       

@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import { SimpleDynamicWorkflow } from "@/components/SimpleDynamicWorkflow";
+import { SimpleAgentsDemo } from "@/components/SimpleAgentsDemo";
+import { VectorCapabilityCard } from "@/components/VectorCapabilityCard";
+import { OperatingLoopSection } from "@/components/sections/OperatingLoopSection";
+import { OperatingModesSection } from "@/components/sections/OperatingModesSection";
+import { AgentsSection } from "@/components/sections/AgentsSection";
 import {
   ArrowRight,
   FileText,
@@ -620,7 +626,7 @@ export default function VectorLanding() {
                 <span className="text-sm font-semibold uppercase tracking-widest text-black/60">Vector Platform</span>
               </div>
               <h2 className="text-4xl font-semibold leading-tight sm:text-6xl playfair-display-600">Trade promotions that <span className="whitespace-nowrap">optimize themselves</span></h2>
-              <p className="mt-4 max-w-xl text-lg text-black/70">Vector is the next-generation Trade Promotion Management platform that plans, optimizes, monitors, and settles trade promotions with agentic automation, policy guardrails, and an audit-grade ledger.</p>
+              <p className="mt-4 max-w-xl text-lg text-black/70">Vector is a next-generation Trade Promotion Management platform that plans, optimizes, monitors, and settles trade promotions with agentic automation, policy guardrails, and an audit-grade ledger.</p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Button href="/demo" showLogo={true}>Book a demo <ArrowRight className="h-4 w-4" /></Button>
                 <Button href="/blog" variant="ghost">Read our blog <FileText className="h-4 w-4" /></Button>
@@ -632,7 +638,7 @@ VECTOR PLATFORM
 Trade Promotions That Optimize Themselves
 
 OVERVIEW
-Vector is the next-generation Trade Promotion Management platform that plans, optimizes, monitors, and settles trade promotions with agentic automation, policy guardrails, and an audit-grade ledger.
+Vector is a next-generation Trade Promotion Management platform that plans, optimizes, monitors, and settles trade promotions with agentic automation, policy guardrails, and an audit-grade ledger.
 
 KEY FEATURES
 • Eight Specialized AI Agents
@@ -646,20 +652,20 @@ OPERATING LOOP
 Sense → Explain → Simulate → Check → Act → Log → Learn
 
 AGENTS
-1. Promo Agent - Optimizes promotion parameters and detects drift
-2. Deduction Agent - Handles settlement workflows and evidence bundling
-3. Finance Agent - Maintains live liability and accrual management
-4. Data Steward Agent - Ensures data quality and MDM enforcement
-5. Deal Desk Agent - Manages deal approvals and policy checking
-6. Integration Agent - Monitors system health and SLA management
-7. Contract Intelligence Agent - Processes contracts and manages evidence
-8. Executive Insights Agent - Provides strategic analytics and reporting
+1. Promo Agent - Optimization & drift detection
+2. Claims/Deduction Agent - Settlement & evidence bundling
+3. Accruals Agent - Accounting integrity & GL postings
+4. Data Quality Agent - Data quality & validation
+5. Policy/Guardrail Agent - Policy evaluation & approvals
+6. Integration Agent - SLA monitoring & backfills
+7. Contract Intelligence Agent - Contract processing & evidence
+8. Executive Insights Agent - Weekly digest & impact attribution
 
 BENEFITS
-• 3-5% ROI Lift through optimization
-• 90 Days to full implementation
-• Audit-Grade compliance & documentation
-• Real-time liability & health monitoring
+• Higher ROI on promotions (3-7% typical lift)
+• Lower leakage through faster, evidenceable deduction recovery
+• Fewer errors with policy-aware automation
+• Faster cycles with agentic automation
 
 CONTACT
 Book a demo: /demo
@@ -702,10 +708,20 @@ Read our blog: /blog
       {/* ONE PLATFORM */}
       <section id="platform" className="border-t border-black/10 bg-white py-16">
         <Container>
-          <SectionTitle eyebrow="One platform to orchestrate workflows end‑to‑end" title="Centralize, extract, activate, and unlock insights" subtitle="Benefit from a central location where your teams can process promotions, accruals, and claims with business‑specific rules and exception handling." />
-          <div className="grid items-center gap-8 md:grid-cols-[1.2fr,1fr]">
-            <DiagramCard />
-            <BigNumberSteps />
+          <div className="mb-16 text-center">
+            <span className="mb-2 inline-block text-xs font-semibold uppercase tracking-widest text-black/60">
+              One platform to orchestrate workflows end‑to‑end
+            </span>
+            <h2 className="text-3xl font-semibold leading-tight text-black sm:text-4xl playfair-display-600">
+              Sense, Explain, Simulate, Check, Act, Log, and Learn
+            </h2>
+            <p className="mt-4 max-w-2xl mx-auto text-black/70">
+              Vector's operating loop powers both planning and settlement with agentic automation.
+            </p>
+          </div>
+          <div className="space-y-16">
+            <SimpleDynamicWorkflow />
+            <SimpleAgentsDemo />
           </div>
         </Container>
       </section>
@@ -717,34 +733,10 @@ Read our blog: /blog
         </Container>
       </section>
 
-      {/* SUITE OF CAPABILITIES (alternating) */}
-      <section className="border-t border-black/10 bg-white py-16">
-        <Container>
-          <SectionTitle eyebrow="A suite of workflow automation capabilities" title="Plan, optimize, and settle" subtitle="Automate what should be automated—facilitate what shouldn't." />
-          <div className="space-y-16">
-            <CapabilityRow label="Vector Agents" title="Eight specialized AI agents working for you" body="From Promo Agent optimization to Claims/Deduction Agent settlement, Vector's eight specialized agents operate in four modes: Assist, Recommend, Auto + Approval, and Auto within Policy. Each agent explains its reasoning and logs every action to the Vector Ledger." cta="Learn about Agents" ctaHref="/platform" variant="extract" />
-            
-            {/* Operating Loop Section */}
-            <div className="grid items-center gap-8 md:grid-cols-[1fr,1.2fr]">
-              <div>
-                <div className="mb-2 flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-lime-400" />
-                  <span className="text-xs font-semibold uppercase tracking-widest text-black/60">Operating Loop</span>
-                </div>
-                <h3 className="text-2xl font-semibold sm:text-3xl">Sense → Explain → Simulate → Check → Act → Log → Learn</h3>
-                <p className="mt-3 text-black/70">Vector's consistent loop powers both planning and settlement. Agents sense data changes, explain what matters in plain English, simulate safe options, check policies, act when approved, log everything to the Vector Ledger, and learn from outcomes. This ensures speed with safety.</p>
-                <div className="mt-4 flex gap-3">
-                  <Button href="/scenario-studio" variant="ghost">Operating Loop <ArrowRight className="h-4 w-4" /></Button>
-                  <Button href="/demo">Let's chat <ArrowRight className="h-4 w-4" /></Button>
-                </div>
-              </div>
-              <div className="rounded-3xl border border-black/10 bg-white p-6">
-                <OperatingLoop />
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
+      {/* WORKFLOW AUTOMATION SECTIONS */}
+      <OperatingLoopSection />
+      <OperatingModesSection />
+      <AgentsSection />
 
       {/* IMPACT CALLOUT */}
       <section className="border-t border-black/10 py-16">

@@ -7,6 +7,10 @@ import { HeroSection } from "./sections/HeroSection";
 import { TestimonialsSection } from "./sections/TestimonialsSection";
 import { CTASection } from "./sections/CTASection";
 import { IntegrationSection } from "./sections/IntegrationSection";
+import { SimpleDynamicWorkflow } from "@/components/SimpleDynamicWorkflow";
+import { SimpleAgentsDemo } from "@/components/SimpleAgentsDemo";
+import { VectorCapabilityCard } from "@/components/VectorCapabilityCard";
+import { WorkflowAutomationSection } from "@/components/WorkflowAutomationSection";
 
 // Dynamically import the client-only chart to prevent SSR issues
 const ClientHealthChart = dynamic(() => import("./ClientHealthChart"), { ssr: false });
@@ -270,18 +274,20 @@ export default function VectorLandingNew() {
       {/* One Platform */}
       <section id="platform" className="border-t border-black/10 bg-white py-16">
         <Container>
-          <SectionTitle 
-            eyebrow="One platform to orchestrate workflows end‑to‑end" 
-            title="Centralize, extract, activate, and unlock insights" 
-            subtitle="Benefit from a central location where your teams can process promotions, accruals, and claims with business‑specific rules and exception handling." 
-          />
-          <div className="grid items-center gap-8 lg:grid-cols-2 grid-cols-1">
-            <div className="w-full">
-              <DiagramCard variant="extract" />
-            </div>
-            <div className="w-full">
-              <BigNumberSteps />
-            </div>
+          <div className="mb-16 text-center">
+            <span className="mb-2 inline-block text-xs font-semibold uppercase tracking-widest text-black/60">
+              One platform to orchestrate workflows end‑to‑end
+            </span>
+            <h2 className="text-3xl font-semibold leading-tight text-black sm:text-4xl playfair-display-600">
+              Sense, Explain, Simulate, Check, Act, Log, and Learn
+            </h2>
+            <p className="mt-4 max-w-2xl mx-auto text-black/70">
+              Vector's operating loop powers both planning and settlement with agentic automation.
+            </p>
+          </div>
+          <div className="space-y-16">
+            <SimpleDynamicWorkflow />
+            <SimpleAgentsDemo />
           </div>
         </Container>
       </section>
@@ -296,33 +302,8 @@ export default function VectorLandingNew() {
       {/* Global Stats */}
       <GlobalStatsBand />
 
-      {/* Suite of Capabilities */}
-      <section className="border-t border-black/10 bg-white py-16">
-        <Container>
-          <SectionTitle 
-            eyebrow="A suite of workflow automation capabilities" 
-            title="Plan, optimize, and settle" 
-            subtitle="Automate what should be automated—facilitate what shouldn't." 
-          />
-          <div className="space-y-16">
-            <CapabilityRow 
-              label="Accruals & Claims" 
-              title="Your profit margin's first line of defense" 
-              body="From day one, invoices and claims match against accruals automatically with the highest level of data accuracy. Human‑in‑the‑loop focuses your team only on exceptions." 
-              cta="Accruals & Claims" 
-              variant="extract" 
-            />
-            <CapabilityRow 
-              label="Operations" 
-              title="Automate ops, get notified only when it matters" 
-              body="Remove manual data entry and extraction from workflows. Standardize across teams with ready‑to‑go automations and get alerts only for exceptions." 
-              cta="Operations" 
-              variant="health" 
-              flip 
-            />
-          </div>
-        </Container>
-      </section>
+      {/* WORKFLOW AUTOMATION SECTION */}
+      <WorkflowAutomationSection />
 
       {/* Impact Callout */}
       <ImpactCallout />
