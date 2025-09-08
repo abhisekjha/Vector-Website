@@ -205,7 +205,7 @@ export default function FAQPage() {
                 </div>
               </div>
               <a 
-                href="#contact" 
+                href="/contact" 
                 className="inline-flex items-center gap-2 bg-black text-white px-6 py-3 rounded-full text-sm font-semibold playfair-display-600 hover:bg-black/90 transition-colors duration-200"
               >
                 Contact Support

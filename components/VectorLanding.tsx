@@ -646,14 +646,14 @@ OPERATING LOOP
 Sense → Explain → Simulate → Check → Act → Log → Learn
 
 AGENTS
-1. Promo Agent - Optimizes promotion parameters
-2. Claims/Deduction Agent - Handles settlement workflows
-3. Contract Intelligence Agent - Manages contract terms
-4. Accruals Agent - Tracks live balances
-5. Integration Agent - Manages data feeds
-6. Data Quality Agent - Ensures data integrity
-7. Policy/Guardrail Agent - Enforces business rules
-8. Executive Insights Agent - Provides strategic analytics
+1. Promo Agent - Optimizes promotion parameters and detects drift
+2. Deduction Agent - Handles settlement workflows and evidence bundling
+3. Finance Agent - Maintains live liability and accrual management
+4. Data Steward Agent - Ensures data quality and MDM enforcement
+5. Deal Desk Agent - Manages deal approvals and policy checking
+6. Integration Agent - Monitors system health and SLA management
+7. Contract Intelligence Agent - Processes contracts and manages evidence
+8. Executive Insights Agent - Provides strategic analytics and reporting
 
 BENEFITS
 • 3-5% ROI Lift through optimization

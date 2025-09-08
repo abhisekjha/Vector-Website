@@ -326,7 +326,16 @@ export default function ContactPage() {
                       <div>
                         <h4 className="font-semibold playfair-display-600 mb-1">Live Chat</h4>
                         <p className="text-black/70 playfair-display-400 mb-2">Available 24/7 for urgent support</p>
-                        <button className="text-blue-600 hover:underline playfair-display-500">
+                        <button 
+                          onClick={() => {
+                            // Trigger global chat - this will be handled by the global chat component
+                            const chatToggle = document.querySelector('[data-chat-toggle]') as HTMLElement;
+                            if (chatToggle) {
+                              chatToggle.click();
+                            }
+                          }}
+                          className="text-blue-600 hover:underline playfair-display-500"
+                        >
                           Start Chat
                         </button>
                       </div>

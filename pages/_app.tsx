@@ -1,9 +1,30 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import { useState } from "react";
 import { ErrorBoundary } from "@/components/ui/ErrorBoundary";
+import { ChatWindow, ChatToggle } from "@/components/ChatWindow";
 import "../styles/globals.css";
 
 export default function App({ Component, pageProps }: AppProps) {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isChatMinimized, setIsChatMinimized] = useState(false);
+
+  const handleChatToggle = () => {
+    setIsChatOpen(!isChatOpen);
+    if (isChatOpen) {
+      setIsChatMinimized(false);
+    }
+  };
+
+  const handleChatClose = () => {
+    setIsChatOpen(false);
+    setIsChatMinimized(false);
+  };
+
+  const handleChatMinimize = () => {
+    setIsChatMinimized(!isChatMinimized);
+  };
+
   return (
     <ErrorBoundary>
       <Head>
@@ -17,6 +38,15 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="shortcut icon" href="/favicon.svg" />
       </Head>
       <Component {...pageProps} />
+      
+      {/* Global Chat Components */}
+      {!isChatOpen && <ChatToggle onClick={handleChatToggle} />}
+      <ChatWindow 
+        isOpen={isChatOpen} 
+        onClose={handleChatClose}
+        onMinimize={handleChatMinimize}
+        isMinimized={isChatMinimized}
+      />
     </ErrorBoundary>
   );
 }

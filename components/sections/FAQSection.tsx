@@ -92,7 +92,7 @@ export const FAQSection: React.FC = () => {
               Still need help? Our team is here to assist you.
             </p>
             <a 
-              href="#contact" 
+              href="/contact" 
               className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 text-sm font-medium playfair-display-500 transition-colors duration-200"
             >
               <MessageCircle className="h-4 w-4" />

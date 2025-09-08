@@ -116,7 +116,7 @@ export const ComplianceSection: React.FC = () => {
                   <div className="ml-6 h-4 w-px bg-black/20" />
                   <div className="flex items-center gap-3">
                     <div className="h-3 w-3 rounded-full bg-orange-500" />
-                    <span className="text-sm">Agent Layer (6 intelligent agents)</span>
+                    <span className="text-sm">Agent Layer (8 intelligent agents)</span>
                   </div>
                   <div className="ml-6 h-4 w-px bg-black/20" />
                   <div className="flex items-center gap-3">
