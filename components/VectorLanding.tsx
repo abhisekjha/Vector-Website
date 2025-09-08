@@ -744,14 +744,14 @@ Read our blog: /blog
           <div className="grid items-center gap-8 rounded-3xl border border-black/10 bg-white p-6 md:grid-cols-2">
             <div className="rounded-3xl p-6" style={{ background: "var(--accent)" }}>
               <div className="rounded-xl bg-white/80 p-4 shadow">
-                <div className="text-sm font-semibold">Save up to</div>
-                <div className="text-5xl font-semibold">31 USD</div>
+                <div className="text-sm font-semibold">Typical ROI lift</div>
+                <div className="text-5xl font-semibold">+3-7%</div>
                 <div className="mt-2 text-sm">per promotion</div>
               </div>
               <div className="mt-4 grid grid-cols-2 gap-3 text-sm">
                 {[
-                  { t: "Operating impact", d: "Eliminate manual entry" },
-                  { t: "Financial impact", d: "Reduce errors & leakage" }
+                  { t: "Operating impact", d: "Agentic automation & faster cycles" },
+                  { t: "Financial impact", d: "Higher recovery rates & audit trail" }
                 ].map((x) => (
                   <div key={x.t} className="rounded-xl bg-white/80 p-4 shadow">
                     <div className="font-semibold">{x.t}</div>
@@ -761,8 +761,8 @@ Read our blog: /blog
               </div>
             </div>
             <div>
-              <h3 className="text-3xl font-semibold playfair-display-600">Double your impact: scale savings in operations & profits</h3>
-              <p className="mt-3 text-black/70">Let's talk through your pain points and show how automating extraction, accruals, and claims drives margin and speed. It's not just about data entry.</p>
+              <h3 className="text-3xl font-semibold playfair-display-600">Higher ROI, lower leakage, fewer errors, faster cycles</h3>
+              <p className="mt-3 text-black/70">Vector's agentic automation turns fragmented, manual TPM work into a closed-loop system where every step is explainable, reversible, and tied to measurable ROI. Trade promotions that optimize themselves.</p>
               <div className="mt-5"><Button href="/demo" showLogo={true}>Book a demo <ArrowRight className="h-4 w-4" /></Button></div>
             </div>
           </div>
